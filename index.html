@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropoffAudit | High-Ticket CRO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .glow-text {
+            text-shadow: 0 0 36px rgba(96, 165, 250, 0.45);
+        }
+        .glass {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 18px 60px rgba(15, 23, 42, 0.4);
+        }
+        .orb {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(100px);
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .logo-pill {
+            border: 1px solid rgba(148, 163, 184, 0.24);
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .premium-btn {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+            transition: transform 180ms ease, box-shadow 220ms ease, border-color 220ms ease;
+            will-change: transform;
+        }
+        .premium-btn::before {
+            content: "";
+            position: absolute;
+            inset: -42%;
+            background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(191, 219, 254, 0.4), rgba(191, 219, 254, 0) 45%);
+            opacity: 0;
+            transition: opacity 200ms ease;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .premium-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 26px rgba(96, 165, 250, 0.24);
+        }
+        .premium-btn:hover::before {
+            opacity: 1;
+        }
+        .trusted-track {
+            --ticker-duration: 32s;
+            display: flex;
+            width: max-content;
+            animation: trusted-ticker var(--ticker-duration) linear infinite;
+            will-change: transform;
+        }
+        .trusted-fade:hover .trusted-track,
+        .trusted-fade:focus-within .trusted-track {
+            animation-play-state: paused;
+        }
+        .trusted-fade {
+            mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+        }
+        @keyframes trusted-ticker {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .is-scrolled {
+            background: rgba(2, 6, 23, 0.78);
+            border-color: rgba(96, 165, 250, 0.22);
+            box-shadow: 0 10px 38px rgba(2, 6, 23, 0.42);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .trusted-track {
+                animation: none;
+                transform: translateX(0) !important;
+            }
+            .premium-btn,
+            .premium-btn::before {
+                transition: none;
+            }
+        }
+        @media (max-width: 768px) {
+            .trusted-track {
+                --ticker-duration: 22s;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-50 font-sans antialiased overflow-x-hidden relative">
+
+    <div class="orb top-[-180px] left-[-120px] h-[360px] w-[360px] bg-blue-500/70" data-orb></div>
+    <div class="orb top-[18%] right-[-180px] h-[420px] w-[420px] bg-indigo-500/60" data-orb></div>
+    <div class="orb bottom-[-220px] left-[35%] h-[460px] w-[460px] bg-cyan-500/55" data-orb></div>
+
+    <nav id="site-nav" class="w-full fixed top-0 z-50 border-b border-white/10 bg-slate-950/50 backdrop-blur-xl transition-[background-color,border-color,box-shadow] duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-black tracking-tight text-white">Dropoff<span class="text-blue-400">Audit</span></div>
+            <div class="hidden md:flex items-center gap-8 text-sm text-slate-300">
+                <a href="#process" class="hover:text-white transition">Protocol</a>
+                <a href="#case-study" class="hover:text-white transition">Case Study</a>
+                <a href="#checkout" class="hover:text-white transition">Checkout</a>
+            </div>
+            <a href="https://buy.stripe.com/9B6cN8b2a4b41FX8beasg00" class="glass premium-btn px-5 py-2.5 rounded-full text-sm font-semibold text-white hover:border-blue-300/40 transition">
+                Purchase The Audit
+            </a>
+        </div>
+    </nav>
+
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 flex flex-col items-center justify-center text-center px-6">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] h-[32rem] bg-blue-500/25 rounded-full blur-[130px] -z-10"></div>
+
+        <div class="glass rounded-full px-5 py-2 mb-8 text-xs tracking-[0.2em] uppercase text-slate-200">
+            Conversion Engineering for Premium Funnels
+        </div>
+        <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 max-w-5xl">
+            We Turn Ad Traffic Into <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-cyan-300 to-indigo-300 glow-text">Board-Level Growth.</span>
+        </h1>
+        <p class="text-lg lg:text-xl text-slate-300/90 max-w-3xl mb-10 leading-relaxed">
+            We diagnose where high-intent prospects drop, then redesign high-friction pages into high-conviction buyer experiences that close bigger deals.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+            <a href="https://buy.stripe.com/your-payment-link" class="premium-btn px-8 py-4 bg-blue-500 hover:bg-blue-400 text-white font-bold rounded-xl transition shadow-[0_0_28px_rgba(96,165,250,0.45)]">
+                Start The Optimization
+            </a>
+            <a href="#process" class="glass premium-btn px-8 py-4 text-white font-bold rounded-xl transition hover:border-blue-300/40">
+                See The Protocol
+            </a>
+        </div>
+    </section>
+
+    <section class="relative py-10 border-y border-white/10 bg-slate-900/35">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="glass rounded-2xl px-6 py-8 lg:px-12 lg:py-9 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                <p class="text-xs uppercase tracking-[0.25em] text-slate-300">Trusted By Teams Scaling Fast</p>
+                <div class="trusted-fade overflow-hidden flex-1">
+                    <div class="trusted-track gap-3 lg:gap-4 pr-3 lg:pr-4">
+                        <div class="logo-pill rounded-full px-5 py-2 text-sm tracking-wide text-slate-200 whitespace-nowrap">NOVA SYSTEMS</div>
+                        <div class="logo-pill rounded-full px-5 py-2 text-sm tracking-wide text-slate-200 whitespace-nowrap">ATLAS AI</div>
+                        <div class="logo-pill rounded-full px-5 py-2 text-sm tracking-wide text-slate-200 whitespace-nowrap">KINETIC VC</div>
+                        <div class="logo-pill rounded-full px-5 py-2 text-sm tracking-wide text-slate-200 whitespace-nowrap">PAYLAYER</div>
+                        <div class="logo-pill rounded-full px-5 py-2 text-sm tracking-wide text-slate-200 whitespace-nowrap">LUMA CLOUD</div>
+                        <div class="logo-pill rounded-full px-5 py-2 text-sm tracking-wide text-slate-200 whitespace-nowrap">NOVA SYSTEMS</div>
+                        <div class="logo-pill rounded-full px-5 py-2 text-sm tracking-wide text-slate-200 whitespace-nowrap">ATLAS AI</div>
+                        <div class="logo-pill rounded-full px-5 py-2 text-sm tracking-wide text-slate-200 whitespace-nowrap">KINETIC VC</div>
+                        <div class="logo-pill rounded-full px-5 py-2 text-sm tracking-wide text-slate-200 whitespace-nowrap">PAYLAYER</div>
+                        <div class="logo-pill rounded-full px-5 py-2 text-sm tracking-wide text-slate-200 whitespace-nowrap">LUMA CLOUD</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="case-study" class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="glass rounded-3xl p-8 lg:p-12 grid lg:grid-cols-3 gap-8 items-center">
+                <div class="lg:col-span-2">
+                    <p class="text-xs uppercase tracking-[0.2em] text-blue-200 mb-4">Featured Case Study</p>
+                    <h2 class="text-3xl lg:text-4xl font-bold mb-4">Average Conversion Lift: <span class="text-blue-300">+42%</span></h2>
+                    <p class="text-slate-300 leading-relaxed max-w-2xl">
+                        Across SaaS funnel rebuilds in the last two quarters, we consistently improved conversion outcomes by removing UX drag, clarifying offer architecture, and tightening decision velocity.
+                    </p>
+                </div>
+                <div class="rounded-2xl border border-blue-200/30 bg-blue-500/10 p-6">
+                    <p class="text-slate-300 text-sm mb-2">Pipeline Impact</p>
+                    <p class="text-4xl font-black text-white mb-2">$1.8M</p>
+                    <p class="text-xs uppercase tracking-wider text-blue-200">Attributed Opportunity Uplift</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-20 border-y border-white/10 bg-slate-900/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">The DropoffAudit Protocol</h2>
+                <p class="text-slate-300">We do not guess. We engineer confidence and conversion in sequence.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 process-grid">
+                <article class="process-card glass p-8 rounded-2xl group transition hover:border-blue-300/50">
+                    <div class="w-12 h-12 bg-blue-900/50 rounded-lg flex items-center justify-center mb-6 text-blue-300 group-hover:scale-110 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Friction Mapping</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">We inspect your acquisition-to-booking flow to isolate every hesitation point that suppresses intent.</p>
+                </article>
+                <article class="process-card glass p-8 rounded-2xl group transition hover:border-blue-300/50">
+                    <div class="w-12 h-12 bg-indigo-900/50 rounded-lg flex items-center justify-center mb-6 text-indigo-300 group-hover:scale-110 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Conversion Rebuild</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">We redesign key interfaces with tighter messaging hierarchy and lower cognitive load to accelerate action.</p>
+                </article>
+                <article class="process-card glass p-8 rounded-2xl group transition hover:border-blue-300/50">
+                    <div class="w-12 h-12 bg-blue-900/50 rounded-lg flex items-center justify-center mb-6 text-blue-300 group-hover:scale-110 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Revenue Scaling</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">Once the flow is corrected, your paid traffic converts with greater consistency into qualified pipeline.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="checkout" class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass rounded-3xl p-8 lg:p-12 text-center border border-blue-200/25">
+                <p class="text-xs uppercase tracking-[0.2em] text-blue-200 mb-4">Productized Service</p>
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">DropoffAudit Conversion System</h2>
+                <p class="text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+                    Full funnel teardown, friction mapping, and high-converting UI rebuild designed to turn paid traffic into qualified pipeline.
+                </p>
+
+                <div class="max-w-2xl mx-auto mb-8 text-left glass rounded-2xl border border-white/10 p-5 lg:p-6">
+                    <p class="text-xs uppercase tracking-[0.16em] text-slate-300 mb-4">What You Get</p>
+                    <ul class="space-y-3">
+                        <li class="flex flex-col items-start justify-between gap-1 border-b border-white/10 pb-3 sm:flex-row sm:items-center sm:gap-4">
+                            <span class="text-slate-100">Full Funnel Friction Map</span>
+                            <span class="text-slate-400 text-sm">Value: $500</span>
+                        </li>
+                        <li class="flex flex-col items-start justify-between gap-1 border-b border-white/10 pb-3 sm:flex-row sm:items-center sm:gap-4">
+                            <span class="text-slate-100">High-Converting UI/UX Wireframes</span>
+                            <span class="text-slate-400 text-sm">Value: $750</span>
+                        </li>
+                        <li class="flex flex-col items-start justify-between gap-1 pb-1 sm:flex-row sm:items-center sm:gap-4">
+                            <span class="text-slate-100">Technical SEO &amp; AI Discoverability Check</span>
+                            <span class="text-slate-400 text-sm">Value: $300</span>
+                        </li>
+                    </ul>
+                    <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-slate-400 text-sm">Total Value</span>
+                        <span class="text-slate-500 line-through">$1,550</span>
+                    </div>
+                    <div class="mt-3 flex items-end justify-between">
+                        <span class="text-slate-200 font-medium">Today</span>
+                        <p class="text-3xl lg:text-4xl font-black text-white">$149 <span class="text-base lg:text-lg font-semibold text-slate-300">one-time fee</span></p>
+                    </div>
+                </div>
+
+                <a href="https://buy.stripe.com/9B6cN8b2a4b41FX8beasg00" class="premium-btn inline-flex justify-center items-center px-10 py-4 bg-white text-slate-950 hover:bg-slate-200 font-bold rounded-xl transition">
+                    Purchase The Audit
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 py-8 text-center text-slate-400 text-sm">
+        <p>&copy; 2026 DropoffAudit. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        gsap.set(".process-card", { autoAlpha: 0, y: 36 });
+        gsap.to(".process-card", {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.75,
+            stagger: 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".process-grid",
+                start: "top 78%",
+                end: "bottom 62%",
+                scrub: 1.2
+            }
+        });
+
+        gsap.to("[data-orb]", {
+            y: -120,
+            x: 40,
+            scale: 1.15,
+            ease: "none",
+            stagger: 0.08,
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: true
+            }
+        });
+
+        const nav = document.getElementById("site-nav");
+        const updateNavTint = () => {
+            if (!nav) return;
+            nav.classList.toggle("is-scrolled", window.scrollY > 18);
+        };
+        updateNavTint();
+        window.addEventListener("scroll", updateNavTint, { passive: true });
+
+        if (!prefersReducedMotion) {
+            const premiumButtons = document.querySelectorAll(".premium-btn");
+            premiumButtons.forEach((button) => {
+                button.addEventListener("pointermove", (event) => {
+                    const rect = button.getBoundingClientRect();
+                    const x = ((event.clientX - rect.left) / rect.width) * 100;
+                    const y = ((event.clientY - rect.top) / rect.height) * 100;
+                    button.style.setProperty("--mx", x.toFixed(2) + "%");
+                    button.style.setProperty("--my", y.toFixed(2) + "%");
+                });
+            });
+        }
+    </script>
+</body>
+</html>
