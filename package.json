@@ -1,24 +1,14 @@
 {
   "name": "dropoffaudit",
   "private": true,
-  "version": "1.0.0",
-  "type": "module",
+  "version": "2.0.0",
+  "description": "dropoffaudit.me — sito statico, una pagina piu' privacy e 404.",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build && cp dist/index.html dist/404.html",
-    "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
-  },
-  "dependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-router-dom": "^7.15.1"
+    "build": "./build.sh",
+    "preview": "python3 -m http.server 4173 --directory dist",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.8",
-    "@vitejs/plugin-react": "^4.5.2",
-    "gh-pages": "^6.3.0",
-    "tailwindcss": "^4.1.8",
-    "vite": "^6.3.5"
+    "gh-pages": "^6.3.0"
   }
 }

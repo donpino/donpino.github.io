@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DropoffAudit — A human-checked website audit for med spas</title>
+<meta name="description" content="A website audit for medical spas where every finding is checked against your live site by a person. One-time fee, delivered as a PDF by email.">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ------------------------------------------------------------------
+     v6 — v5 plus the exhibits.
+     The page is dark; the things it talks about (other people's sites,
+     your PDF) appear as light panels inside it. That contrast is what
+     uses the width and what stops the page reading as a document.
+     Every drawing is CSS — no image files, no icon set.
+  -------------------------------------------------------------------*/
+  :root{
+    --bg:#12100E;
+    --raised:#191614;
+    --fg:#EDE8E0;
+    --fg-2:#BDB4A7;
+    --muted:#9A9186;
+    --signal:#D98A5B;
+    --signal-hi:#E8A574;
+    --keep:#8CB599;
+    --hair:rgba(237,232,224,.09);
+
+    /* the "other people's websites" surface — light, so it reads as a
+       different object sitting on the page */
+    --site:#F5F2ED;
+    --site-2:#E7E2DA;
+    --site-3:#D5CFC5;
+    --site-ink:#2C2823;
+
+    --sans:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    --rail:150px;
+    --measure:33em;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{animation:none!important;transition:none!important}
+  }
+
+  body{
+    margin:0;background:var(--bg);color:var(--fg);
+    font-family:var(--sans);font-size:17.5px;line-height:1.62;font-weight:400;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  }
+  @media (max-width:640px){body{font-size:16.5px}}
+
+  .wrap{max-width:1200px;margin:0 auto;padding:0 26px}
+  @media (min-width:900px){.wrap{padding:0 48px}}
+
+  .grid{display:block}
+  .col{max-width:var(--measure)}
+  @media (min-width:960px){
+    .grid{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);gap:0 48px;align-items:start}
+    .rail{position:sticky;top:40px}
+  }
+  .label{margin:0;font-size:.84rem;font-weight:500;line-height:1.4;color:var(--muted)}
+  .label::before{content:"";display:block;width:20px;height:2px;background:var(--signal);margin-bottom:12px}
+  @media (max-width:959px){.rail{margin-bottom:26px}}
+
+  section{padding:76px 0}
+  @media (min-width:960px){section{padding:112px 0}}
+  .raised{background:var(--raised)}
+
+  h1,h2,h3{margin:0;color:var(--fg);font-weight:600;letter-spacing:-.024em}
+  h1{font-size:clamp(2.25rem,5.6vw,3.5rem);line-height:1.07}
+  h2{font-size:clamp(1.6rem,3.6vw,2.2rem);line-height:1.16;margin-bottom:20px;letter-spacing:-.026em}
+  h3{font-size:1.14rem;line-height:1.35;margin-bottom:8px;letter-spacing:-.016em}
+  p{margin:0 0 18px}
+  p:last-child{margin-bottom:0}
+  .lede{font-size:1.2rem;line-height:1.5;color:var(--fg-2);margin-top:26px}
+  .muted{color:var(--fg-2)}
+  .small{font-size:.92rem;line-height:1.55;color:var(--muted)}
+  strong{font-weight:600;color:var(--fg)}
+
+  a{color:var(--signal-hi);text-decoration:underline;text-underline-offset:3px;
+    text-decoration-thickness:1px;text-decoration-color:rgba(232,165,116,.45);
+    transition:color .18s ease,text-decoration-color .18s ease}
+  a:hover{color:var(--fg);text-decoration-color:var(--fg)}
+  a:focus-visible,.btn:focus-visible{outline:2px solid var(--signal-hi);outline-offset:3px;border-radius:2px}
+  .said{color:var(--signal-hi);font-weight:500}
+
+  header{padding:26px 0 0}
+  .mark{display:flex;align-items:center;gap:11px;font-size:1.05rem;font-weight:600;letter-spacing:-.02em}
+  .mark .tick{width:3px;height:20px;background:var(--signal);flex:none}
+  .mark .a{color:var(--signal)}
+  .mark .m{color:var(--muted);font-weight:400}
+
+  /* ================= HERO: text left, the deliverable right ========= */
+  .hero{padding:64px 0 76px}
+  @media (min-width:960px){.hero{padding:104px 0 112px}}
+  .hero .col{max-width:none}
+  .hero h1{max-width:14em}
+  .hero .lede{max-width:30em}
+  .hl{box-shadow:inset 0 -.115em 0 0 var(--signal)}
+  .hero-split{display:block}
+  @media (min-width:1080px){
+    .hero-split{display:grid;grid-template-columns:minmax(0,30em) minmax(0,1fr);gap:0 64px;align-items:center}
+    .hero-art{justify-self:end;width:100%;max-width:340px}
+  }
+  @media (max-width:1079px){.hero-art{margin-top:52px;max-width:330px}}
+
+  /* ================= EXHIBITS: the four findings ==================== */
+  .ex-head{max-width:var(--measure)}
+  .exhibits{margin:44px 0 0;padding:0;list-style:none;display:grid;gap:48px 44px}
+  @media (min-width:820px){.exhibits{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (min-width:1080px){
+    /* stagger the second column so the pair never reads as a card grid */
+    .exhibits li:nth-child(even){margin-top:56px}
+  }
+  .exhibits li{margin:0}
+  .exhibits .say{
+    margin:22px 0 0;font-size:1.04rem;line-height:1.5;color:var(--fg);
+    padding-left:30px;position:relative;max-width:26em
+  }
+  .exhibits .say::before{
+    content:"";position:absolute;left:0;top:.66em;width:14px;height:2px;background:var(--signal)
+  }
+  .exhibits-src{margin:52px 0 0;max-width:30em}
+
+  /* ---- the light "website fragment" panels ---- */
+  .shot{
+    background:var(--site);color:var(--site-ink);border-radius:5px;overflow:hidden;
+    box-shadow:0 18px 40px -22px rgba(0,0,0,.85);
+    font-size:13px;line-height:1.35
+  }
+  .shot .bar{
+    height:26px;background:var(--site-2);display:flex;align-items:center;padding:0 10px
+  }
+  .shot .bar span{height:8px;width:52%;border-radius:4px;background:var(--site-3)}
+  .shot .body{padding:16px}
+  .bars{height:7px;border-radius:2px;background:var(--site-3);margin-bottom:7px}
+  .bars.w80{width:80%}.bars.w65{width:65%}.bars.w45{width:45%}.bars.w30{width:30%}
+  .shot .cap{
+    font-size:11px;font-weight:500;letter-spacing:.02em;color:#8C8478;margin-bottom:10px
+  }
+
+  /* 1 — booking page carrying the template's sample services */
+  .svc{display:flex;align-items:center;justify-content:space-between;gap:12px;
+       padding:9px 0;border-bottom:1px solid var(--site-2)}
+  .svc:last-child{border-bottom:0}
+  .svc .nm{font-size:12.5px;color:#9A9184;font-style:italic}
+  .svc .pr{height:7px;width:34px;border-radius:2px;background:var(--site-3)}
+
+  /* 2 — a headline that is there, and cannot be seen */
+  .video{background:#232323;padding:26px 18px 20px;text-align:center}
+  .video .ghost{
+    color:#343434;font-size:15px;font-weight:600;letter-spacing:-.01em;line-height:1.25
+  }
+  .video .lm{
+    display:inline-block;margin-top:18px;border:1px solid #4A4A4A;color:#6E6E6E;
+    font-size:10.5px;font-weight:500;letter-spacing:.1em;padding:7px 14px
+  }
+
+  /* 3 — four buttons, one label */
+  .btns{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+  .btns b{
+    display:block;text-align:center;background:#2C2823;color:#F5F2ED;
+    font-size:10.5px;font-weight:600;letter-spacing:.1em;padding:11px 4px;border-radius:3px
+  }
+
+  /* 4 — the button promises a calendar; the page has a form */
+  .cta-row{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .cta-row b{
+    background:#2C2823;color:#F5F2ED;font-size:10.5px;font-weight:600;
+    padding:9px 12px;border-radius:3px;white-space:nowrap
+  }
+  .cta-row i{flex:none;font-style:normal;color:#A79E90;font-size:15px;line-height:1}
+  .field{margin-bottom:9px}
+  .field .fl{font-size:10px;color:#9A9184;margin-bottom:4px;letter-spacing:.02em}
+  .field .fb{height:22px;border:1px solid var(--site-3);border-radius:3px;background:#FBFAF8}
+  .field .fb.tall{height:44px}
+  .send{display:inline-block;background:#2C2823;color:#F5F2ED;font-size:10.5px;
+        font-weight:600;padding:8px 16px;border-radius:3px;margin-top:4px}
+
+  /* ---- the deliverable: a representation of the audit PDF ---- */
+  .doc-stack{position:relative}
+  .doc-stack .behind{
+    position:absolute;left:14px;right:-14px;top:14px;bottom:-14px;
+    background:#E9E5DE;border-radius:4px
+  }
+  .doc{
+    position:relative;background:#FCFBF9;border-radius:4px;overflow:hidden;
+    box-shadow:0 26px 56px -26px rgba(0,0,0,.9);
+    display:flex;aspect-ratio:612/792
+  }
+  .doc .spine{width:9px;background:var(--signal);flex:none}
+  .doc .page{flex:1;padding:22px 20px;display:flex;flex-direction:column;color:#2C2823}
+  .doc .wm{font-size:11px;font-weight:600;letter-spacing:-.01em;margin-bottom:26px}
+  .doc .wm i{font-style:normal;color:var(--signal)}
+  .doc .wm em{font-style:normal;color:#9A9184;font-weight:400}
+  .doc .eyebrow{font-size:9.5px;font-weight:500;color:var(--signal);margin-bottom:9px}
+  .doc .h{font-size:19px;font-weight:600;letter-spacing:-.03em;line-height:1.12;margin-bottom:4px}
+  .doc .h .ph{
+    display:inline-block;height:15px;width:118px;border-radius:2px;
+    background:#E4DFD6;vertical-align:-2px
+  }
+  .doc .sub{height:6px;border-radius:2px;background:#E4DFD6;margin-top:12px}
+  .doc .sub.s2{width:72%}
+  .doc .glance{margin-top:auto;border-top:1px solid #EAE6DF;padding-top:14px}
+  .doc .glance .gl{font-size:9.5px;color:#9A9184;margin-bottom:9px}
+  .doc .glance .row{display:flex;gap:18px}
+  .doc .glance .row div{display:flex;align-items:baseline;gap:6px}
+  .doc .glance .n{font-size:19px;font-weight:600;letter-spacing:-.03em}
+  .doc .glance .t{font-size:9.5px;color:#6B6358;line-height:1.3}
+  .doc .foot{margin-top:14px;font-size:9px;color:#A79E90}
+
+  /* ================= plain lists ==================================== */
+  .stack{margin:40px 0 0;padding:0;list-style:none;max-width:31em}
+  .stack li{margin-bottom:34px}
+  .stack li:last-child{margin-bottom:0}
+  .stack p{margin:0;color:var(--fg-2);font-size:1rem}
+
+  .points{margin:28px 0 0;padding:0;list-style:none;max-width:31em}
+  .points li{position:relative;padding-left:26px;margin-bottom:16px;color:var(--fg-2);font-size:1rem;line-height:1.55}
+  .points li:last-child{margin-bottom:0}
+  .points li::before{content:"";position:absolute;left:0;top:.68em;width:12px;height:2px;background:var(--signal)}
+  .raised .points li::before{background:var(--keep)}
+  .raised .label::before{background:var(--keep)}
+  .exhibits-band .label::before{background:var(--signal)}
+  .exhibits-band .points li::before{background:var(--signal)}
+
+  /* ================= price ========================================== */
+  .fig{margin:34px 0 20px;font-size:clamp(3rem,8vw,4.4rem);line-height:.95;
+       font-weight:600;letter-spacing:-.045em;color:var(--fg)}
+  .fig .once{font-size:.26em;font-weight:500;letter-spacing:-.01em;
+             color:var(--muted);margin-left:.34em;vertical-align:.55em}
+  .btn{display:inline-block;margin-top:30px;background:var(--signal-hi);color:#12100E;
+       font-family:inherit;font-weight:600;font-size:1.02rem;letter-spacing:-.012em;
+       padding:16px 32px;border:0;border-radius:3px;text-decoration:none;cursor:pointer;
+       transition:background .18s ease}
+  .btn:hover{background:#F3B989;color:#12100E}
+
+  /* hero CTA: outlined, so the filled copper button stays unique to the
+     one place you actually pay */
+  .btn-ghost{
+    display:inline-flex;align-items:center;gap:10px;margin-top:32px;
+    color:var(--signal-hi);background:none;
+    font-family:inherit;font-weight:600;font-size:1rem;letter-spacing:-.012em;
+    padding:14px 26px;border:1px solid rgba(232,165,116,.5);border-radius:3px;
+    text-decoration:none;cursor:pointer;
+    transition:border-color .18s ease,background .18s ease,color .18s ease
+  }
+  .btn-ghost:hover{border-color:var(--signal-hi);background:rgba(232,165,116,.09);color:var(--signal-hi)}
+  .btn-ghost:focus-visible{outline:2px solid var(--signal-hi);outline-offset:3px}
+  .btn-ghost svg{flex:none;display:block}
+
+  /* the scroll target: land with air above it, and take focus for keyboard
+     users without painting a ring around the whole section */
+  #buy{scroll-margin-top:32px}
+  #buy:focus{outline:none}
+
+  footer{padding:64px 0 76px;color:var(--muted);font-size:.94rem;border-top:1px solid var(--hair)}
+  footer .addr{line-height:1.75;margin-bottom:0}
+  footer .foot-row{display:flex;gap:26px;flex-wrap:wrap;margin:26px 0 0}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="mark">
+      <span class="tick" aria-hidden="true"></span>
+      <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<div class="hero">
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">Website audits for medical spas</p></div>
+      <div class="col">
+        <div class="hero-split">
+          <div>
+            <h1>Every finding is <span class="hl">checked by a person</span> on your live site.</h1>
+            <p class="lede">Most website audits are generated from a template and never look at the site they describe. This one is the opposite: I open your site, work through it the way a patient would, and only write down what I can actually see happening.</p>
+            <a class="btn-ghost" href="#buy">
+              See the price
+              <svg width="13" height="15" viewBox="0 0 13 15" fill="none" aria-hidden="true">
+                <path d="M6.5 1v12M1.5 8.5l5 5 5-5" stroke="currentColor" stroke-width="1.6"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- the deliverable, drawn: structure is real, contents are placeholders -->
+          <div class="hero-art" aria-hidden="true">
+            <div class="doc-stack">
+              <div class="behind"></div>
+              <div class="doc">
+                <div class="spine"></div>
+                <div class="page">
+                  <p class="wm">dropoff<i>audit</i><em>.me</em></p>
+                  <p class="eyebrow">Website Conversion Audit</p>
+                  <p class="h">Prepared for<br><span class="ph"></span></p>
+                  <div class="sub"></div>
+                  <div class="sub s2"></div>
+                  <div class="glance">
+                    <p class="gl">At a glance</p>
+                    <div class="row">
+                      <div><span class="n">3</span><span class="t">revenue leaks<br>found</span></div>
+                      <div><span class="n">3</span><span class="t">things already<br>working</span></div>
+                    </div>
+                  </div>
+                  <p class="foot">Prepared by Luca, DropoffAudit.me</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== THE FINDINGS ===================== -->
+<section class="raised exhibits-band">
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">The kind of thing I find</p></div>
+      <div class="col" style="max-width:none">
+        <ul class="exhibits">
+
+          <li>
+            <div class="shot" aria-hidden="true">
+              <div class="bar"><span></span></div>
+              <div class="body">
+                <p class="cap">Book an appointment</p>
+                <div class="svc"><span class="nm">Service Name</span><span class="pr"></span></div>
+                <div class="svc"><span class="nm">Service Name</span><span class="pr"></span></div>
+                <div class="svc"><span class="nm">Add a description</span><span class="pr"></span></div>
+              </div>
+            </div>
+            <p class="say">A booking page still listing the sample services from the template it was built on.</p>
+          </li>
+
+          <li>
+            <div class="shot" aria-hidden="true">
+              <div class="bar"><span></span></div>
+              <div class="video">
+                <p class="ghost">Make it stand out.</p>
+                <span class="lm">LEARN MORE</span>
+              </div>
+            </div>
+            <p class="say">A headline set in dark grey over dark video, invisible to everyone who visits.</p>
+          </li>
+
+          <li>
+            <div class="shot" aria-hidden="true">
+              <div class="bar"><span></span></div>
+              <div class="body">
+                <div class="bars w45"></div>
+                <div class="bars w80" style="margin-bottom:15px"></div>
+                <div class="btns">
+                  <b>MAKE IT</b><b>MAKE IT</b><b>MAKE IT</b><b>MAKE IT</b>
+                </div>
+              </div>
+            </div>
+            <p class="say">Four service buttons that all read <span class="said">MAKE IT</span> — a placeholder nobody edited.</p>
+          </li>
+
+          <li>
+            <div class="shot" aria-hidden="true">
+              <div class="bar"><span></span></div>
+              <div class="body">
+                <div class="cta-row"><b>Book your appointment</b><i>&rarr;</i></div>
+                <div class="field"><p class="fl">Name</p><div class="fb"></div></div>
+                <div class="field"><p class="fl">Email</p><div class="fb"></div></div>
+                <div class="field"><p class="fl">Message</p><div class="fb tall"></div></div>
+                <span class="send">Send</span>
+              </div>
+            </div>
+            <p class="say">A <span class="said">“Book your appointment”</span> button that leads to a contact form with no calendar.</p>
+          </li>
+
+        </ul>
+        <p class="small exhibits-src">All four are real, found on live medical spa websites. Every one is a text change measured in minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHAT IT IS ===================== -->
+<section>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">What you get</p></div>
+      <div class="col">
+        <h2>A short PDF about your site, and nothing else</h2>
+        <p class="muted">Usually five or six pages. It arrives by email, once, as a PDF. There is no dashboard to log into and no subscription.</p>
+
+        <ul class="stack">
+          <li>
+            <h3>What’s already working</h3>
+            <p>The audit opens with the things worth protecting. An audit that only lists problems is a sales pitch, and you’d be right to distrust it.</p>
+          </li>
+          <li>
+            <h3>Three or four specific leaks</h3>
+            <p>Each one names what a visitor encounters, why it costs you bookings, and what to change. Written so you can hand it to whoever maintains your site.</p>
+          </li>
+          <li>
+            <h3>An order to do them in</h3>
+            <p>Ranked by return against effort, so the cheapest fixes come first. Most are text changes measured in minutes.</p>
+          </li>
+        </ul>
+        <p class="small" style="margin-top:36px;max-width:31em">Not a med spa? I audit other practices that take bookings — dental, aesthetic, cosmetic surgery, wellness. Email me and I’ll tell you honestly whether it’s a fit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== METHOD ===================== -->
+<section>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">How it’s checked</p></div>
+      <div class="col">
+        <h2>Reading the code isn’t the same as looking</h2>
+        <p class="muted">This is the part that takes the time, and it’s the reason the audits are short.</p>
+        <p class="muted">Text can exist in a page’s code and be invisible on screen — grey letters on a dark photograph, or a button parked off the edge of the canvas where nobody will ever reach it. Twice while preparing recent audits I found a promising problem this way and then deleted it, because measuring the element proved a real visitor never sees it.</p>
+        <ul class="points">
+          <li>Every claim is confirmed against the rendered page, not the source code.</li>
+          <li>If something can’t be verified, it doesn’t go in — even when it would make the audit look better.</li>
+          <li>No invented statistics, no borrowed industry averages presented as your numbers.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HONEST DISCLOSURE ===================== -->
+<section class="raised">
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">Before you buy</p></div>
+      <div class="col">
+        <h2>What I can’t tell you</h2>
+        <p class="muted">Since the whole promise here is that I don’t make things up, it would be strange to start on this page.</p>
+        <ul class="points">
+          <li><strong>I have no client results to show you.</strong> This service is new. Any percentage lift or revenue figure I put on this page would be invented, so there aren’t any.</li>
+          <li><strong>I can’t promise the audit will increase your bookings.</strong> I can promise the problems in it are real and that I found them on your site.</li>
+          <li><strong>It’s just me.</strong> No team, no account manager, no junior doing the work. You’re dealing with the person who wrote the audit.</li>
+          <li><strong>I won’t phone you.</strong> There’s no discovery call and no follow-up sequence. Replies come to my inbox and I answer them myself.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRICE ===================== -->
+<section id="buy" tabindex="-1">
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">Price</p></div>
+      <div class="col">
+        <h2>One audit, one payment</h2>
+        <p class="fig">$149<span class="once">once</span></p>
+        <p class="muted" style="max-width:31em">Delivered by email within three business days. If you read it and think it wasn’t worth it, reply and I’ll refund you — you keep the audit.</p>
+        <a class="btn" href="https://buy.stripe.com/4gM8wP03Z3Ry9yF1Es8IU00">Buy the audit</a>
+        <p class="small" style="margin-top:24px">Prefer to ask something first? Email <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>.</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"></div>
+      <div class="col">
+        <p><strong>DropoffAudit</strong> — website audits for medical spas.</p>
+        <p class="addr">Luca Panetto<br>
+           Via Cesare Battisti 88<br>
+           12045 Fossano (CN), Italy</p>
+
+
+        <div class="foot-row">
+          <a href="/privacy">Privacy notice</a>
+          <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+        </div>
+        <p class="small" style="margin-top:24px">If you received an audit from me and would rather not hear from me again, reply with “stop” and I’ll remove your details.</p>
+        <p class="small">© <span id="yr">2026</span> DropoffAudit</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* Slow anchor scroll.
+   Native scroll-behavior:smooth lasts ~300ms in Chrome and is not tunable,
+   which reads as a jump on a page this tall. This animates it by hand over
+   a distance-aware duration, and gets out of the way the moment the reader
+   touches the wheel or the screen. */
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var running = null;
+
+  function ease(t){ return t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2; }
+
+  function stop(){ if (running !== null){ cancelAnimationFrame(running); running = null; } }
+  ['wheel','touchstart','keydown'].forEach(function(ev){
+    window.addEventListener(ev, stop, {passive:true});
+  });
+
+  function glideTo(target){
+    var start = window.pageYOffset;
+    var style = getComputedStyle(target);
+    var offset = parseFloat(style.scrollMarginTop) || 0;
+    var end = start + target.getBoundingClientRect().top - offset;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    end = Math.max(0, Math.min(end, max));
+    var dist = Math.abs(end - start);
+    if (dist < 2) return;
+
+    /* ~1.4s of ramp plus a third of a millisecond per pixel travelled,
+       so the far end of the page takes visibly longer than the near one. */
+    var dur = Math.min(3000, Math.max(1200, 1400 + dist * 0.35));
+    var t0 = null;
+
+    stop();
+    running = requestAnimationFrame(function step(now){
+      if (t0 === null) t0 = now;
+      var t = Math.min(1, (now - t0) / dur);
+      window.scrollTo(0, start + (end - start) * ease(t));
+      if (t < 1){ running = requestAnimationFrame(step); }
+      else { running = null; target.focus({preventScroll:true}); }
+    });
+  }
+
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute('href').slice(1);
+    if (!id) return;
+    var target = document.getElementById(id);
+    if (!target) return;
+
+    e.preventDefault();
+    history.pushState(null, '', '#' + id);
+    if (reduce.matches){ target.scrollIntoView(); target.focus({preventScroll:true}); return; }
+    glideTo(target);
+  });
+})();
+</script>
+</body>
+</html>

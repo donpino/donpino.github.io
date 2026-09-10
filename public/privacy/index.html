@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy notice — DropoffAudit</title>
+<meta name="description" content="How DropoffAudit collects, uses and stores personal data, and how to ask for it to be deleted.">
+<meta name="robots" content="index, follow">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ------------------------------------------------------------------
+     Privacy notice — same tokens, type and rail layout as the home page.
+     Kept as a standalone file: no shared stylesheet, no build step.
+  -------------------------------------------------------------------*/
+  :root{
+    --bg:#12100E;
+    --raised:#191614;
+    --fg:#EDE8E0;
+    --fg-2:#BDB4A7;
+    --muted:#9A9186;
+    --signal:#D98A5B;
+    --signal-hi:#E8A574;
+    --hair:rgba(237,232,224,.09);
+    --sans:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    --rail:150px;
+    --measure:33em;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  body{
+    margin:0;background:var(--bg);color:var(--fg);
+    font-family:var(--sans);font-size:17.5px;line-height:1.62;font-weight:400;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  }
+  @media (max-width:640px){body{font-size:16.5px}}
+
+  .wrap{max-width:1200px;margin:0 auto;padding:0 26px}
+  @media (min-width:900px){.wrap{padding:0 48px}}
+
+  .grid{display:block}
+  .col{max-width:var(--measure)}
+  @media (min-width:960px){
+    .grid{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);gap:0 48px;align-items:start}
+    .rail{position:sticky;top:40px}
+  }
+  .label{margin:0;font-size:.84rem;font-weight:500;line-height:1.4;color:var(--muted)}
+  .label::before{content:"";display:block;width:20px;height:2px;background:var(--signal);margin-bottom:12px}
+  @media (max-width:959px){.rail{margin-bottom:26px}}
+
+  h1,h2{margin:0;color:var(--fg);font-weight:600;letter-spacing:-.024em}
+  h1{font-size:clamp(2rem,4.6vw,2.8rem);line-height:1.08}
+  h2{font-size:1.24rem;line-height:1.25;margin:44px 0 12px;letter-spacing:-.02em}
+  p{margin:0 0 18px;color:var(--fg-2)}
+  p:last-child{margin-bottom:0}
+  strong{font-weight:600;color:var(--fg)}
+  .lede{font-size:1.14rem;line-height:1.5;color:var(--fg-2);margin-top:24px}
+  .small{font-size:.92rem;line-height:1.55;color:var(--muted)}
+  .updated{font-size:.88rem;color:var(--muted);margin-top:14px}
+
+  a{color:var(--signal-hi);text-decoration:underline;text-underline-offset:3px;
+    text-decoration-thickness:1px;text-decoration-color:rgba(232,165,116,.45);
+    transition:color .18s ease,text-decoration-color .18s ease}
+  a:hover{color:var(--fg);text-decoration-color:var(--fg)}
+  a:focus-visible{outline:2px solid var(--signal-hi);outline-offset:3px;border-radius:2px}
+
+  header{padding:26px 0 0}
+  .mark{display:flex;align-items:center;gap:11px;font-size:1.05rem;font-weight:600;
+        letter-spacing:-.02em;text-decoration:none;color:var(--fg);width:max-content}
+  .mark:hover{color:var(--fg)}
+  .mark .tick{width:3px;height:20px;background:var(--signal);flex:none}
+  .mark .a{color:var(--signal)}
+  .mark .m{color:var(--muted);font-weight:400}
+
+  main{padding:56px 0 0}
+  @media (min-width:960px){main{padding:88px 0 0}}
+
+  .points{margin:0 0 18px;padding:0;list-style:none}
+  .points li{position:relative;padding-left:26px;margin-bottom:14px;
+             color:var(--fg-2);font-size:1rem;line-height:1.55}
+  .points li:last-child{margin-bottom:0}
+  .points li::before{content:"";position:absolute;left:0;top:.68em;width:12px;height:2px;background:var(--signal)}
+
+  .box{background:var(--raised);padding:22px 24px;margin:24px 0;border-radius:3px}
+  .box p:last-child{margin-bottom:0}
+
+
+  footer{margin-top:76px;padding:44px 0 76px;color:var(--muted);
+         font-size:.94rem;border-top:1px solid var(--hair)}
+  footer .foot-row{display:flex;gap:26px;flex-wrap:wrap;margin:0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="mark" href="/">
+      <span class="tick" aria-hidden="true"></span>
+      <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">Privacy notice</p></div>
+      <div class="col">
+
+        <h1>What I hold, and how to make me delete it</h1>
+        <p class="updated">Last updated: 11 September 2026</p>
+        <p class="lede">This explains what personal data I hold, where I got it, what I do with it, and how to make me delete it. If you only want the last part, it’s in “Your rights” below, or just reply to any email from me with “stop”.</p>
+
+
+        <h2>Who is responsible for your data</h2>
+        <p>DropoffAudit is operated by <strong>Luca Panetto</strong>, a sole trader established in Italy. I am the data controller, which means I decide what data is held and why.</p>
+        <ul class="points">
+          <li>Postal address: Via Cesare Battisti 88, 12045 Fossano (CN), Italy</li>
+          <li>Email: <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a></li>
+        </ul>
+
+        <h2>What data I hold</h2>
+        <p>For people I contact about an audit, the data is limited to business contact information:</p>
+        <ul class="points">
+          <li>Your name and job role</li>
+          <li>Your work email address</li>
+          <li>Your business name and its website address</li>
+          <li>Publicly listed business details such as the practice’s city or phone number</li>
+          <li>Whether you opened or replied to an email I sent, and whether you asked me to stop</li>
+        </ul>
+        <p>If you buy an audit, I also hold the details of that purchase. <strong>I never see or store your card number</strong> — payment is handled entirely by Stripe.</p>
+        <p>I do not seek out or hold special-category data, and I do not collect data about your patients. An audit examines your public website only; I have no access to any booking or patient system.</p>
+
+        <h2>Where I got it</h2>
+        <p>Because most people I contact never gave me their details directly, I am required to tell you where they came from. It is one or more of these:</p>
+        <ul class="points">
+          <li>Your business website and its publicly published contact pages</li>
+          <li>Public business listings and directories</li>
+        </ul>
+
+        <h2>Why I am allowed to use it, and what I use it for</h2>
+        <p>I rely on <strong>legitimate interests</strong> under Article 6(1)(f) of the EU GDPR. My interest is contacting businesses that may want a service I offer. I have weighed this against your privacy: the data is professional rather than personal, the volume is small and each message is written and sent individually, the contact relates directly to your own business, and you can stop it permanently with a one-word reply.</p>
+        <p>I use the data to:</p>
+        <ul class="points">
+          <li>Send you an individually written audit of your website, and one follow-up at most if you don’t reply</li>
+          <li>Answer you if you write back</li>
+          <li>Deliver and support an audit you have paid for</li>
+          <li>Keep a record of anyone who has asked not to be contacted, so I don’t contact them again</li>
+        </ul>
+        <p>Where the law requires consent instead of legitimate interests, I ask for it. I do not sell, rent or share your data for anyone else’s marketing.</p>
+
+        <h2>Who else sees your data</h2>
+        <p>A small number of service providers process data on my behalf, under contract and only on my instructions:</p>
+        <ul class="points">
+          <li><strong>Zoho Mail</strong> — sending and receiving email</li>
+          <li><strong>Stripe</strong> — payments; Stripe is the controller of your payment data and holds it under its own privacy policy</li>
+          <li><strong>GitHub Pages</strong> — hosting for this website; GitHub receives your IP address when the page loads</li>
+        </ul>
+        <p>Some of these are based outside the European Economic Area, mainly in the United States. Where that is the case, transfers rely on the European Commission’s Standard Contractual Clauses or an equivalent approved safeguard.</p>
+
+        <h2>How long I keep it</h2>
+        <ul class="points">
+          <li><strong>If you don’t reply:</strong> your details are deleted within 12 months of the last message I sent you.</li>
+          <li><strong>If you ask me to stop:</strong> I delete everything except your email address, which I keep on a suppression list indefinitely. That record exists only so I never contact you again, and it is never used for anything else.</li>
+          <li><strong>If you buy an audit:</strong> I keep the records for as long as Italian tax and accounting law requires, currently ten years.</li>
+        </ul>
+
+        <h2>Your rights</h2>
+        <p>You can ask me to:</p>
+        <ul class="points">
+          <li>Show you what data I hold about you</li>
+          <li>Correct anything wrong</li>
+          <li>Delete it</li>
+          <li>Restrict how I use it, or provide it in a portable format</li>
+          <li><strong>Object to my using it at all</strong> — where I rely on legitimate interests, including for direct marketing, I must stop when you object to marketing</li>
+        </ul>
+        <div class="box">
+          <p>To do any of this, email <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>, or just reply “stop” to any message from me. There is no form and no account to close. I’ll action it and confirm, normally within a few days and always within one month.</p>
+        </div>
+        <p>If you think I’ve handled your data badly, you can complain to the Italian supervisory authority, the <strong>Garante per la protezione dei dati personali</strong> (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>), or to the authority where you live. I’d rather you told me first so I can fix it.</p>
+
+        <h2>Cookies and this website</h2>
+        <p>This site sets no cookies and uses no analytics or tracking. The typeface is loaded from Google Fonts, which means Google receives your IP address when the page loads.</p>
+        <p>If a link in one of my emails records that it was clicked, I say so in that email.</p>
+
+        <h2>Changes</h2>
+        <p>If I change this notice I’ll update the date at the top. If a change materially affects people already in my records, I’ll tell them directly.</p>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"></div>
+      <div class="col">
+        <div class="foot-row">
+          <a href="/">Back to DropoffAudit</a>
+          <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+        </div>
+        <p class="small" style="margin-top:24px">© <span id="yr">2026</span> DropoffAudit</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+
+</body>
+</html>
