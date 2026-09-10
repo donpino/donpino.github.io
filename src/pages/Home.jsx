@@ -2,24 +2,16 @@ import { Link } from "react-router-dom";
 import CtaButton from "../components/CtaButton";
 import { CONTACT_EMAIL, SAAS_STRIPE_URL } from "../constants";
 
-const TRUSTED_BRANDS = [
-  "NOVA SYSTEMS",
-  "ATLAS AI",
-  "KINETIC VC",
-  "PAYLAYER",
-  "LUMA CLOUD",
-];
-
 const PROCESS_STEPS = [
   {
     title: "Friction Mapping",
     description:
-      "We inspect your acquisition-to-booking flow to isolate every hesitation point that suppresses intent.",
+      "I inspect your acquisition-to-booking flow to isolate every hesitation point that suppresses intent.",
   },
   {
     title: "Conversion Rebuild",
     description:
-      "We redesign key interfaces with tighter messaging hierarchy and lower cognitive load to accelerate action.",
+      "I redesign key interfaces with tighter messaging hierarchy and lower cognitive load to accelerate action.",
   },
   {
     title: "Revenue Scaling",
@@ -29,10 +21,10 @@ const PROCESS_STEPS = [
 ];
 
 const CHECKOUT_ITEMS = [
-  { label: "Full Funnel Friction Map", value: "$500" },
-  { label: "High-Converting UI/UX Wireframes", value: "$750" },
-  { label: "Direct-Response Copywriting Overhaul", value: "$600" },
-  { label: "Technical SEO & AI Discoverability Check", value: "$300" },
+  "Full Funnel Friction Map",
+  "High-Converting UI/UX Wireframes",
+  "Direct-Response Copywriting Overhaul",
+  "Technical SEO & AI Discoverability Check",
 ];
 
 function HomeNav() {
@@ -49,22 +41,22 @@ function HomeNav() {
           <a href="#process" className="transition hover:text-white">
             Protocol
           </a>
-          <a href="#case-study" className="transition hover:text-white">
-            Case Study
-          </a>
           <Link to="/clinic-audit" className="transition hover:text-white">
             Med Spa Audit
           </Link>
-          <a href="#checkout" className="transition hover:text-white">
-            Checkout
+          <a href="#pricing" className="transition hover:text-white">
+            Pricing
+          </a>
+          <a href={CONTACT_EMAIL} className="transition hover:text-white">
+            Contact
           </a>
         </div>
         <CtaButton
-          href={CONTACT_EMAIL}
-          variant="outline"
+          href="#pricing"
+          variant="gold"
           className="!px-4 !py-2.5 !text-xs sm:!text-sm"
         >
-          Contact
+          Get The Audit
         </CtaButton>
       </nav>
     </header>
@@ -93,65 +85,11 @@ export default function Home() {
               Elite Conversion Optimization For High-Ticket Brands
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
-              We diagnose funnel friction, rebuild UX, and turn your existing ad
+              I diagnose funnel friction, rebuild UX, and turn your existing ad
               traffic into bottom-line growth.
             </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <CtaButton href={SAAS_STRIPE_URL}>Get The Audit</CtaButton>
-              <CtaButton href={CONTACT_EMAIL} variant="outline">
-                Book A Strategy Call
-              </CtaButton>
-            </div>
-          </div>
-        </section>
-
-        {/* Trusted By */}
-        <section className="border-y border-white/8 bg-charcoal-light py-10">
-          <div className="mx-auto max-w-6xl px-5 sm:px-8">
-            <p className="mb-6 text-center text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">
-              Trusted By Teams Scaling Fast
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              {TRUSTED_BRANDS.map((brand) => (
-                <span
-                  key={brand}
-                  className="rounded-sm border border-white/10 bg-charcoal px-4 py-2 text-xs font-medium tracking-wide text-zinc-300"
-                >
-                  {brand}
-                </span>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Case Study */}
-        <section id="case-study" className="bg-white py-16 text-charcoal sm:py-24">
-          <div className="mx-auto max-w-6xl px-5 sm:px-8">
-            <div className="grid items-center gap-10 border border-zinc-200 bg-zinc-50/80 p-8 lg:grid-cols-3 lg:gap-12 lg:p-12">
-              <div className="lg:col-span-2">
-                <p className="text-xs font-medium uppercase tracking-[0.2em] text-medical">
-                  Featured Case Study
-                </p>
-                <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
-                  Average Conversion Lift:{" "}
-                  <span className="text-medical">+42%</span>
-                </h2>
-                <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-600">
-                  Across high-ticket funnel rebuilds in the last two quarters, we
-                  consistently improved conversion outcomes by removing UX drag,
-                  clarifying offer architecture, and tightening decision
-                  velocity.
-                </p>
-              </div>
-              <div className="border border-medical/20 bg-white p-6">
-                <p className="text-sm text-zinc-500">Revenue Impact</p>
-                <p className="mt-2 text-4xl font-semibold tracking-tight text-charcoal">
-                  $1.8M
-                </p>
-                <p className="mt-2 text-xs font-medium uppercase tracking-wider text-medical">
-                  Attributed Opportunity Uplift
-                </p>
-              </div>
+            <div className="mt-10 flex justify-center">
+              <CtaButton href="#pricing">Get The Audit</CtaButton>
             </div>
           </div>
         </section>
@@ -167,8 +105,7 @@ export default function Home() {
                 The DropoffAudit Protocol
               </h2>
               <p className="mt-4 text-base text-zinc-400">
-                We do not guess. We engineer confidence and conversion in
-                sequence.
+                I do not guess. I engineer conversion in sequence.
               </p>
             </div>
 
@@ -193,8 +130,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Checkout */}
-        <section id="checkout" className="bg-white py-16 text-charcoal sm:py-24">
+        {/* Pricing / Checkout */}
+        <section
+          id="pricing"
+          className="bg-white py-16 text-charcoal scroll-mt-24 sm:py-24"
+        >
           <div className="mx-auto max-w-4xl px-5 sm:px-8">
             <div className="text-center">
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-medical">
@@ -217,27 +157,18 @@ export default function Home() {
               <ul className="mt-4 space-y-3">
                 {CHECKOUT_ITEMS.map((item, i) => (
                   <li
-                    key={item.label}
-                    className={`flex flex-col justify-between gap-1 pb-3 sm:flex-row sm:items-center sm:gap-4 ${
+                    key={item}
+                    className={`pb-3 text-charcoal ${
                       i < CHECKOUT_ITEMS.length - 1
                         ? "border-b border-zinc-200"
                         : ""
                     }`}
                   >
-                    <span className="text-charcoal">{item.label}</span>
-                    <span className="text-sm text-zinc-500">
-                      Value: {item.value}
-                    </span>
+                    {item}
                   </li>
                 ))}
               </ul>
-              <div className="mt-5 flex items-center justify-between border-t border-zinc-200 pt-4">
-                <span className="text-sm text-zinc-500">Total Value</span>
-                <span className="text-sm text-zinc-400 line-through">
-                  $2,150
-                </span>
-              </div>
-              <div className="mt-3 flex items-end justify-between">
+              <div className="mt-5 flex items-end justify-between border-t border-zinc-200 pt-4">
                 <span className="font-medium text-charcoal">Today</span>
                 <p className="text-3xl font-semibold tracking-tight sm:text-4xl">
                   $149{" "}
@@ -249,14 +180,11 @@ export default function Home() {
             </div>
 
             <p className="mt-8 text-left text-sm leading-relaxed text-zinc-600">
-              Why only $149? This is our loss-leader. We run this forensic audit
-              at-cost to prove our undeniable value upfront. We know that 40% of
-              founders who buy this teardown eventually hire us for a complete
-              $5,000 funnel rebuild. You get a $2,150 roadmap for pennies, and we
-              earn your trust.
+              Why $149? It's priced to be an easy yes. If it's useful, the
+              $5,000 full rebuild is there when you're ready.
             </p>
 
-            <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <div className="mt-10 flex flex-col items-center gap-4">
               <CtaButton href={SAAS_STRIPE_URL}>Get The Audit</CtaButton>
               <Link
                 to="/clinic-audit"

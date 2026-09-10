@@ -9,7 +9,10 @@ const deliverables = [
 
 export default function Deliverable() {
   return (
-    <section className="border-t border-white/8 bg-charcoal py-16 sm:py-24">
+    <section
+      id="protocol"
+      className="border-t border-white/8 bg-charcoal py-16 sm:py-24 scroll-mt-24"
+    >
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
           The $149 Revenue Rescue Audit

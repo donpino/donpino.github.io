@@ -18,9 +18,10 @@ export default function Hero() {
           Stop Losing High-Value Patients to a Broken Booking Widget.
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
-          70% of your website traffic is mobile. If you use an iframe booking
-          widget (like Boulevard or Mindbody), Apple Safari is blocking it. We
-          rebuild medical spa digital infrastructure to capture lost revenue.
+          Most of your website traffic is mobile. If you use an iframe
+          booking widget (like Boulevard or Mindbody), it can silently fail
+          on iPhone. I rebuild medical spa digital infrastructure to capture
+          lost revenue.
         </p>
         <div className="mt-10">
           <ClinicCtaButton>
