@@ -94,7 +94,9 @@
   .head-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
   .nav a{color:var(--fg-2);text-decoration:none;font-size:.95rem;font-weight:500;
          padding:6px 0;border-bottom:2px solid transparent}
+  .nav{display:flex;gap:26px}
   .nav a:hover{color:var(--fg);border-bottom-color:var(--signal)}
+  .nav a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--signal)}
 </style>
 </head>
 <body>
@@ -105,7 +107,7 @@
       <span class="tick" aria-hidden="true"></span>
       <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
     </a>
-    <nav class="nav" aria-label="Main"><a href="/articles/">Articles</a></nav>
+    <nav class="nav" aria-label="Main"><a href="/">Home</a><a href="/articles/">Articles</a></nav>
   </div>
 </header>
 
@@ -132,11 +134,13 @@
           <a href="/">Home</a>
           <a href="/privacy">Privacy notice</a>
           <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+          <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
         </div>
       </div>
     </div>
   </div>
 </footer>
 
+<script src="/consent.js" defer></script>
 </body>
 </html>

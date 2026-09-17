@@ -22,7 +22,7 @@
       <span class="tick" aria-hidden="true"></span>
       <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
     </a>
-    <nav class="nav" aria-label="Main"><a href="/articles/">Articles</a></nav>
+    <nav class="nav" aria-label="Main"><a href="/">Home</a><a href="/articles/">Articles</a></nav>
   </div>
 </header>
 
@@ -30,8 +30,13 @@
   <div class="wrap">
     <div class="grid">
       <div class="rail"><p class="label">Typos and trust</p></div>
-      <article class="col">
+      <div class="col col-paper">
 
+        <a class="back" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>All articles</span></a>
+        <div class="paper-stack">
+        <span class="sheet" aria-hidden="true"></span>
+        <article class="paper">
+        <p class="wm" aria-hidden="true">dropoff<i>audit</i><em>.me</em> · Articles</p>
         <h1>Does anyone care about a typo on a clinic website?</h1>
         <p class="meta">September 2026 · Luca Panetto</p>
         <p class="lede">You may have read that a single spelling mistake can cut online sales in half. I went looking for the study behind that number. There isn’t one. What does exist is smaller and more careful, and it still points the same way.</p>
@@ -90,6 +95,8 @@
           <li><strong>The fix costs minutes.</strong> When the possible downside is a weaker first impression on someone choosing a clinic, and the repair is a text edit, it’s worth doing. That is why these go into an audit, with the page where each one appears.</li>
         </ul>
 
+        <a class="back back-end" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to all articles</span></a>
+
         <h2 id="sources">Sources</h2>
         <p class="small">Each source was opened and read before this page was written. Where a study is a survey, or was produced with a company that sells a related product, it says so.</p>
         <ol class="sources">
@@ -103,7 +110,10 @@
             <span class="design"><b>Design:</b> randomized online experiment with three conditions, peer reviewed. 272 adults aged 35 to 55 from a commercial online panel.</span></li>
         </ol>
 
-      </article>
+
+        </article>
+        </div>
+      </div>
     </div>
   </div>
 </main>
@@ -118,6 +128,7 @@
           <a href="/">DropoffAudit</a>
           <a href="/privacy">Privacy notice</a>
           <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+          <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
         </div>
         <p class="small" style="margin-top:24px">© <span id="yr">2026</span> DropoffAudit</p>
       </div>
@@ -126,5 +137,6 @@
 </footer>
 
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<script src="/consent.js" defer></script>
 </body>
 </html>

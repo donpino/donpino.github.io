@@ -60,7 +60,7 @@ a{color:var(--signal-hi);text-decoration:underline;text-underline-offset:3px;
 a:hover{color:var(--fg);text-decoration-color:var(--fg)}
 a:focus-visible{outline:2px solid var(--signal-hi);outline-offset:3px;border-radius:2px}
 
-/* ---- header with the one navigation link ---- */
+/* ---- header with the navigation links ---- */
 header{padding:26px 0 0}
 .head-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .mark{display:flex;align-items:center;gap:11px;font-size:1.05rem;font-weight:600;
@@ -71,6 +71,7 @@ header{padding:26px 0 0}
 .mark .m{color:var(--muted);font-weight:400}
 .nav a{color:var(--fg-2);text-decoration:none;font-size:.95rem;font-weight:500;
        padding:6px 0;border-bottom:2px solid transparent}
+.nav{display:flex;gap:26px}
 .nav a:hover{color:var(--fg);border-bottom-color:var(--signal)}
 .nav a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--signal)}
 
@@ -115,15 +116,111 @@ main{padding:56px 0 0}
 .sources .design{display:block;margin-top:4px;color:var(--muted)}
 .sources .design b{font-weight:500;color:var(--fg-2)}
 
-/* ---- the articles index ---- */
-.index{margin:44px 0 0;padding:0;list-style:none}
-.index li{padding:28px 0;border-top:1px solid var(--hair)}
-.index li:last-child{border-bottom:1px solid var(--hair)}
-.index h2{margin:0 0 8px;font-size:1.3rem}
-.index h2 a{color:var(--fg);text-decoration:none}
-.index h2 a:hover{color:var(--signal-hi)}
-.index p{margin:0 0 10px;font-size:1rem}
-.index .tag{font-size:.84rem;color:var(--muted);margin:0}
+/* ---- back to the list, top and bottom of every article ---- */
+.back{display:inline-flex;align-items:center;gap:9px;margin:0 0 30px;
+      color:var(--fg-2);text-decoration:none;font-size:.92rem;font-weight:500;
+      padding:7px 14px 7px 12px;border:1px solid var(--hair);border-radius:3px;
+      transition:color .18s ease,border-color .18s ease,background .18s ease}
+.back svg{flex:none;display:block;transition:transform .18s ease}
+.back:hover{color:var(--signal-hi);border-color:rgba(232,165,116,.5);background:rgba(232,165,116,.06)}
+.back:hover svg{transform:translateX(-3px)}
+.back-end{margin:56px 0 0}
+
+/* ---- the articles index: each article is a light sheet, like the audit
+   document on the home page, and the whole sheet is the link ---- */
+.col-wide{max-width:none}
+.col-wide .lede{max-width:36em}
+:root{--paper:#FCFBF9;--paper-2:#E9E5DE;--paper-3:#E4DFD6;--paper-ink:#2C2823;--paper-mute:#6B6358}
+.shelf{margin:52px 0 0;padding:0;list-style:none;display:grid;gap:44px 40px}
+@media (min-width:720px){.shelf{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.shelf{max-width:920px}
+@media (max-width:719px){.shelf{max-width:440px}}
+.shelf li{margin:0}
+.card{position:relative;display:block;text-decoration:none;color:var(--paper-ink);
+      margin-right:14px;margin-bottom:14px;overflow-wrap:normal}
+.card:hover{color:var(--paper-ink)}
+.card:focus-visible{outline:2px solid var(--signal-hi);outline-offset:6px}
+.card .sheet{position:absolute;left:14px;right:-14px;top:14px;bottom:-14px;
+             background:var(--paper-2);border-radius:4px;transition:transform .25s ease}
+/* US Letter proportions, 8.5 by 11, the same as the audit on the home page */
+.card .doc{position:relative;display:flex;aspect-ratio:612/792;background:var(--paper);
+           border-radius:4px;overflow:hidden;box-shadow:0 26px 56px -26px rgba(0,0,0,.9);
+           transition:transform .25s ease,box-shadow .25s ease}
+.card:hover .doc{transform:translate(-3px,-5px);box-shadow:0 34px 64px -26px rgba(0,0,0,.95)}
+.card:hover .sheet{transform:translate(3px,3px)}
+.card .spine{width:9px;background:var(--signal);flex:none}
+.card .page{flex:1;padding:24px 24px 20px;display:flex;flex-direction:column;min-width:0}
+.card .wm{display:block;font-size:12px;font-weight:600;letter-spacing:-.01em;margin-bottom:28px}
+.card .wm i{font-style:normal;color:var(--signal)}
+.card .wm em{font-style:normal;color:#9A9184;font-weight:400}
+.card .eyebrow{display:block;font-size:12px;font-weight:500;color:#A35A2E;margin-bottom:10px}
+.card .h{display:block;font-size:1.3rem;font-weight:600;letter-spacing:-.025em;line-height:1.18;margin-bottom:14px}
+.card .teaser{display:block;font-size:.93rem;line-height:1.5;color:var(--paper-mute)}
+.card .glance{display:flex;align-items:baseline;gap:10px;margin-top:auto;padding-top:24px;border-top:0}
+.card .glance{border-top:1px solid #EAE6DF;margin-top:auto;padding-top:16px}
+/* the rest of the page, drawn as grey text lines like the audit on the home page;
+   it takes whatever height is left and clips, so it never pushes the sheet */
+.card .lines{flex:1 1 0;min-height:0;overflow:hidden;-webkit-mask-image:linear-gradient(#000 60%,transparent);mask-image:linear-gradient(#000 60%,transparent);display:flex;flex-direction:column;gap:9px;padding-bottom:18px}
+.card .lines i{flex:none;display:block;height:6px;border-radius:2px;background:var(--paper-3)}
+.card .lines i.s{width:64%;margin-bottom:12px}
+.card .teaser{margin-bottom:24px}
+.card .glance .n{flex:none;font-size:1.6rem;font-weight:600;letter-spacing:-.04em;line-height:1}
+.card .glance .t{font-size:.8rem;line-height:1.35;color:var(--paper-mute)}
+.card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:18px;
+            font-size:.8rem;color:#7A7266}
+.card .go{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:#A35A2E}
+.card .go svg{transition:transform .2s ease}
+.card:hover .go svg{transform:translateX(3px)}
+.card .teaser{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;overflow:hidden}
+@media (min-width:720px) and (max-width:959px){.card .page{padding:20px 18px 16px}.card .wm{margin-bottom:18px}.card .h{font-size:1.14rem}.card .teaser{-webkit-line-clamp:4;font-size:.88rem;margin-bottom:16px}}
+@media (max-width:360px){.card .doc{aspect-ratio:auto}.card .teaser{-webkit-line-clamp:2}.card .glance .t{font-size:.72rem}.card .h{font-size:1.05rem}}
+@media (max-width:420px){.card .page{padding:20px 18px 16px}.card .wm{margin-bottom:18px}.card .h{font-size:1.14rem}.card .teaser{-webkit-line-clamp:4;font-size:.88rem;margin-bottom:16px}}
+
+/* ---- the article itself: a light sheet, like the audit a clinic receives.
+   The page around it (header, rail, footer) stays dark; everything inside
+   .paper is re-inked for a light background. Contrast on #FCFBF9: ink 14.2,
+   body 9.4, muted 5.7, copper 5.0, green 5.4. ---- */
+.col-paper{max-width:800px}
+.paper-stack{position:relative;margin-right:14px;margin-bottom:14px}
+.paper-stack .sheet{position:absolute;left:14px;right:-14px;top:14px;bottom:-14px;
+                    background:var(--paper-2);border-radius:4px}
+.paper{position:relative;display:block;background:var(--paper);color:#4A433B;
+       border-left:9px solid var(--signal);border-radius:4px;
+       box-shadow:0 30px 70px -30px rgba(0,0,0,.9);
+       padding:40px 56px 52px}
+@media (max-width:640px){
+  .paper-stack{margin-right:8px;margin-bottom:8px}
+  .paper-stack .sheet{left:8px;right:-8px;top:8px;bottom:-8px}
+  .paper{border-left-width:6px;padding:26px 20px 34px}
+}
+.paper .wm{font-size:12px;font-weight:600;letter-spacing:-.01em;line-height:1;color:#2C2823;
+           margin:0 0 34px;padding-bottom:16px;border-bottom:1px solid #EAE6DF}
+.paper .wm i{font-style:normal;color:var(--signal)}
+.paper .wm em{font-style:normal;color:#6B6358;font-weight:400}
+.paper h1,.paper h2,.paper h3,.paper strong{color:#2C2823}
+.paper p,.paper .lede{color:#4A433B}
+.paper .meta,.paper .small{color:#6B6358}
+.paper a{color:#A35A2E;text-decoration-color:rgba(163,90,46,.4)}
+.paper a:hover{color:#2C2823;text-decoration-color:#2C2823}
+.paper a:focus-visible{outline-color:#A35A2E}
+.paper .points li{color:#4A433B}
+.paper .points li::before{background:var(--signal)}
+.paper .figures li{background:#F4F1EB}
+.paper .figures .n{color:#2C2823}
+.paper .figures .t{color:#4A433B}
+.paper .limits{border-left-color:#3E7350}
+.paper .limits .lh{color:#3E7350}
+.paper .box{background:#F4F1EB}
+.paper h2#sources{padding-top:34px;border-top:1px solid #EAE6DF}
+.paper .sources li{color:#4A433B}
+.paper .sources li::before{color:#A35A2E}
+.paper .sources li:target{background:#F4F1EB;outline-color:#F4F1EB}
+.paper .sources .design{color:#6B6358}
+.paper .sources .design b{color:#4A433B}
+/* the end link lives on the sheet, so it is inked for paper too */
+.paper .back{color:#4A433B;border-color:#E4DFD6}
+.paper .back:hover{color:#A35A2E;border-color:rgba(163,90,46,.5);background:rgba(163,90,46,.06)}
+.paper .back-end{margin:48px 0 8px}
 
 footer{margin-top:88px;padding:44px 0 76px;color:var(--muted);
        font-size:.94rem;border-top:1px solid var(--hair)}

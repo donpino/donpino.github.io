@@ -96,12 +96,16 @@
   footer{margin-top:76px;padding:44px 0 76px;color:var(--muted);
          font-size:.94rem;border-top:1px solid var(--hair)}
   footer .foot-row{display:flex;gap:26px;flex-wrap:wrap;margin:0}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;color:var(--fg)}
+  #cookies{scroll-margin-top:32px}
 
   /* the one navigation link, top right */
   .head-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
   .nav a{color:var(--fg-2);text-decoration:none;font-size:.95rem;font-weight:500;
          padding:6px 0;border-bottom:2px solid transparent}
+  .nav{display:flex;gap:26px}
   .nav a:hover{color:var(--fg);border-bottom-color:var(--signal)}
+  .nav a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--signal)}
 </style>
 </head>
 <body>
@@ -112,7 +116,7 @@
       <span class="tick" aria-hidden="true"></span>
       <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
     </a>
-    <nav class="nav" aria-label="Main"><a href="/articles/">Articles</a></nav>
+    <nav class="nav" aria-label="Main"><a href="/">Home</a><a href="/articles/">Articles</a></nav>
   </div>
 </header>
 
@@ -123,7 +127,7 @@
       <div class="col">
 
         <h1>What I hold, and how to make me delete it</h1>
-        <p class="updated">Last updated: 11 September 2026</p>
+        <p class="updated">Last updated: 17 September 2026</p>
         <p class="lede">This explains what personal data I hold, where I got it, what I do with it, and how to make me delete it. If you only want the last part, it’s in “Your rights” below, or just reply to any email from me with “stop”.</p>
 
 
@@ -170,8 +174,9 @@
           <li><strong>Zoho Mail</strong>: sending and receiving email</li>
           <li><strong>Stripe</strong>: payments. Stripe is the controller of your payment data and holds it under its own privacy policy</li>
           <li><strong>GitHub Pages</strong>: hosting for this website. GitHub receives your IP address when the page loads</li>
+          <li><strong>Google Analytics</strong>: counting visits to this website, only if you accept analytics cookies. See “Cookies and analytics” below</li>
         </ul>
-        <p>Some of these are based outside the European Economic Area, mainly in the United States. Where that is the case, transfers rely on the European Commission’s Standard Contractual Clauses or an equivalent approved safeguard.</p>
+        <p>Some of these are based outside the European Economic Area, mainly in the United States. Where that is the case, transfers rely on the European Commission’s Standard Contractual Clauses, the EU-U.S. Data Privacy Framework (Google LLC has certified under it), or an equivalent approved safeguard.</p>
 
         <h2>How long I keep it</h2>
         <ul class="points">
@@ -194,8 +199,16 @@
         </div>
         <p>If you think I’ve handled your data badly, you can complain to the Italian supervisory authority, the <strong>Garante per la protezione dei dati personali</strong> (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>), or to the authority where you live. I’d rather you told me first so I can fix it.</p>
 
-        <h2>Cookies and this website</h2>
-        <p>This site sets no cookies and uses no analytics or tracking. The typeface is loaded from Google Fonts, which means Google receives your IP address when the page loads.</p>
+        <h2 id="cookies">Cookies and analytics</h2>
+        <p>When you first visit, a banner asks whether I can count your visit. <strong>Nothing from Google Analytics loads until you press Accept.</strong> Reject, or closing the banner with the X, means no.</p>
+        <ul class="points">
+          <li><strong>Your choice itself</strong> is saved in your browser’s local storage, not in a cookie, so the banner doesn’t ask again on every page. It is kept for 6 months, then the banner asks again. It never leaves your browser.</li>
+          <li><strong>If you accept</strong>, Google Analytics sets two cookies, <code>_ga</code> and <code>_ga_</code> followed by an ID, which by Google’s default expire after 2 years. They tell me which pages were read, how visitors arrived (for example from a link on X or a search), the approximate location and the type of browser and device. Google states that it does not log or store the IP addresses of visitors in the EU, the UK and Switzerland.</li>
+          <li><strong>Nothing is used for advertising.</strong> The site tells Google that advertising storage and advertising use of the data are refused, whatever you choose.</li>
+          <li>I keep the analytics data in Google Analytics for 2 months.</li>
+        </ul>
+        <p>The legal basis for analytics cookies is your consent, under Article 6(1)(a) of the GDPR and the Italian rules on cookies. You can change your mind at any time with the <strong>Cookie settings</strong> link at the bottom of every page. If you withdraw consent, the site deletes the Google Analytics cookies it had set.</p>
+        <p>The typeface is loaded from Google Fonts, which means Google receives your IP address when the page loads.</p>
         <p>If a link in one of my emails records that it was clicked, I say so in that email.</p>
 
         <h2>Changes</h2>
@@ -215,6 +228,7 @@
           <a href="/">Back to DropoffAudit</a>
           <a href="/articles/">Articles</a>
           <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+          <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
         </div>
         <p class="small" style="margin-top:24px">© <span id="yr">2026</span> DropoffAudit</p>
       </div>
@@ -224,5 +238,6 @@
 
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 
+<script src="/consent.js" defer></script>
 </body>
 </html>
