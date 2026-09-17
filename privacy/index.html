@@ -3,16 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy notice — DropoffAudit</title>
+<title>Privacy notice | DropoffAudit</title>
 <meta name="description" content="How DropoffAudit collects, uses and stores personal data, and how to ask for it to be deleted.">
 <meta name="robots" content="index, follow">
 <meta name="color-scheme" content="dark">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   /* ------------------------------------------------------------------
-     Privacy notice — same tokens, type and rail layout as the home page.
+     Privacy notice: same tokens, type and rail layout as the home page.
      Kept as a standalone file: no shared stylesheet, no build step.
   -------------------------------------------------------------------*/
   :root{
@@ -93,16 +96,23 @@
   footer{margin-top:76px;padding:44px 0 76px;color:var(--muted);
          font-size:.94rem;border-top:1px solid var(--hair)}
   footer .foot-row{display:flex;gap:26px;flex-wrap:wrap;margin:0}
+
+  /* the one navigation link, top right */
+  .head-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .nav a{color:var(--fg-2);text-decoration:none;font-size:.95rem;font-weight:500;
+         padding:6px 0;border-bottom:2px solid transparent}
+  .nav a:hover{color:var(--fg);border-bottom-color:var(--signal)}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap">
+  <div class="wrap head-row">
     <a class="mark" href="/">
       <span class="tick" aria-hidden="true"></span>
       <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
     </a>
+    <nav class="nav" aria-label="Main"><a href="/articles/">Articles</a></nav>
   </div>
 </header>
 
@@ -133,7 +143,7 @@
           <li>Publicly listed business details such as the practice’s city or phone number</li>
           <li>Whether you opened or replied to an email I sent, and whether you asked me to stop</li>
         </ul>
-        <p>If you buy an audit, I also hold the details of that purchase. <strong>I never see or store your card number</strong> — payment is handled entirely by Stripe.</p>
+        <p>If you buy an audit, I also hold the details of that purchase. <strong>I never see or store your card number</strong>. Payment is handled entirely by Stripe.</p>
         <p>I do not seek out or hold special-category data, and I do not collect data about your patients. An audit examines your public website only; I have no access to any booking or patient system.</p>
 
         <h2>Where I got it</h2>
@@ -157,9 +167,9 @@
         <h2>Who else sees your data</h2>
         <p>A small number of service providers process data on my behalf, under contract and only on my instructions:</p>
         <ul class="points">
-          <li><strong>Zoho Mail</strong> — sending and receiving email</li>
-          <li><strong>Stripe</strong> — payments; Stripe is the controller of your payment data and holds it under its own privacy policy</li>
-          <li><strong>GitHub Pages</strong> — hosting for this website; GitHub receives your IP address when the page loads</li>
+          <li><strong>Zoho Mail</strong>: sending and receiving email</li>
+          <li><strong>Stripe</strong>: payments. Stripe is the controller of your payment data and holds it under its own privacy policy</li>
+          <li><strong>GitHub Pages</strong>: hosting for this website. GitHub receives your IP address when the page loads</li>
         </ul>
         <p>Some of these are based outside the European Economic Area, mainly in the United States. Where that is the case, transfers rely on the European Commission’s Standard Contractual Clauses or an equivalent approved safeguard.</p>
 
@@ -177,7 +187,7 @@
           <li>Correct anything wrong</li>
           <li>Delete it</li>
           <li>Restrict how I use it, or provide it in a portable format</li>
-          <li><strong>Object to my using it at all</strong> — where I rely on legitimate interests, including for direct marketing, I must stop when you object to marketing</li>
+          <li><strong>Object to my using it at all</strong>. Where I rely on legitimate interests, including for direct marketing, I must stop when you object to marketing</li>
         </ul>
         <div class="box">
           <p>To do any of this, email <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>, or just reply “stop” to any message from me. There is no form and no account to close. I’ll action it and confirm, normally within a few days and always within one month.</p>
@@ -203,6 +213,7 @@
       <div class="col">
         <div class="foot-row">
           <a href="/">Back to DropoffAudit</a>
+          <a href="/articles/">Articles</a>
           <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
         </div>
         <p class="small" style="margin-top:24px">© <span id="yr">2026</span> DropoffAudit</p>

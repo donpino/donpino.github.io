@@ -3,15 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Page not found — DropoffAudit</title>
+<title>Page not found | DropoffAudit</title>
 <meta name="robots" content="noindex">
 <meta name="color-scheme" content="dark">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   /* ------------------------------------------------------------------
-     404 — same tokens, type and rail layout as the home page.
+     404: same tokens, type and rail layout as the home page.
      Served by GitHub Pages for any path that does not exist.
   -------------------------------------------------------------------*/
   :root{
@@ -86,16 +89,23 @@
 
   footer{padding:44px 0 60px;color:var(--muted);font-size:.94rem;border-top:1px solid var(--hair)}
   footer .foot-row{display:flex;gap:26px;flex-wrap:wrap;margin:0}
+
+  /* the one navigation link, top right */
+  .head-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .nav a{color:var(--fg-2);text-decoration:none;font-size:.95rem;font-weight:500;
+         padding:6px 0;border-bottom:2px solid transparent}
+  .nav a:hover{color:var(--fg);border-bottom-color:var(--signal)}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap">
+  <div class="wrap head-row">
     <a class="mark" href="/">
       <span class="tick" aria-hidden="true"></span>
       <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
     </a>
+    <nav class="nav" aria-label="Main"><a href="/articles/">Articles</a></nav>
   </div>
 </header>
 
@@ -105,7 +115,7 @@
       <div class="rail"><p class="label">Page not found</p></div>
       <div class="col">
         <h1>There’s nothing at this address.</h1>
-        <p class="lede">Either the link was wrong, or the page used to exist and doesn’t any more. There are only two pages here, so the one you want is probably the first.</p>
+        <p class="lede">Either the link was wrong, or the page used to exist and doesn’t any more. The one you want is probably the home page or the list of <a href="/articles/">articles</a>.</p>
         <a class="btn-ghost" href="/">Go to the home page</a>
         <p class="small" style="margin-top:32px">If you followed a link from an audit I sent you and it landed here, tell me and I’ll fix it: <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>.</p>
       </div>

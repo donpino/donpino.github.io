@@ -3,19 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DropoffAudit — A human-checked website audit for med spas</title>
+<title>DropoffAudit | A human-checked website audit for med spas</title>
 <meta name="description" content="A website audit for medical spas where every finding is checked against your live site by a person. One-time fee, delivered as a PDF by email.">
 <meta name="color-scheme" content="dark">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   /* ------------------------------------------------------------------
-     v6 — v5 plus the exhibits.
+     v6: v5 plus the exhibits.
      The page is dark; the things it talks about (other people's sites,
      your PDF) appear as light panels inside it. That contrast is what
      uses the width and what stops the page reading as a document.
-     Every drawing is CSS — no image files, no icon set.
+     Every drawing is CSS, no image files, no icon set.
   -------------------------------------------------------------------*/
   :root{
     --bg:#12100E;
@@ -28,7 +31,7 @@
     --keep:#8CB599;
     --hair:rgba(237,232,224,.09);
 
-    /* the "other people's websites" surface — light, so it reads as a
+    /* the "other people's websites" surface, light, so it reads as a
        different object sitting on the page */
     --site:#F5F2ED;
     --site-2:#E7E2DA;
@@ -144,14 +147,14 @@
     font-size:11px;font-weight:500;letter-spacing:.02em;color:#8C8478;margin-bottom:10px
   }
 
-  /* 1 — booking page carrying the template's sample services */
+  /* 1. booking page carrying the template's sample services */
   .svc{display:flex;align-items:center;justify-content:space-between;gap:12px;
        padding:9px 0;border-bottom:1px solid var(--site-2)}
   .svc:last-child{border-bottom:0}
   .svc .nm{font-size:12.5px;color:#9A9184;font-style:italic}
   .svc .pr{height:7px;width:34px;border-radius:2px;background:var(--site-3)}
 
-  /* 2 — a headline that is there, and cannot be seen */
+  /* 2. a headline that is there, and cannot be seen */
   .video{background:#232323;padding:26px 18px 20px;text-align:center}
   .video .ghost{
     color:#343434;font-size:15px;font-weight:600;letter-spacing:-.01em;line-height:1.25
@@ -161,14 +164,14 @@
     font-size:10.5px;font-weight:500;letter-spacing:.1em;padding:7px 14px
   }
 
-  /* 3 — four buttons, one label */
+  /* 3. four buttons, one label */
   .btns{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
   .btns b{
     display:block;text-align:center;background:#2C2823;color:#F5F2ED;
     font-size:10.5px;font-weight:600;letter-spacing:.1em;padding:11px 4px;border-radius:3px
   }
 
-  /* 4 — the button promises a calendar; the page has a form */
+  /* 4. the button promises a calendar; the page has a form */
   .cta-row{display:flex;align-items:center;gap:10px;margin-bottom:14px}
   .cta-row b{
     background:#2C2823;color:#F5F2ED;font-size:10.5px;font-weight:600;
@@ -263,16 +266,23 @@
   footer .addr{line-height:1.75;margin-bottom:0}
   footer .foot-row{display:flex;gap:26px;flex-wrap:wrap;margin:26px 0 0}
 
+
+  /* the one navigation link, top right */
+  .head-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .nav a{color:var(--fg-2);text-decoration:none;font-size:.95rem;font-weight:500;
+         padding:6px 0;border-bottom:2px solid transparent}
+  .nav a:hover{color:var(--fg);border-bottom-color:var(--signal)}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap">
+  <div class="wrap head-row">
     <div class="mark">
       <span class="tick" aria-hidden="true"></span>
       <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
     </div>
+    <nav class="nav" aria-label="Main"><a href="/articles/">Articles</a></nav>
   </div>
 </header>
 
@@ -368,7 +378,7 @@
                 </div>
               </div>
             </div>
-            <p class="say">Four service buttons that all read <span class="said">MAKE IT</span> — a placeholder nobody edited.</p>
+            <p class="say">Four service buttons that all read <span class="said">MAKE IT</span>. A placeholder nobody edited.</p>
           </li>
 
           <li>
@@ -415,7 +425,7 @@
             <p>Ranked by return against effort, so the cheapest fixes come first. Most are text changes measured in minutes.</p>
           </li>
         </ul>
-        <p class="small" style="margin-top:36px;max-width:31em">Not a med spa? I audit other practices that take bookings — dental, aesthetic, cosmetic surgery, wellness. Email me and I’ll tell you honestly whether it’s a fit.</p>
+        <p class="small" style="margin-top:36px;max-width:31em">Not a med spa? I audit other practices that take bookings, such as dental, aesthetic, cosmetic surgery and wellness clinics. Email me and I’ll tell you whether it’s a fit.</p>
       </div>
     </div>
   </div>
@@ -429,10 +439,10 @@
       <div class="col">
         <h2>Reading the code isn’t the same as looking</h2>
         <p class="muted">This is the part that takes the time, and it’s the reason the audits are short.</p>
-        <p class="muted">Text can exist in a page’s code and be invisible on screen — grey letters on a dark photograph, or a button parked off the edge of the canvas where nobody will ever reach it. Twice while preparing recent audits I found a promising problem this way and then deleted it, because measuring the element proved a real visitor never sees it.</p>
+        <p class="muted">Text can exist in a page’s code and be invisible on screen: grey letters on a dark photograph, or a button parked off the edge of the canvas where nobody will ever reach it. Twice while preparing recent audits I found a promising problem this way and then deleted it, because measuring the element proved a real visitor never sees it.</p>
         <ul class="points">
           <li>Every claim is confirmed against the rendered page, not the source code.</li>
-          <li>If something can’t be verified, it doesn’t go in — even when it would make the audit look better.</li>
+          <li>If something can’t be verified, it doesn’t go in, even when it would make the audit look better.</li>
           <li>No invented statistics, no borrowed industry averages presented as your numbers.</li>
         </ul>
       </div>
@@ -467,7 +477,7 @@
       <div class="col">
         <h2>One audit, one payment</h2>
         <p class="fig">$149<span class="once">once</span></p>
-        <p class="muted" style="max-width:31em">Delivered by email within three business days. If you read it and think it wasn’t worth it, reply and I’ll refund you — you keep the audit.</p>
+        <p class="muted" style="max-width:31em">Delivered by email within three business days. If you read it and think it wasn’t worth it, reply and I’ll refund you. You keep the audit.</p>
         <a class="btn" href="https://buy.stripe.com/4gM8wP03Z3Ry9yF1Es8IU00">Buy the audit</a>
         <p class="small" style="margin-top:24px">Prefer to ask something first? Email <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>.</p>
 
@@ -482,13 +492,14 @@
     <div class="grid">
       <div class="rail"></div>
       <div class="col">
-        <p><strong>DropoffAudit</strong> — website audits for medical spas.</p>
+        <p><strong>DropoffAudit</strong>, website audits for medical spas.</p>
         <p class="addr">Luca Panetto<br>
            Via Cesare Battisti 88<br>
            12045 Fossano (CN), Italy</p>
 
 
         <div class="foot-row">
+          <a href="/articles/">Articles</a>
           <a href="/privacy">Privacy notice</a>
           <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
         </div>

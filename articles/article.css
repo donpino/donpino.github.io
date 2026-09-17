@@ -1,0 +1,130 @@
+/* ------------------------------------------------------------------
+   Articles: same tokens, type and rail layout as the home page and the
+   privacy notice. Shared by articles/index.html and every article, so a
+   layout fix is one edit instead of one per article.
+-------------------------------------------------------------------*/
+:root{
+  --bg:#12100E;
+  --raised:#191614;
+  --fg:#EDE8E0;
+  --fg-2:#BDB4A7;
+  --muted:#9A9186;
+  --signal:#D98A5B;
+  --signal-hi:#E8A574;
+  --keep:#8CB599;
+  --hair:rgba(237,232,224,.09);
+  --sans:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --rail:150px;
+  --measure:36em;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+body{
+  margin:0;background:var(--bg);color:var(--fg);
+  font-family:var(--sans);font-size:17.5px;line-height:1.66;font-weight:400;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+}
+@media (max-width:640px){body{font-size:16.5px}}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 26px}
+@media (min-width:900px){.wrap{padding:0 48px}}
+
+.grid{display:block}
+.col{max-width:var(--measure);min-width:0}
+@media (min-width:960px){
+  .grid{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);gap:0 48px;align-items:start}
+  .rail{position:sticky;top:40px}
+}
+.label{margin:0;font-size:.84rem;font-weight:500;line-height:1.4;color:var(--muted)}
+.label::before{content:"";display:block;width:20px;height:2px;background:var(--signal);margin-bottom:12px}
+@media (max-width:959px){.rail{margin-bottom:26px}}
+
+h1,h2,h3{margin:0;color:var(--fg);font-weight:600;letter-spacing:-.024em}
+h1{font-size:clamp(2rem,4.6vw,2.8rem);line-height:1.1}
+h2{font-size:1.36rem;line-height:1.25;margin:52px 0 14px;letter-spacing:-.02em}
+h3{font-size:1.08rem;line-height:1.35;margin:30px 0 8px;letter-spacing:-.014em}
+p{margin:0 0 18px;color:var(--fg-2)}
+p:last-child{margin-bottom:0}
+strong{font-weight:600;color:var(--fg)}
+em{font-style:italic}
+.lede{font-size:1.16rem;line-height:1.52;color:var(--fg-2);margin-top:24px}
+.small{font-size:.92rem;line-height:1.55;color:var(--muted)}
+.meta{font-size:.88rem;color:var(--muted);margin-top:14px}
+
+a{color:var(--signal-hi);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-thickness:1px;text-decoration-color:rgba(232,165,116,.45);
+  transition:color .18s ease,text-decoration-color .18s ease;overflow-wrap:anywhere}
+a:hover{color:var(--fg);text-decoration-color:var(--fg)}
+a:focus-visible{outline:2px solid var(--signal-hi);outline-offset:3px;border-radius:2px}
+
+/* ---- header with the one navigation link ---- */
+header{padding:26px 0 0}
+.head-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.mark{display:flex;align-items:center;gap:11px;font-size:1.05rem;font-weight:600;
+      letter-spacing:-.02em;text-decoration:none;color:var(--fg);width:max-content}
+.mark:hover{color:var(--fg)}
+.mark .tick{width:3px;height:20px;background:var(--signal);flex:none}
+.mark .a{color:var(--signal)}
+.mark .m{color:var(--muted);font-weight:400}
+.nav a{color:var(--fg-2);text-decoration:none;font-size:.95rem;font-weight:500;
+       padding:6px 0;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--fg);border-bottom-color:var(--signal)}
+.nav a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--signal)}
+
+main{padding:56px 0 0}
+@media (min-width:960px){main{padding:88px 0 0}}
+
+/* ---- lists ---- */
+.points{margin:0 0 18px;padding:0;list-style:none}
+.points li{position:relative;padding-left:26px;margin-bottom:14px;
+           color:var(--fg-2);font-size:1rem;line-height:1.58}
+.points li:last-child{margin-bottom:0}
+.points li::before{content:"";position:absolute;left:0;top:.7em;width:12px;height:2px;background:var(--signal)}
+
+/* ---- the numbers from a study, set apart ---- */
+.figures{margin:26px 0 26px;padding:0;list-style:none;display:grid;gap:12px}
+@media (min-width:640px){.figures{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.figures li{background:var(--raised);border-radius:3px;padding:18px 18px 16px}
+.figures .n{display:block;font-size:1.9rem;font-weight:600;letter-spacing:-.04em;
+            line-height:1;color:var(--fg);margin-bottom:10px}
+.figures .t{display:block;font-size:.9rem;line-height:1.45;color:var(--fg-2)}
+
+/* ---- "what this does not show" ---- */
+.limits{border-left:2px solid var(--keep);padding:2px 0 2px 20px;margin:24px 0}
+.limits .lh{font-size:.84rem;font-weight:500;color:var(--keep);margin:0 0 8px}
+.limits p,.limits li{font-size:.98rem}
+
+.box{background:var(--raised);padding:22px 24px;margin:28px 0;border-radius:3px}
+.box p:last-child{margin-bottom:0}
+
+/* ---- inline citation markers ---- */
+.ref{font-size:.74em;font-weight:500;vertical-align:.42em;line-height:0;
+     text-decoration:none;margin-left:1px;padding:0 1px}
+.ref:hover{text-decoration:underline}
+
+/* ---- the source list ---- */
+.sources{margin:0;padding:0;list-style:none;counter-reset:src}
+.sources li{counter-increment:src;position:relative;padding-left:34px;margin-bottom:22px;
+            font-size:.93rem;line-height:1.55;color:var(--fg-2);scroll-margin-top:24px}
+.sources li::before{content:counter(src);position:absolute;left:0;top:0;
+                    font-weight:600;color:var(--signal-hi)}
+.sources li:target{background:var(--raised);outline:8px solid var(--raised);border-radius:2px}
+.sources .design{display:block;margin-top:4px;color:var(--muted)}
+.sources .design b{font-weight:500;color:var(--fg-2)}
+
+/* ---- the articles index ---- */
+.index{margin:44px 0 0;padding:0;list-style:none}
+.index li{padding:28px 0;border-top:1px solid var(--hair)}
+.index li:last-child{border-bottom:1px solid var(--hair)}
+.index h2{margin:0 0 8px;font-size:1.3rem}
+.index h2 a{color:var(--fg);text-decoration:none}
+.index h2 a:hover{color:var(--signal-hi)}
+.index p{margin:0 0 10px;font-size:1rem}
+.index .tag{font-size:.84rem;color:var(--muted);margin:0}
+
+footer{margin-top:88px;padding:44px 0 76px;color:var(--muted);
+       font-size:.94rem;border-top:1px solid var(--hair)}
+footer .foot-row{display:flex;gap:26px;flex-wrap:wrap;margin:0}

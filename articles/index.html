@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Articles | DropoffAudit</title>
+<meta name="description" content="Short articles on why small problems on a clinic website matter, built on published research. Every figure links to the study it comes from, with its design and sample.">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/articles/article.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap head-row">
+    <a class="mark" href="/">
+      <span class="tick" aria-hidden="true"></span>
+      <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="/articles/" aria-current="page">Articles</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">Articles</p></div>
+      <div class="col">
+
+        <h1>What the research actually says</h1>
+        <p class="lede">Why the things an audit points out matter, using studies I have opened and read. Every number links to where it was measured, says how (experiment, survey, industry report) and on how many people. Where I could not find a measurement, the article says that too.</p>
+
+        <!-- One <li> per article, newest first. build.sh fails if an article folder is not linked here. -->
+        <ul class="index">
+          <li>
+            <h2><a href="/articles/typos-and-trust/">Does anyone care about a typo on a clinic website?</a></h2>
+            <p>The claim that one spelling mistake halves online sales comes from a single anecdote. What a randomized experiment, a 1,410 person survey and a study that found less actually measured.</p>
+            <p class="tag">Typos and trust · 4 sources</p>
+          </li>
+          <li>
+            <h2><a href="/articles/reviews-and-choice/">What online reviews do for a clinic, according to the research</a></h2>
+            <p>A half star on Yelp, patient surveys in JAMA, and where the 270% figure comes from. Plus how a result from one clinic lost its context as it was cited.</p>
+            <p class="tag">Reviews and choice · 5 sources</p>
+          </li>
+          <li>
+            <h2><a href="/articles/wording-and-decisions/">Same facts, different words, different judgment</a></h2>
+            <p>“75% lean” against “25% fat”, instructions that feel harder in a harder typeface, and a website that tested better once the hype was removed.</p>
+            <p class="tag">Copywriting · 3 sources</p>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"></div>
+      <div class="col">
+        <div class="foot-row">
+          <a href="/">DropoffAudit</a>
+          <a href="/privacy">Privacy notice</a>
+          <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+        </div>
+        <p class="small" style="margin-top:24px">© <span id="yr">2026</span> DropoffAudit</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
