@@ -9,8 +9,42 @@ rm -rf dist
 cp -R public dist
 find dist -name '.DS_Store' -delete
 
+# --- Articoli -------------------------------------------------------------
+# Tre controlli che fanno fallire il build, invece di affidarsi alla memoria:
+# 1. ogni articolo deve essere linkato dall'indice scritto a mano;
+# 2. niente lineette lunghe o medie in nessuna pagina del sito (regola 8 di house-style.md);
+# 3. ogni rimando a una fonte (#s1, #s2...) deve avere la sua voce in fondo.
+fail=0
+for f in public/articles/*/index.html; do
+  [ -e "$f" ] || continue
+  slug=$(basename "$(dirname "$f")")
+  if ! grep -q "href=\"/articles/$slug/\"" public/articles/index.html; then
+    echo "ERRORE: l'articolo '$slug' non e' linkato da public/articles/index.html" >&2
+    fail=1
+  fi
+  for ref in $(grep -o 'href="#s[0-9]*"' "$f" | sed 's/href="#\(s[0-9]*\)"/\1/' | sort -u); do
+    if ! grep -q "id=\"$ref\"" "$f"; then
+      echo "ERRORE: $f rimanda a #$ref ma la fonte non c'e'" >&2
+      fail=1
+    fi
+  done
+done
+if grep -rn -e '—' -e '–' public/ >&2; then
+  echo "ERRORE: lineette nel sito (righe sopra). Usa virgola, punto, due punti." >&2
+  fail=1
+fi
+[ "$fail" -eq 0 ] || exit 1
+
+# --- Pubblicazione ----------------------------------------------------------
+# `npm run deploy` passa --deploy: senza l'ID di Google Analytics il banner non
+# compare e l'informativa privacy descriverebbe un analytics che non c'e'.
+if [ "${1:-}" = "--deploy" ] && grep -q "var GA_ID = '';" public/consent.js; then
+  echo "ERRORE: GA_ID vuoto in public/consent.js. Metti l'ID G-... prima di pubblicare." >&2
+  exit 1
+fi
+
 if [ ! -s dist/CNAME ]; then
-  echo "ERRORE: dist/CNAME manca o e' vuoto — il dominio custom si romperebbe." >&2
+  echo "ERRORE: dist/CNAME manca o e' vuoto: il dominio custom si romperebbe." >&2
   exit 1
 fi
 

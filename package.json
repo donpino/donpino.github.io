@@ -2,11 +2,11 @@
   "name": "dropoffaudit",
   "private": true,
   "version": "2.0.0",
-  "description": "dropoffaudit.me — sito statico, una pagina piu' privacy e 404.",
+  "description": "dropoffaudit.me: sito statico, una pagina piu' privacy e 404.",
   "scripts": {
     "build": "./build.sh",
     "preview": "python3 -m http.server 4173 --directory dist",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "./build.sh --deploy && gh-pages -d dist"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
