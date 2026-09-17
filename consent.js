@@ -88,8 +88,8 @@
     box.innerHTML =
       '<button type="button" class="x" aria-label="Close and reject">' +
       '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>' +
-      '<p><b>Can I count your visit?</b> If you accept, Google Analytics sets cookies to tell me how many people read these pages and where they came from. ' +
-      'Nothing is used for advertising. If you reject, nothing is set. <a href="/privacy/#cookies">Privacy notice</a></p>' +
+      '<p><b>This site uses cookies.</b> With your consent, Google Analytics cookies show me how many people visit and which pages they read. ' +
+      'They are not used for advertising. <a href="/privacy/#cookies">Privacy notice</a></p>' +
       '<div class="row"><button type="button" data-c="no">Reject</button><button type="button" data-c="yes">Accept</button></div>';
     box.addEventListener('click', function (e) {
       var b = e.target.closest('button');
