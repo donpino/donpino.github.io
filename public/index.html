@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DropoffAudit | A human-checked website audit for med spas</title>
-<meta name="description" content="A website audit for medical spas where every finding is checked against your live site by a person. One-time fee, delivered as a PDF by email.">
+<title>DropoffAudit | Where your med spa website loses patients</title>
+<meta name="description" content="Find out where your medical spa website loses patients before they book. Every finding checked by a person on your live site, delivered as a short PDF, rechecked after thirty days. One-time fee.">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
@@ -262,6 +262,18 @@
   #buy{scroll-margin-top:32px}
   #buy:focus{outline:none}
 
+  /* ================= email capture ================================== */
+  .capture{margin-top:26px;max-width:31em}
+  .capture label{display:block;margin-bottom:8px}
+  .capture-row{display:flex;gap:10px;flex-wrap:wrap}
+  .capture input{
+    flex:1 1 220px;min-width:0;background:var(--bg);color:var(--fg);
+    border:1px solid rgba(237,232,224,.22);border-radius:3px;
+    font:inherit;font-size:1rem;padding:14px 14px
+  }
+  .capture input:focus-visible{outline:2px solid var(--signal-hi);outline-offset:2px}
+  .capture-note{margin-top:12px}
+
   footer{padding:64px 0 76px;color:var(--muted);font-size:.94rem;border-top:1px solid var(--hair)}
   footer .addr{line-height:1.75;margin-bottom:0}
   footer .foot-row{display:flex;gap:26px;flex-wrap:wrap;margin:26px 0 0}
@@ -284,7 +296,7 @@
       <span class="tick" aria-hidden="true"></span>
       <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
     </div>
-    <nav class="nav" aria-label="Main"><a href="/" aria-current="page">Home</a><a href="/articles/">Articles</a></nav>
+    <nav class="nav" aria-label="Main"><a href="/" aria-current="page">Home</a><a href="/sample-audit/">Sample audit</a><a href="/articles/">Articles</a></nav>
   </div>
 </header>
 
@@ -296,15 +308,16 @@
       <div class="col">
         <div class="hero-split">
           <div>
-            <h1>Every finding is <span class="hl">checked by a person</span> on your live site.</h1>
-            <p class="lede">Most website audits are generated from a template and never look at the site they describe. This one is the opposite: I open your site, work through it the way a patient would, and only write down what I can actually see happening.</p>
-            <a class="btn-ghost" href="#buy">
-              See the price
-              <svg width="13" height="15" viewBox="0 0 13 15" fill="none" aria-hidden="true">
-                <path d="M6.5 1v12M1.5 8.5l5 5 5-5" stroke="currentColor" stroke-width="1.6"
+            <h1>Find out where your website <span class="hl">loses patients</span> before they book.</h1>
+            <p class="lede">I open your site and go through it the way a new patient would: find a treatment, look for a price, try to book. Every problem in the audit is one I watched happen on your live site, checked twice, and written so it can be fixed in minutes. Nothing is generated from a template.</p>
+            <a class="btn-ghost" href="/sample-audit/">
+              Read a real audit first
+              <svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true">
+                <path d="M1 6.5h12M7.5 1.5l5 5-5 5" stroke="currentColor" stroke-width="1.6"
                       stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
+            <p class="small" style="margin-top:18px">One audit, $149, one payment. <a href="#buy">What you get and the price</a>.</p>
           </div>
 
           <!-- the deliverable, drawn: structure is real, contents are placeholders -->
@@ -398,7 +411,7 @@
           </li>
 
         </ul>
-        <p class="small exhibits-src">All four are real, found on live medical spa websites. Every one is a text change measured in minutes.</p>
+        <p class="small exhibits-src">All four are real, found on live medical spa websites. Every one is a text change measured in minutes. Drawings, not screenshots, so the clinics stay unnamed. <a href="/sample-audit/">One full audit is published here</a>, with the clinic's name withheld and the dates it was checked.</p>
       </div>
     </div>
   </div>
@@ -428,6 +441,28 @@
           </li>
         </ul>
         <p class="small" style="margin-top:36px;max-width:31em">Not a med spa? I audit other practices that take bookings, such as dental, aesthetic, cosmetic surgery and wellness clinics. Email me and I’ll tell you whether it’s a fit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE SAMPLE ===================== -->
+<section class="raised">
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">See one</p></div>
+      <div class="col">
+        <h2>A real audit, in full</h2>
+        <p class="muted">Seven pages about a medical spa in Idaho, with the clinic’s name withheld. Four leaks, three strengths, an order to do them in. Every finding in it was checked on the clinic’s live site on 12 and 18 September 2026, and the PDF says so on its cover.</p>
+        <p class="muted">It is the actual document a client receives, not a mock-up. If it does not read like something you would act on, you have your answer without spending anything.</p>
+        <a class="btn-ghost" href="/sample-audit/">
+          Open the sample audit
+          <svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true">
+            <path d="M1 6.5h12M7.5 1.5l5 5-5 5" stroke="currentColor" stroke-width="1.6"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <p class="small" style="margin-top:18px">No email address required.</p>
       </div>
     </div>
   </div>
@@ -471,6 +506,20 @@
   </div>
 </section>
 
+<!-- ===================== WHO ===================== -->
+<section>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">Who does this</p></div>
+      <div class="col">
+        <h2>One person, in Italy, working while your clinic is closed</h2>
+        <p class="muted">I’m Luca Panetto. I run DropoffAudit on my own from Fossano, a small town in northern Italy, six to nine hours ahead of the United States. That is why there is an Italian address at the bottom of this page, and it is also why your audit gets done overnight, your time, and is in your inbox when you open.</p>
+        <p class="muted">Everything happens in writing. You get the audit by email, you reply by email, and I answer myself. Every finding carries the date it was checked, the exact page it was found on and your site’s own words quoted, so you can look at it yourself in ten seconds without taking my word for it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== PRICE ===================== -->
 <section id="buy" tabindex="-1">
   <div class="wrap">
@@ -479,10 +528,37 @@
       <div class="col">
         <h2>One audit, one payment</h2>
         <p class="fig">$149<span class="once">once</span></p>
-        <p class="muted" style="max-width:31em">Delivered by email within three business days. If you read it and think it wasn’t worth it, reply and I’ll refund you. You keep the audit.</p>
+        <p class="muted" style="max-width:31em">What you get: the three or four things standing between a visitor and a booked appointment on your site, the exact text to change, and an order to do them in. Delivered by email as a PDF within three business days.</p>
+        <p class="muted" style="max-width:31em">Thirty days after delivery I reopen your site, redo the same checks, and send you a short note on what changed and what did not. That is included.</p>
+        <p class="muted" style="max-width:31em">If you read the audit and think it wasn’t worth it, reply and I’ll refund you. You keep the audit.</p>
         <a class="btn" href="https://buy.stripe.com/4gM8wP03Z3Ry9yF1Es8IU00">Buy the audit</a>
         <p class="small" style="margin-top:24px">Prefer to ask something first? Email <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>.</p>
 
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EMAIL CAPTURE =====================
+     Hidden until CAPTURE_ENDPOINT (script at the bottom) names a service
+     that receives the address. The site is static: without an endpoint a
+     form would post nowhere. When it is switched on, the privacy notice
+     must gain a paragraph on what is stored and where. -->
+<section class="raised" id="capture" hidden>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">Not ready to buy</p></div>
+      <div class="col">
+        <h2>Get the next teardown by email</h2>
+        <p class="muted" style="max-width:31em">Every few weeks I audit a real medical spa website in public, the same way I would for a client, and publish it. Leave your address and you get each one when it comes out. Nothing else, and one line to stop.</p>
+        <form class="capture" method="post" action="#" novalidate>
+          <label class="small" for="capture-email">Email address</label>
+          <div class="capture-row">
+            <input id="capture-email" name="email" type="email" required autocomplete="email" placeholder="you@yourclinic.com">
+            <button class="btn" type="submit" style="margin-top:0">Send me the next one</button>
+          </div>
+          <p class="small capture-note" hidden></p>
+        </form>
       </div>
     </div>
   </div>
@@ -515,6 +591,28 @@
 
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* Email capture. Empty endpoint = section stays hidden. Set it to the URL
+   of a service that accepts a POST with an `email` field (Zoho Forms,
+   Formspree or similar), then add the matching paragraph to /privacy. */
+var CAPTURE_ENDPOINT = '';
+(function(){
+  var sec = document.getElementById('capture');
+  if (!sec || !CAPTURE_ENDPOINT) return;
+  var form = sec.querySelector('form');
+  var note = sec.querySelector('.capture-note');
+  form.action = CAPTURE_ENDPOINT;
+  sec.hidden = false;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = form.email.value.trim();
+    if (!email || email.indexOf('@') < 1){ note.textContent = 'That does not look like an email address.'; note.hidden = false; return; }
+    fetch(CAPTURE_ENDPOINT, {method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form)})
+      .then(function(r){ if(!r.ok) throw new Error(r.status); note.textContent = 'Done. The next teardown comes to ' + email + '.'; form.email.value=''; })
+      .catch(function(){ note.textContent = 'Something went wrong. Email me instead: luca@dropoffaudit.me'; })
+      .then(function(){ note.hidden = false; });
+  });
+})();
 
 /* Slow anchor scroll.
    Native scroll-behavior:smooth lasts ~300ms in Chrome and is not tunable,
