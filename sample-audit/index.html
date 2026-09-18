@@ -14,19 +14,57 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/articles/article.css">
 <style>
-  .btn-ghost{
-    display:inline-flex;align-items:center;gap:10px;margin-top:28px;
-    color:var(--signal-hi);background:none;
-    font-family:inherit;font-weight:600;font-size:1rem;letter-spacing:-.012em;
-    padding:14px 26px;border:1px solid rgba(232,165,116,.5);border-radius:3px;
-    text-decoration:none;cursor:pointer
+  /* The audit is laid out exactly like an article: one light sheet, the
+     same type, the same rail. What is added here is only what an audit
+     has and an article does not: the leak tags, the fix box, the ordered
+     list at the end, and a print stylesheet so the PDF is this same page. */
+  .tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:0 0 30px}
+  .tools .back{margin:0}
+  .tools .small{margin:0}
+  .paper .eyebrow{font-size:.8rem;font-weight:500;color:#A35A2E;margin:0 0 12px}
+  .paper .tag{font-size:.8rem;font-weight:500;color:#A35A2E;margin:56px 0 6px}
+  .paper .tag+h2{margin-top:0}
+  .paper .tag .where{color:#6B6358;font-weight:400}
+  .paper h3{margin-top:26px}
+  .paper .box strong{display:block;margin-bottom:6px}
+  .paper .figures{margin-top:30px}
+  .steps{margin:0;padding:0;list-style:none;counter-reset:st}
+  .steps li{counter-increment:st;position:relative;padding-left:46px;margin-bottom:20px;color:#4A433B;line-height:1.55}
+  .steps li::before{content:"0" counter(st);position:absolute;left:0;top:.2em;font-weight:600;color:#A35A2E;font-size:.9rem;letter-spacing:.02em}
+  .steps li strong{display:block;color:#2C2823}
+  .steps li span{display:block;font-size:.9rem;color:#6B6358;margin-top:3px}
+  .paper .sign{margin-top:40px;padding-top:24px;border-top:1px solid #EAE6DF;color:#2C2823}
+  .paper .sign span{display:block;color:#6B6358;font-size:.92rem;margin-top:4px}
+  .after{margin-top:36px;max-width:36em}
+
+  @media print{
+    @page{size:Letter;margin:16mm 15mm 18mm}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    html{color-scheme:light}
+    html,body{background:#fff!important}
+    body{font-size:11pt;line-height:1.5}
+    header,footer,.rail,.tools,.after,.cc{display:none!important}
+    main{padding:0}
+    .wrap{padding:0;max-width:none}
+    .grid{display:block}
+    .col-paper{max-width:none}
+    .paper-stack{margin:0}
+    .paper-stack .sheet{display:none}
+    .paper{box-shadow:none;border-radius:0;border-left-width:5px;padding:0 0 0 22px;background:#fff}
+    .paper .box,.paper .figures li{background:#F4F1EB}
+    .paper .wm{margin-bottom:26px}
+    h1{font-size:24pt}
+    h2{font-size:15pt;margin-top:0}
+    h3{font-size:11.5pt;margin-top:16px}
+    .lede{font-size:12pt}
+    .paper .tag{margin-top:0}
+    .break{break-before:page}
+    h2,h3,.tag{break-after:avoid}
+    p,li{orphans:3;widows:3}
+    .box,.limits,.figures li,.steps li{break-inside:avoid}
+    .figures{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .paper a{color:inherit;text-decoration:none}
   }
-  .btn-ghost:hover{border-color:var(--signal-hi);background:rgba(232,165,116,.09);color:var(--signal-hi)}
-  .btn-ghost svg{flex:none;display:block}
-  .facts{margin:28px 0 0;padding:0;list-style:none;max-width:31em}
-  .facts li{position:relative;padding-left:26px;margin-bottom:14px;color:var(--fg-2);line-height:1.55}
-  .facts li::before{content:"";position:absolute;left:0;top:.68em;width:12px;height:2px;background:var(--signal)}
-  .facts strong{color:var(--fg)}
 </style>
 </head>
 <body>
@@ -45,27 +83,103 @@
   <div class="wrap">
     <div class="grid">
       <div class="rail"><p class="label">A real audit, in full</p></div>
-      <div class="col col-wide">
+      <div class="col col-paper">
 
-        <h1>The document a client receives</h1>
-        <p class="lede">This is a complete audit of a real medical spa website in Idaho, written the way every paid audit is written. The clinic’s name is withheld and no street address appears, but everything else is exactly what they would get: four leaks, three things already working, and the order I would fix them in.</p>
+        <div class="tools">
+          <a class="back" href="/sample-audit/dropoffaudit-sample-audit.pdf"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v8M3.5 5.5L7 9l3.5-3.5M1.5 12.5h11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Download as PDF</span></a>
+          <p class="small">This is the document a client receives, unchanged except for the clinic’s name. No email address required.</p>
+        </div>
 
-        <ul class="facts">
-          <li><strong>Seven pages, PDF.</strong> Cover, strengths, one page per leak, and a closing order of work.</li>
-          <li><strong>Checked on the live site on 12 and 18 September 2026.</strong> Each leak says when and how it was measured. A finding that could not be confirmed on the second visit was left out.</li>
-          <li><strong>What it found.</strong> A booking page still listing the template’s sample services, three booking buttons that lead to a message form instead of a calendar, a homepage that shows no patient review, and a screen of empty space above the footer.</li>
-          <li><strong>What it does not contain.</strong> Any percentage, any revenue estimate, any borrowed industry figure. The impact of each leak is described, not invented.</li>
+        <div class="paper-stack">
+        <span class="sheet" aria-hidden="true"></span>
+        <article class="paper">
+        <p class="wm" aria-hidden="true">dropoff<i>audit</i><em>.me</em> · Website Conversion Audit</p>
+        <p class="eyebrow">Sample copy, clinic name withheld</p>
+        <h1>A medical spa in Idaho</h1>
+        <p class="meta">September 2026 · Prepared by Luca Panetto</p>
+        <p class="lede">A close read of where visitors slip away before booking, and the handful of changes most likely to bring them back. Every finding was checked on the live site on 12 and 18 September 2026.</p>
+        <ul class="figures">
+          <li><span class="n">4</span><span class="t">leaks found, each one measured on the live page</span></li>
+          <li><span class="n">3</span><span class="t">things already working, worth protecting</span></li>
+          <li><span class="n">4</span><span class="t">changes, in the order I would make them</span></li>
         </ul>
 
-        <a class="btn-ghost" href="/sample-audit/dropoffaudit-sample-audit.pdf">
-          Open the PDF
-          <svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true">
-            <path d="M1 6.5h12M7.5 1.5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <p class="small" style="margin-top:18px">No email address required. If you run a clinic and want the same thing for your own site, <a href="/#buy">this is what it costs</a>.</p>
+        <h2>What is already working</h2>
+        <p>An audit that only lists problems reads like a sales pitch. These are the strengths worth protecting.</p>
+        <h3>Financing answered before anyone asks</h3>
+        <p>A small panel reading “Pay over time. No hard credit checks. 0% APR options” stays on screen as visitors scroll, and “Payment Plans” has its own item in the main menu. For treatments at aesthetic price points, cost is the most common silent objection, and you answer it before anyone has to ask. Most clinics bury financing on a separate page, if they mention it at all.</p>
+        <h3>Named product lines, not vague claims</h3>
+        <p>The homepage names the brands you work with, DermaSweep and Epionce among them, and the page title names Dysport and dermal fillers. A patient researching a specific treatment can match what they have read about to what you offer. Specific names build more credibility than “medical grade technology” language.</p>
+        <h3>Two locations, stated on every page</h3>
+        <p>The footer gives the full street address of both locations on every page I opened. Someone deciding whether you are convenient can answer that question immediately, without hunting for a contact page.</p>
+        <p>Protect these while you fix the leaks on the following pages.</p>
 
-        <p class="small" style="margin-top:44px">A note on fairness: this clinic has not been named and has not been contacted about this page. Sites change, and the findings above are true as of the dates given. If you are the owner and something here is wrong or has since been fixed, email <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a> and I will correct or remove it.</p>
+        <p class="tag break">Leak 01 <span class="where">· /book-online · Effort: medium</span></p>
+        <h2>Your booking page offers flu shots, not Botox</h2>
+        <h3>What I found</h3>
+        <p>Your site has an online booking page at /book-online. Its title reads “Book Online Your Med Spa Appointment”. The services a visitor can actually book there are Blood Work ($25), Physical Exams ($25), Mental Health ($25), Flu Shot ($45), Prevention &amp; Wellness ($53), Family Planning ($35), General Health ($25), Home Visits ($53) and Pediatric Consultation ($30). These are the sample services of a general medical clinic template. Not one aesthetic treatment can be booked on that page. I read the list on the live page on 18 September.</p>
+        <h3>Why it matters</h3>
+        <p>A visitor who reaches this page wants to book Botox or a filler and finds a pediatric consultation instead. The likely reading is not “this page is unfinished” but “I am in the wrong place”. It is the page furthest down the funnel: the people who reach it are the ones closest to paying you, and it is where they are lost.</p>
+        <h3>What fixing it changes</h3>
+        <p>This is the most valuable fix on your site. Every visitor who arrives here has already decided they are interested. They are being lost at the last step, not the first.</p>
+        <div class="box"><p><strong>The fix</strong>Replace the nine template services with your real bookable treatments, with durations and either real prices or a consultation booking. If the page cannot be updated soon, unpublish it: no booking page is better than one that advertises flu shots.</p></div>
+
+        <p class="tag break">Leak 02 <span class="where">· Homepage buttons and main menu · Effort: low</span></p>
+        <h2>Every booking button leads to a form, not a calendar</h2>
+        <h3>What I found</h3>
+        <p>The three buttons on your homepage that say book, “Book your appointment”, “Book a party today!” and the menu item “Contact/Book Now!”, all open the same page: a heading that says Contact Us, a phone number, two addresses and a four field form (Name, Email, Subject, Message). No calendar, no times to choose from, no embedded scheduler of any kind. I checked all three links on 18 September. Your real booking page exists, but nothing in the menu points to it: the only link to it from the homepage is a single hyphen, five pixels wide, sitting off the left edge of the screen where it cannot be clicked.</p>
+        <h3>Why it matters</h3>
+        <p>A button labelled “Book your appointment” sets a specific expectation: the visitor is about to choose a time. Arriving at a message form asks for more work than they agreed to, and then a wait with no idea how long. Evenings and weekends are when aesthetic patients browse and when your phone is least likely to be answered, so the gap between intent and confirmation is widest exactly when interest is highest. Booking by phone and text is a fair choice, and I do not suggest removing it. The problem is the wording: the button promises one thing and delivers another.</p>
+        <h3>What fixing it changes</h3>
+        <p>Pointing the buttons you already have at a working booking page turns intent into confirmed appointments without any new infrastructure. The pieces exist. They are not connected.</p>
+        <div class="box"><p><strong>The fix</strong>Once /book-online lists your real treatments, repoint “Book your appointment” and “Book a party today!” to it and add it to the menu. Keep the contact page for genuine enquiries, and keep call or text prominent for people who prefer it. The aim is to add a self service path, not remove the phone.</p></div>
+
+        <p class="tag break">Leak 03 <span class="where">· Homepage, near the booking buttons · Effort: low</span></p>
+        <h2>A visitor never sees a review without leaving your site</h2>
+        <h3>What I found</h3>
+        <p>On the homepage the words review, testimonial, rating and before and after occur zero times, and the structured data your site sends to search engines carries no aggregateRating. The one quote on the page is signed by a member of your staff, not by a patient. I did not check your Google profile for this sample, and your reviews may well be there. What I measured is that the site itself shows none of them.</p>
+        <h3>Why it matters</h3>
+        <p>Patients choosing an injector look for other patients first. A visitor who arrives from an ad or a link has to leave your site to find out what anyone thinks of you, and a share of them will not come back. Reviews that already exist on Google cost nothing to show here.</p>
+        <h3>What fixing it changes</h3>
+        <p>Showing three or four named reviews near the booking buttons removes one reason to hesitate at the moment of decision. It will not by itself increase bookings, but it stops sending people away to look.</p>
+        <div class="box"><p><strong>The fix</strong>Embed a handful of your Google reviews, with first names and dates, close to “Book your appointment”, and link to the full list. If you have before and after photos with consent, one row of them does the same job.</p></div>
+
+        <p class="tag break">Leak 04 <span class="where">· Homepage, above the footer · Effort: low</span></p>
+        <h2>The homepage ends in a screen of empty space</h2>
+        <h3>What I found</h3>
+        <p>Near the bottom of your homepage, between the last section of content and the footer, there is an empty white gap about 575 pixels tall, the height of most of a laptop screen, with one character of text in it: a hyphen. A social feed is meant to be there and shows nothing. I measured the empty container on 12 September and photographed the same gap twice on 18 September, ten seconds apart, on a different machine. It did not fill.</p>
+        <h3>Why it matters</h3>
+        <p>The end of a page is where a visitor who has read everything decides what to do next, and yours currently offers a void. A large empty gap reads as a page that is broken or half finished, which undercuts the credibility the rest of the site works to build.</p>
+        <h3>What fixing it changes</h3>
+        <p>Recovering this space turns dead screen into a final booking prompt at the exact point where the most engaged visitors finish reading.</p>
+        <div class="box"><p><strong>The fix</strong>Either repair the feed so it shows real posts, or delete the empty block and close the gap. Whichever you choose, end the page on a single clear booking button.</p></div>
+
+        <h2 class="break">Where to start, in order</h2>
+        <p>In the order I would tackle them: highest return for least effort first.</p>
+        <ol class="steps">
+          <li><strong>Replace the template services on /book-online with real treatments</strong><span>Ties back to Leak 01. Effort: medium</span></li>
+          <li><strong>Repoint the three booking buttons and add the page to the menu</strong><span>Ties back to Leak 02. Effort: low</span></li>
+          <li><strong>Show a few Google reviews next to the booking buttons</strong><span>Ties back to Leak 03. Effort: low</span></li>
+          <li><strong>Close the empty gap at the bottom of the homepage</strong><span>Ties back to Leak 04. Effort: low</span></li>
+        </ol>
+
+        <div class="limits">
+          <p class="lh">What this audit does not contain</p>
+          <ul class="points">
+            <li>Any percentage, any revenue estimate, any borrowed industry figure. The impact of each leak is described, not invented.</li>
+            <li>Anything I could not confirm on the second visit. A finding that held on 12 September but not on 18 September was left out.</li>
+            <li>Your Google profile, your ads or your phone line. This is the website, read the way a patient reads it.</li>
+          </ul>
+        </div>
+
+        <p>Questions about anything in this audit? Email me at <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>. I read every response personally.</p>
+        <p class="sign">Luca<span>DropoffAudit.me · luca@dropoffaudit.me</span></p>
+
+        </article>
+        </div>
+
+        <p class="small after">A note on fairness: this clinic has not been named and has not been contacted about this page. Sites change, and the findings above are true as of the dates given. If you are the owner and something here is wrong or has since been fixed, email <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a> and I will correct or remove it.</p>
+        <p class="small after" style="margin-top:18px">If you run a clinic and want the same thing for your own site, <a href="/#buy">this is what it costs</a>.</p>
 
       </div>
     </div>
@@ -79,6 +193,7 @@
       <div class="col">
         <div class="foot-row">
           <a href="/">DropoffAudit</a>
+          <a href="/articles/">Articles</a>
           <a href="/privacy">Privacy notice</a>
           <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
           <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
