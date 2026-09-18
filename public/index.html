@@ -273,6 +273,7 @@
   }
   .capture input:focus-visible{outline:2px solid var(--signal-hi);outline-offset:2px}
   .capture-note{margin-top:12px}
+  .capture .btn[disabled]{opacity:.55;cursor:wait}
 
   footer{padding:64px 0 76px;color:var(--muted);font-size:.94rem;border-top:1px solid var(--hair)}
   footer .addr{line-height:1.75;margin-bottom:0}
@@ -605,14 +606,25 @@ var CAPTURE_ENDPOINT = 'https://formspree.io/f/xnpnnbol';
   var note = sec.querySelector('.capture-note');
   form.action = CAPTURE_ENDPOINT;
   sec.hidden = false;
+  var btn = form.querySelector('button[type=submit]');
+  var busy = false;
+  var KEY = 'capture_done';
+  function remembered(email){ try { return (localStorage.getItem(KEY) || '').split('\n').indexOf(email) >= 0; } catch(_) { return false; } }
+  function remember(email){ try { localStorage.setItem(KEY, (localStorage.getItem(KEY) || '') + '\n' + email); } catch(_) {} }
+  function say(t){ note.textContent = t; note.hidden = false; }
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    var email = form.email.value.trim();
-    if (!email || email.indexOf('@') < 1){ note.textContent = 'That does not look like an email address.'; note.hidden = false; return; }
+    if (busy) return;
+    var email = form.email.value.trim().toLowerCase();
+    if (!email || email.indexOf('@') < 1){ say('That does not look like an email address.'); return; }
+    /* the same address from the same browser is not sent twice: one click
+       that looks like nothing happened must not become two rows */
+    if (remembered(email)){ say('That address is already on the list. The next teardown comes to ' + email + '.'); return; }
+    busy = true; btn.disabled = true; say('Sending\u2026');
     fetch(CAPTURE_ENDPOINT, {method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form)})
-      .then(function(r){ if(!r.ok) throw new Error(r.status); note.textContent = 'Done. The next teardown comes to ' + email + '.'; form.email.value=''; })
-      .catch(function(){ note.textContent = 'Something went wrong. Email me instead: luca@dropoffaudit.me'; })
-      .then(function(){ note.hidden = false; });
+      .then(function(r){ if(!r.ok) throw new Error(r.status); remember(email); say('Done. The next teardown comes to ' + email + '. There is no confirmation email: if you want to be sure, write to luca@dropoffaudit.me and I will answer myself.'); form.email.value=''; })
+      .catch(function(){ say('Something went wrong. Email me instead: luca@dropoffaudit.me'); })
+      .then(function(){ busy = false; btn.disabled = false; });
   });
 })();
 
