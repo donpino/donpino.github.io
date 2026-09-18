@@ -555,6 +555,8 @@
           <label class="small" for="capture-email">Email address</label>
           <div class="capture-row">
             <input id="capture-email" name="email" type="email" required autocomplete="email" placeholder="you@yourclinic.com">
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+            <input type="hidden" name="_subject" value="New teardown subscriber">
             <button class="btn" type="submit" style="margin-top:0">Send me the next one</button>
           </div>
           <p class="small capture-note" hidden></p>
@@ -595,7 +597,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
 /* Email capture. Empty endpoint = section stays hidden. Set it to the URL
    of a service that accepts a POST with an `email` field (Zoho Forms,
    Formspree or similar), then add the matching paragraph to /privacy. */
-var CAPTURE_ENDPOINT = '';
+var CAPTURE_ENDPOINT = 'https://formspree.io/f/xnpnnbol';
 (function(){
   var sec = document.getElementById('capture');
   if (!sec || !CAPTURE_ENDPOINT) return;
