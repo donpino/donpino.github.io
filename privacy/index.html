@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Privacy notice | DropoffAudit</title>
 <meta name="description" content="How DropoffAudit collects, uses and stores personal data, and how to ask for it to be deleted.">
 <meta name="robots" content="index, follow">
@@ -10,9 +12,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
   /* ------------------------------------------------------------------
      Privacy notice: same tokens, type and rail layout as the home page.
@@ -127,12 +127,12 @@
       <div class="col">
 
         <h1>What I hold, and how to make me delete it</h1>
-        <p class="updated">Last updated: 18 September 2026</p>
+        <p class="updated">Last updated: 25 September 2026</p>
         <p class="lede">This explains what personal data I hold, where I got it, what I do with it, and how to make me delete it. If you only want the last part, it’s in “Your rights” below, or just reply to any email from me with “stop”.</p>
 
 
         <h2 id="operator">Who is responsible for your data</h2>
-        <p>DropoffAudit is operated by <strong>Luca Panetto</strong>, a sole trader established in Italy. I am the data controller, which means I decide what data is held and why.</p>
+        <p>DropoffAudit is operated by <strong>Luca Panetto</strong>, an individual based in Italy. I am the data controller, which means I decide what data is held and why.</p>
         <ul class="points">
           <li>Postal address: Via Cesare Battisti 88, 12045 Fossano (CN), Italy</li>
           <li>Email: <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a></li>
@@ -213,7 +213,7 @@
           <li>I keep the analytics data in Google Analytics for 2 months.</li>
         </ul>
         <p>The legal basis for analytics cookies is your consent, under Article 6(1)(a) of the GDPR and the Italian rules on cookies. You can change your mind at any time with the <strong>Cookie settings</strong> link at the bottom of every page. If you withdraw consent, the site deletes the Google Analytics cookies it had set.</p>
-        <p>The typeface is loaded from Google Fonts, which means Google receives your IP address when the page loads.</p>
+        <p>The typeface is served from this website itself. No font is loaded from Google or any other outside service.</p>
         <p>If a link in one of my emails records that it was clicked, I say so in that email.</p>
 
         <h2>Changes</h2>
@@ -232,6 +232,7 @@
         <div class="foot-row">
           <a href="/">Back to DropoffAudit</a>
           <a href="/articles/">Articles</a>
+          <a href="/terms/">Terms</a>
           <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
           <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
         </div>
@@ -241,7 +242,7 @@
   </div>
 </footer>
 
-<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<script src="/year.js"></script>
 
 <script src="/consent.js" defer></script>
 </body>
