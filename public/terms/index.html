@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Terms | DropoffAudit</title>
+<meta name="description" content="What you get when you buy a DropoffAudit website audit, how payment and refunds work, and what an audit does not promise.">
+<meta name="robots" content="index, follow">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+  /* ------------------------------------------------------------------
+     Privacy notice: same tokens, type and rail layout as the home page.
+     Kept as a standalone file: no shared stylesheet, no build step.
+  -------------------------------------------------------------------*/
+  :root{
+    --bg:#12100E;
+    --raised:#191614;
+    --fg:#EDE8E0;
+    --fg-2:#BDB4A7;
+    --muted:#9A9186;
+    --signal:#D98A5B;
+    --signal-hi:#E8A574;
+    --hair:rgba(237,232,224,.09);
+    --sans:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    --rail:150px;
+    --measure:33em;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  body{
+    margin:0;background:var(--bg);color:var(--fg);
+    font-family:var(--sans);font-size:17.5px;line-height:1.62;font-weight:400;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  }
+  @media (max-width:640px){body{font-size:16.5px}}
+
+  .wrap{max-width:1200px;margin:0 auto;padding:0 26px}
+  @media (min-width:900px){.wrap{padding:0 48px}}
+
+  .grid{display:block}
+  .col{max-width:var(--measure)}
+  @media (min-width:960px){
+    .grid{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);gap:0 48px;align-items:start}
+    .rail{position:sticky;top:40px}
+  }
+  .label{margin:0;font-size:.84rem;font-weight:500;line-height:1.4;color:var(--muted)}
+  .label::before{content:"";display:block;width:20px;height:2px;background:var(--signal);margin-bottom:12px}
+  @media (max-width:959px){.rail{margin-bottom:26px}}
+
+  h1,h2{margin:0;color:var(--fg);font-weight:600;letter-spacing:-.024em}
+  h1{font-size:clamp(2rem,4.6vw,2.8rem);line-height:1.08}
+  h2{font-size:1.24rem;line-height:1.25;margin:44px 0 12px;letter-spacing:-.02em}
+  p{margin:0 0 18px;color:var(--fg-2)}
+  p:last-child{margin-bottom:0}
+  strong{font-weight:600;color:var(--fg)}
+  .lede{font-size:1.14rem;line-height:1.5;color:var(--fg-2);margin-top:24px}
+  .small{font-size:.92rem;line-height:1.55;color:var(--muted)}
+  .updated{font-size:.88rem;color:var(--muted);margin-top:14px}
+
+  a{color:var(--signal-hi);text-decoration:underline;text-underline-offset:3px;
+    text-decoration-thickness:1px;text-decoration-color:rgba(232,165,116,.45);
+    transition:color .18s ease,text-decoration-color .18s ease}
+  a:hover{color:var(--fg);text-decoration-color:var(--fg)}
+  a:focus-visible{outline:2px solid var(--signal-hi);outline-offset:3px;border-radius:2px}
+
+  header{padding:26px 0 0}
+  .mark{display:flex;align-items:center;gap:11px;font-size:1.05rem;font-weight:600;
+        letter-spacing:-.02em;text-decoration:none;color:var(--fg);width:max-content}
+  .mark:hover{color:var(--fg)}
+  .mark .tick{width:3px;height:20px;background:var(--signal);flex:none}
+  .mark .a{color:var(--signal)}
+  .mark .m{color:var(--muted);font-weight:400}
+
+  main{padding:56px 0 0}
+  @media (min-width:960px){main{padding:88px 0 0}}
+
+  .points{margin:0 0 18px;padding:0;list-style:none}
+  .points li{position:relative;padding-left:26px;margin-bottom:14px;
+             color:var(--fg-2);font-size:1rem;line-height:1.55}
+  .points li:last-child{margin-bottom:0}
+  .points li::before{content:"";position:absolute;left:0;top:.68em;width:12px;height:2px;background:var(--signal)}
+
+  .box{background:var(--raised);padding:22px 24px;margin:24px 0;border-radius:3px}
+  .box p:last-child{margin-bottom:0}
+
+
+  footer{margin-top:76px;padding:44px 0 76px;color:var(--muted);
+         font-size:.94rem;border-top:1px solid var(--hair)}
+  footer .foot-row{display:flex;gap:26px;flex-wrap:wrap;margin:0}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;color:var(--fg)}
+  #cookies{scroll-margin-top:32px}
+
+  /* the one navigation link, top right */
+  .head-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .nav a{color:var(--fg-2);text-decoration:none;font-size:.95rem;font-weight:500;
+         padding:6px 0;border-bottom:2px solid transparent}
+  .nav{display:flex;gap:26px}
+  .nav a:hover{color:var(--fg);border-bottom-color:var(--signal)}
+  .nav a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--signal)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head-row">
+    <a class="mark" href="/">
+      <span class="tick" aria-hidden="true"></span>
+      <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="/">Home</a><a href="/sample-audit/">Sample audit</a><a href="/articles/">Articles</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">Terms</p></div>
+      <div class="col">
+
+        <h1>The terms of an audit</h1>
+        <p class="updated">Last updated: 25 September 2026</p>
+        <p class="lede">The service is simple, so these terms are short. Buying an audit means agreeing to them. If anything here is unclear, email me before you pay.</p>
+
+        <h2>Who you are buying from</h2>
+        <p>DropoffAudit is run by <strong>Luca Panetto</strong>, an individual based in Italy. Postal address and contact details are in the <a href="/privacy/#operator">privacy notice</a>. Email: <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>.</p>
+
+        <h2>What you buy</h2>
+        <ul class="points">
+          <li><strong>One written audit</strong> of the public website you ask me to look at: the two to four things standing between a visitor and a booked appointment, the exact words to change, and the order to do them in.</li>
+          <li>It reaches you <strong>by email, as a PDF, within three business days</strong> of your payment. If I need something from you before I can start, such as which website to audit, I ask by email and the three days count from your answer.</li>
+          <li><strong>A recheck after thirty days</strong>, included in the price: I reopen your site, run the same checks again, and send you a short note on what changed and what did not.</li>
+        </ul>
+
+        <h2>Price and payment</h2>
+        <p>An audit costs <strong>$490, paid once</strong>, through Stripe. There is no subscription and nothing renews. I never see or store your card details.</p>
+
+        <h2>Refunds</h2>
+        <div class="box">
+          <p>If you read the audit and think it was not worth the price, reply to the email it came with <strong>within seven days of receiving it</strong> and I will refund the full amount through Stripe. You keep the audit. You do not have to give a reason.</p>
+        </div>
+        <p>If I cannot deliver the audit, for example because the website cannot be reached, I refund the full amount.</p>
+        <p>If you buy as a consumer, any right the law gives you applies in addition to these.</p>
+
+        <h2>What an audit is, and what it is not</h2>
+        <ul class="points">
+          <li>It describes what I saw on your public website, on the dates written in it. Websites change, and so can what the audit describes.</li>
+          <li>It does <strong>not</strong> promise any number of bookings, patients or revenue.</li>
+          <li>I look only at what any visitor can see. I do not ask for, and do not use, logins, booking systems or patient data.</li>
+          <li>The changes it suggests are recommendations. You decide what to change and who changes it.</li>
+          <li>It is not legal, medical or regulatory advice, including on the rules for advertising medical treatments.</li>
+        </ul>
+
+        <h2>Using the audit</h2>
+        <p>The audit is yours to use in your business and to share with your staff, your web designer or anyone who helps you act on it. I do not publish an audit you paid for, and I do not name your clinic anywhere, unless you agree to it in writing.</p>
+
+        <h2>Responsibility</h2>
+        <p>If something goes wrong on my side, my responsibility is limited to the price you paid for the audit, except where the law does not allow that limit.</p>
+
+        <h2>Applicable law</h2>
+        <p>These terms are governed by Italian law.</p>
+
+        <h2>Changes</h2>
+        <p>If I change these terms I will update the date at the top. An audit you have already paid for stays under the terms that were in force when you paid.</p>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"></div>
+      <div class="col">
+        <div class="foot-row">
+          <a href="/">Back to DropoffAudit</a>
+          <a href="/articles/">Articles</a>
+          <a href="/privacy/">Privacy notice</a>
+          <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+          <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
+        </div>
+        <p class="small" style="margin-top:24px">© <span id="yr">2026</span> DropoffAudit</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/year.js"></script>
+
+<script src="/consent.js" defer></script>
+</body>
+</html>

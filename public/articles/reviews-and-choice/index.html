@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>What reviews do for a clinic | DropoffAudit</title>
 <meta name="description" content="Do online ratings change which clinic people choose, and does showing reviews on your own site help? What controlled research and patient surveys measured, and where the popular numbers come from.">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="/articles/article.css">
 </head>
 <body>
@@ -140,6 +140,7 @@
           <a href="/articles/">All articles</a>
           <a href="/">DropoffAudit</a>
           <a href="/privacy">Privacy notice</a>
+          <a href="/terms/">Terms</a>
           <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
           <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
         </div>
@@ -149,7 +150,7 @@
   </div>
 </footer>
 
-<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<script src="/year.js"></script>
 <script src="/consent.js" defer></script>
 </body>
 </html>

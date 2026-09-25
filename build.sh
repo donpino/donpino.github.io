@@ -33,6 +33,20 @@ if grep -rn -e '—' -e '–' public/ >&2; then
   echo "ERRORE: lineette nel sito (righe sopra). Usa virgola, punto, due punti." >&2
   fail=1
 fi
+# --- Content-Security-Policy ------------------------------------------------
+# Ogni pagina porta la CSP come <meta>, che non ammette script inline: uno
+# <script> senza src o un attributo onclick= verrebbe bloccato dal browser
+# senza nessun errore visibile. Il JavaScript sta nei file .js di public/.
+for f in $(find public -name '*.html'); do
+  if ! grep -q 'http-equiv="Content-Security-Policy"' "$f"; then
+    echo "ERRORE: $f non ha la Content-Security-Policy" >&2
+    fail=1
+  fi
+done
+if grep -rn -E '<script>|<script [^>]*>[^<]|[[:space:]]on[a-z]+="' --include='*.html' public/ >&2; then
+  echo "ERRORE: script inline (righe sopra). La CSP li blocca: spostali in un file .js." >&2
+  fail=1
+fi
 [ "$fail" -eq 0 ] || exit 1
 
 # --- Pubblicazione ----------------------------------------------------------
