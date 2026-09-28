@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Buttons that say nothing and links that go nowhere | DropoffAudit</title>
+<meta name="description" content="How common broken links, empty links and vague buttons are, who they hurt most, and what research on how people choose where to click says about them.">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/articles/article.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap head-row">
+    <a class="mark" href="/">
+      <span class="tick" aria-hidden="true"></span>
+      <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="/">Home</a><a href="/sample-audit/">Sample audit</a><a href="/articles/">Articles</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">Links and buttons</p></div>
+      <div class="col col-paper">
+
+        <a class="back" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>All articles</span></a>
+        <div class="paper-stack">
+        <span class="sheet" aria-hidden="true"></span>
+        <article class="paper">
+        <p class="wm" aria-hidden="true">dropoff<i>audit</i><em>.me</em> · Articles</p>
+        <h1>Buttons that say nothing and links that go nowhere</h1>
+        <p class="meta">September 2026 · Luca</p>
+        <p class="lede">A link that leads to an error page, an icon with no words, a button that just says “Learn more”. Each one looks minor. I looked at how common they are, who they hurt most, and what research on how people decide where to click says about them.</p>
+
+        <h2>What people say a broken link does</h2>
+        <p>In the <a href="/articles/typos-and-trust/">article on typos</a> I described a 2001 Stanford survey of 1,410 people.<a class="ref" href="#s1">1</a> “The site has a link that doesn’t work” scored −1.45 on a scale from −3 to +3, a bigger penalty than a typo. That is what people said would change their minds, not what they were seen doing. The rest of this article looks at other kinds of evidence.</p>
+
+        <h2>How often links break</h2>
+        <p>In 2024, Pew Research Center published an analysis of what it calls digital decay.<a class="ref" href="#s2">2</a> It sampled 500,000 pages from 2,063 news and information websites, collected in spring 2023, and followed their links to other websites to see if they still worked.</p>
+        <ul class="figures">
+          <li><span class="n">23%</span><span class="t">of news pages had at least one broken link to another website</span></li>
+          <li><span class="n">21%</span><span class="t">of government pages had at least one broken link, in a separate sample of about 500,000</span></li>
+          <li><span class="n">38%</span><span class="t">of pages that existed in 2013 could no longer be reached in 2023</span></li>
+        </ul>
+        <p>Size did not protect anyone. Among news sites in the top 20% by traffic, 25% of pages had a broken link, against 26% among the bottom 20%. Links break on their own when the pages they point to are deleted or removed. Nobody has to make a mistake.</p>
+        <div class="limits">
+          <p class="lh">What this study does not show</p>
+          <ul class="points">
+            <li>The news figure counts links to <strong>other</strong> websites, not links inside the same site.</li>
+            <li>It covers news, government and Wikipedia pages, not business websites.</li>
+            <li>It measures how often links break, not what visitors do when they hit one.</li>
+          </ul>
+        </div>
+
+        <h2>Links and buttons with no words at all</h2>
+        <p>Every year WebAIM, a nonprofit service center at Utah State University that also sells accessibility training and consulting, scans the home pages of the top one million websites with its automated checker, WAVE.<a class="ref" href="#s3">3</a> The 2026 run was done in February 2026. Two of the six most common problems it found are about links and buttons:</p>
+        <ul class="figures">
+          <li><span class="n">46.3%</span><span class="t">of home pages had at least one empty link</span></li>
+          <li><span class="n">30.6%</span><span class="t">of home pages had at least one empty button</span></li>
+          <li><span class="n">15.2%</span><span class="t">of home pages had ambiguous link text such as “click here”, “more” or “continue”</span></li>
+        </ul>
+        <p>An empty link, in WAVE’s definition, is a link that contains no text and no image with a text description.<a class="ref" href="#s4">4</a> The usual case is a link made only of an icon: a phone symbol, a social media logo, an arrow. It looks fine on screen. But, as WAVE puts it, if a link contains no text its purpose “will not be presented to the user”. That user is someone who hears the page through a screen reader, software that reads the page aloud, or who moves through it with the keyboard. An empty button is the same problem on a button.</p>
+        <div class="limits">
+          <p class="lh">What this study does not show</p>
+          <p>It is an automated scan of home pages only. WebAIM itself warns that automated tools cannot detect every problem, and that a page with no detected errors is not necessarily accessible. It counts how common the problems are, not what they cost.</p>
+        </div>
+
+        <h2>Who they hurt most</h2>
+        <p>WebAIM also surveys people who use screen readers. In the latest survey with published results, run in December 2023 and January 2024, 1,539 people answered.<a class="ref" href="#s5">5</a> 89.9% of those who answered the question said they use a screen reader because of a disability. Asked to pick the three most problematic items from a list, they ranked <strong>“links or buttons that do not make sense”</strong> third. Only CAPTCHAs, the distorted text puzzles that ask you to prove you are human, and menus or dialogs that do not behave as expected ranked higher.</p>
+        <div class="limits">
+          <p class="lh">What this study does not show</p>
+          <p>WebAIM says plainly that the sample was not controlled and may not represent all screen reader users. It is a ranking of frustrations, not a measurement of how many people left a website.</p>
+        </div>
+
+        <h2>Why vague words matter to everyone else</h2>
+        <p>In 1999, Peter Pirolli and Stuart Card published a theory of how people look for information, in <em>Psychological Review</em>.<a class="ref" href="#s6">6</a> They called it information foraging, modeled on how animals search for food. A central idea is <strong>information scent</strong>: people judge whether a path is worth following from the cues they can see before clicking, and on a website the main cue is the words on the link. “Learn more” gives almost no scent. “See prices for lip filler” gives a lot.</p>
+        <p>Researchers later tested this on real web pages. In 2003, Marilyn Hughes Blackmon, Muneo Kitajima and Peter Polson reported two experiments at CHI, the ACM conference on human factors in computing systems.<a class="ref" href="#s7">7</a> They estimated how well the wording of headings and links matched what users were looking for, and tested ways to repair pages where it caused problems. According to the paper’s abstract, the repairs proved effective, and users faced serious difficulties when the problems were left in place. I could only read the abstract, which does not give the figures, so I am not quoting any.</p>
+        <div class="limits">
+          <p class="lh">What these do not show</p>
+          <p>The first is a theory, not a measurement. The second was tested in a lab on websites that are not clinics, and I have not seen its numbers. Neither says how many bookings a vague button costs.</p>
+        </div>
+
+        <h2>The written rule</h2>
+        <p>The Web Content Accessibility Guidelines (WCAG) from the W3C, the body that sets web standards, turn this into a requirement at their most basic level, A.<a class="ref" href="#s8">8</a> Success criterion 2.4.4 asks that the purpose of each link can be determined from its text, alone or together with the text around it. The stated goal is that users understand what each link will do. It is a rule written by experts, not a measurement, but it is the standard that accessibility reviews check against.</p>
+
+        <h2>What I take from this for a clinic</h2>
+        <ul class="points">
+          <li><strong>I found no study that measures what a broken link or a vague button costs a clinic in bookings.</strong> What exists shows how common these problems are, and that people say broken links make a site less believable.</li>
+          <li><strong>They are common and they appear without anyone noticing.</strong> Links break when the page they point to moves, and icons with no words look fine to anyone who can see them.</li>
+          <li><strong>They hit hardest the people who hear the page instead of seeing it.</strong> Screen reader users put confusing links and buttons among their top three problems.</li>
+          <li><strong>The fix is small.</strong> Point the link to the page that exists now. Give every icon a text label. Write buttons that say where they lead, like “Book a consultation” instead of “Learn more”. That is why these go into an audit, with the page where each one appears.</li>
+        </ul>
+
+        <a class="back back-end" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to all articles</span></a>
+
+        <h2 id="sources">Sources</h2>
+        <p class="small">Each source was opened and read before this page was written. For two of them only the abstract was available, and this is stated next to them. Where a source is a survey, an automated scan or a guideline, it says so.</p>
+        <ol class="sources">
+          <li id="s1">Fogg, B. J., Marshall, J., Laraki, O., Osipovich, A., Varma, C., Fang, N., Paul, J., Rangnekar, A., Shon, J., Swani, P., &amp; Treinen, M. (2001). What makes Web sites credible? A report on a large quantitative study. <em>Proceedings of CHI 2001</em>, 61 to 68. <a href="https://doi.org/10.1145/365024.365037" rel="noopener">doi.org/10.1145/365024.365037</a>
+            <span class="design"><b>Design:</b> online questionnaire, self-reported. 1,410 respondents, 42% United States and 58% Finland.</span></li>
+          <li id="s2">Chapekis, A., Bestvater, S., Remy, E., &amp; Rivero, G. (2024, 17 May). When online content disappears. <em>Pew Research Center</em>. <a href="https://www.pewresearch.org/data-labs/2024/05/17/when-online-content-disappears/" rel="noopener">pewresearch.org</a>
+            <span class="design"><b>Design:</b> automated check of links on pages sampled from the Common Crawl web archive. 500,000 news pages from 2,063 sites, about 500,000 government pages, just under 1 million pages from 2013 to 2023.</span></li>
+          <li id="s3">WebAIM (2026). The WebAIM Million: The 2026 report on the accessibility of the top 1,000,000 home pages. <a href="https://webaim.org/projects/million/" rel="noopener">webaim.org/projects/million</a>
+            <span class="design"><b>Design:</b> automated scan with the WAVE engine, February 2026, by a service that also sells accessibility training and consulting. 1,000,000 home pages from the Tranco ranking of popular websites.</span></li>
+          <li id="s4">WebAIM. WAVE documentation: Empty link, Empty button. <a href="https://wave.webaim.org/api/docs?format=html" rel="noopener">wave.webaim.org/api/docs</a>
+            <span class="design"><b>Type:</b> definitions used by the automated checker in source 3.</span></li>
+          <li id="s5">WebAIM (2024). Screen Reader User Survey #10 Results. <a href="https://webaim.org/projects/screenreadersurvey10/" rel="noopener">webaim.org/projects/screenreadersurvey10</a>
+            <span class="design"><b>Design:</b> online survey, self-reported, sample not controlled. 1,539 valid responses, December 2023 to January 2024.</span></li>
+          <li id="s6">Pirolli, P., &amp; Card, S. (1999). Information foraging. <em>Psychological Review</em>, 106(4), 643 to 675. <a href="https://doi.org/10.1037/0033-295X.106.4.643" rel="noopener">doi.org/10.1037/0033-295X.106.4.643</a>
+            <span class="design"><b>Type:</b> theory with a computational model, peer reviewed. Read at abstract level.</span></li>
+          <li id="s7">Blackmon, M. H., Kitajima, M., &amp; Polson, P. G. (2003). Repairing usability problems identified by the Cognitive Walkthrough for the Web. <em>Proceedings of CHI 2003</em>, 497 to 504. <a href="https://doi.org/10.1145/642611.642698" rel="noopener">doi.org/10.1145/642611.642698</a>
+            <span class="design"><b>Design:</b> two experiments, peer reviewed. Read at abstract level only: sample and figures not verified.</span></li>
+          <li id="s8">W3C (2026, updated 18 May). Understanding Success Criterion 2.4.4: Link Purpose (In Context). <em>WCAG 2.2</em>. <a href="https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html" rel="noopener">w3.org/WAI/WCAG22/Understanding/link-purpose-in-context</a>
+            <span class="design"><b>Type:</b> accessibility standard, written by a working group. Not a measurement.</span></li>
+        </ol>
+
+
+        </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"></div>
+      <div class="col">
+        <div class="foot-row">
+          <a href="/articles/">All articles</a>
+          <a href="/">DropoffAudit</a>
+          <a href="/privacy">Privacy notice</a>
+          <a href="/terms/">Terms</a>
+          <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+          <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
+        </div>
+        <p class="small" style="margin-top:24px">© <span id="yr">2026</span> DropoffAudit</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/year.js"></script>
+<script src="/consent.js" defer></script>
+</body>
+</html>
