@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>When Google answered in AI Mode, people clicked on far fewer websites | DropoffAudit</title>
+<meta name="description" content="A randomized field experiment with 1,100 Google users measured what AI Mode and AI summaries do to clicks on websites. What it found, what it cannot say about a clinic, and what decides who gets named in the answer.">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/articles/article.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap head-row">
+    <a class="mark" href="/">
+      <span class="tick" aria-hidden="true"></span>
+      <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="/">Home</a><a href="/sample-audit/">Sample audit</a><a href="/articles/">Articles</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">AI search</p></div>
+      <div class="col col-paper">
+
+        <a class="back" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>All articles</span></a>
+        <div class="paper-stack">
+        <span class="sheet" aria-hidden="true"></span>
+        <article class="paper">
+        <p class="wm" aria-hidden="true">dropoff<i>audit</i><em>.me</em> · Articles</p>
+        <h1>When Google answered in AI Mode, people clicked on far fewer websites</h1>
+        <p class="meta">October 2026 · Luca</p>
+        <p class="lede">Google now answers many searches itself: a summary at the top of the results, or AI Mode, where the whole page is a written answer. Someone searching for a treatment in their town can get a reply that names a few clinics without opening any website. I wanted to know whether anyone has measured what this does to clicks. One experiment posted this summer did, with real people on their own computers. It was not about clinics, and this article says what that changes.</p>
+
+        <h2>What the experiment did</h2>
+        <p>Researchers at the University of Pennsylvania and Northeastern University recruited 1,444 adults in the United States in March 2026, all people who use Chrome and search with Google.<a class="ref" href="#s1">1</a> Each installed a browser extension that recorded their searches and clicks during their normal browsing. For three days nothing changed. Then each person was assigned at random to one of three versions of Google for seven days:</p>
+        <ul class="points">
+          <li><strong>Google without AI</strong>: the AI summaries were hidden and AI Mode was turned off;</li>
+          <li><strong>Google as it is</strong>: nothing changed;</li>
+          <li><strong>AI Mode only</strong>: every search was sent to AI Mode.</li>
+        </ul>
+        <p>The study and its analysis were registered in advance. 1,100 participants searched at least once during the seven days, and the behaviour results are measured on them.</p>
+
+        <h2>What it found</h2>
+        <ul class="figures">
+          <li><span class="n">18.8 pts</span><span class="t">lower click-through rate to outside websites for people assigned to AI Mode</span></li>
+          <li><span class="n">8.8 pts</span><span class="t">higher click-through rate when the AI summaries were hidden</span></li>
+          <li><span class="n">0.6%</span><span class="t">of searches used AI Mode before the experiment, by people’s own choice</span></li>
+        </ul>
+        <p>People assigned to AI Mode clicked through to other websites much less often than people using Google as it is. They also searched less often per day, and they reported less trust in the information they found on Google. Fewer clicks did not come with a better experience: they rated AI Mode as less useful and less satisfying.</p>
+        <p>Hiding the AI summaries went the other way: more clicks to websites. That estimate needs care. During the study Google changed the code of its summaries, which broke the extension, and only about half of the summaries were actually hidden. The authors used a statistical correction they had registered in advance for this case, and it rests on assumptions they spell out.</p>
+        <p>An earlier observational study points in the same direction. In March 2025 the Pew Research Center looked at the browsing of 900 American adults.<a class="ref" href="#s2">2</a> When a search showed an AI summary, people clicked on a regular result in 8% of visits, against 15% when there was no summary. They clicked on a link inside the summary in 1% of visits. Observational means nobody assigned who saw a summary, so this shows a difference, not its cause. The experiment is what adds the cause.</p>
+        <div class="limits">
+          <p class="lh">What this experiment does not show</p>
+          <ul class="points">
+            <li><strong>It is a preprint</strong>, not yet reviewed by other researchers. The version I read is marked as a draft.</li>
+            <li><strong>AI Mode was forced on every search.</strong> Almost nobody used it by choice at the start, and the authors write that people who adopt it gradually may behave differently.</li>
+            <li><strong>Seven days only.</strong> People may get used to it, or not.</li>
+            <li><strong>All kinds of searches</strong>, not searches for a clinic or a local service. The authors ask for studies on specific areas and name health among them.</li>
+            <li>The participants were younger, more educated and more left leaning than the American population.</li>
+            <li>It measures clicks, not appointments, and it says nothing about <strong>which</strong> businesses the answer names.</li>
+          </ul>
+          <p>The study was funded by the National Science Foundation, and the authors declare no competing interests.</p>
+        </div>
+
+        <h2>What decides who gets named</h2>
+        <p>If fewer people click, the businesses named in the answer get more of the attention that is left. I found no experiment on how an AI answer chooses between clinics. The closest is SAGEO Arena, a study presented at KDD 2026, a peer reviewed computer science conference.<a class="ref" href="#s3">3</a> Researchers in Seoul took 171,003 real web pages returned by Google for 2,700 questions and rebuilt the steps of an AI search engine: find the pages, rank them, write an answer that cites some of them. Then they rewrote pages in different ways and watched whether each one rose or fell.</p>
+        <ul class="points">
+          <li>Rewriting only the <strong>body text</strong> with an AI tool made pages slightly harder to find and slightly less often cited, on average.</li>
+          <li>Improving the <strong>title, the description and the structured data</strong> that search engines read made pages 22% more likely to be found in the first step.</li>
+          <li>Pages ranked higher when the <strong>answer came early</strong>, and dropped when a rewrite pushed the answer further down, even with the answer still on the page.</li>
+        </ul>
+        <p>This is a search engine built by the researchers, not Google. None of the nine kinds of questions was about a local business, and in the shopping questions every rewriting method lowered the chance of being cited. It shows what such a system reads, not what it brings a clinic.</p>
+
+        <h2>What I take from this for a clinic</h2>
+        <ul class="points">
+          <li><strong>I found no study that measures what AI Mode does to a clinic’s bookings.</strong> The experiment measured clicks across all kinds of searches.</li>
+          <li><strong>When Google answers in AI Mode, far fewer people click through to websites.</strong> That was measured with random assignment, on real browsing, in 2026.</li>
+          <li><strong>So whether the answer names your clinic matters more than it used to.</strong> That part is reasoning from the experiment, not something it measured.</li>
+          <li><strong>In an audit I search for a treatment in the clinic’s town in AI Mode, three times, and write down which clinics the answer names.</strong> If it names others every time and never yours, I say so, with the screenshots. What I do not do is promise that a change to the site will get a clinic named. Nobody has measured that.</li>
+        </ul>
+
+        <a class="back back-end" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to all articles</span></a>
+
+        <h2 id="sources">Sources</h2>
+        <p class="small">Each source was opened and read in full before this page was written.</p>
+        <ol class="sources">
+          <li id="s1">Wang, S. T., Gleason, J., Bart, Y., Wilson, C., &amp; Metaxa, D. (2026). AI in search reduces publisher referrals without improving user experience: Experimental evidence. arXiv:2608.18352, preprint. <a href="https://arxiv.org/abs/2608.18352" rel="noopener">arxiv.org/abs/2608.18352</a>
+            <span class="design"><b>Design:</b> preregistered randomized field experiment on Google Search through a browser extension, three days of baseline and seven days of treatment. 1,444 US adults enrolled in March 2026, 1,100 in the behaviour analysis, 956 in the final survey. Not peer reviewed.</span></li>
+          <li id="s2">Chapekis, A., &amp; Lieb, A. (2025, July 22). Google users are less likely to click on links when an AI summary appears in the results. Pew Research Center. <a href="https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/" rel="noopener">pewresearch.org</a>
+            <span class="design"><b>Design:</b> observational. Browsing data of 900 US adults from the KnowledgePanel Digital panel, 68,879 unique Google searches from March 2025, 12,593 of them with an AI summary.</span></li>
+          <li id="s3">Kim, S., Jeong, W., Kim, S., Lee, S., &amp; Lee, D. (2026). SAGEO Arena: A realistic environment for evaluating search-augmented generative engine optimization. <em>Proceedings of KDD 2026</em>. <a href="https://doi.org/10.1145/3770855.3818146" rel="noopener">doi.org/10.1145/3770855.3818146</a>, also <a href="https://arxiv.org/abs/2602.12187" rel="noopener">arxiv.org/abs/2602.12187</a>
+            <span class="design"><b>Design:</b> simulated AI search pipeline over 171,003 real web pages for 2,700 questions from nine datasets; pages rewritten with ten methods and ranked again at each step. Peer reviewed conference paper.</span></li>
+        </ol>
+
+
+        </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"></div>
+      <div class="col">
+        <div class="foot-row">
+          <a href="/articles/">All articles</a>
+          <a href="/">DropoffAudit</a>
+          <a href="/privacy">Privacy notice</a>
+          <a href="/terms/">Terms</a>
+          <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+          <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
+        </div>
+        <p class="small" style="margin-top:24px">© <span id="yr">2026</span> DropoffAudit</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/year.js"></script>
+<script src="/consent.js" defer></script>
+</body>
+</html>
