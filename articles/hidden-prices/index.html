@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Hiding the price raised sales in one field experiment and lowered them in another | DropoffAudit</title>
+<meta name="description" content="Two field experiments with a real retailer hid the whole price for one click. In the online store more days had a sale; in a deals email fewer people bought. What explains the difference, what surgeons and patients say about prices online, and what none of it measured for a clinic.">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/articles/article.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap head-row">
+    <a class="mark" href="/">
+      <span class="tick" aria-hidden="true"></span>
+      <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="/">Home</a><a href="/sample-audit/">Sample audit</a><a href="/articles/">Articles</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">Prices</p></div>
+      <div class="col col-paper">
+
+        <a class="back" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>All articles</span></a>
+        <div class="paper-stack">
+        <span class="sheet" aria-hidden="true"></span>
+        <article class="paper">
+        <p class="wm" aria-hidden="true">dropoff<i>audit</i><em>.me</em> · Articles</p>
+        <h1>Hiding the price raised sales in one field experiment and lowered them in another</h1>
+        <p class="meta">October 2026 · Luca</p>
+        <p class="lede">Many clinic websites show no price at all: a treatment page, a description, and a button to book or call. The case for it is that a patient should see the value before the cost. The case against is that a missing price leaves people guessing. I looked for anyone who had tested it. The best evidence I found is from a retailer of kitchen appliances, not a clinic, and it does not give one answer. It gives two, and the reason they differ is the useful part.</p>
+
+        <h2>What the experiments did</h2>
+        <p>Researchers from seven universities worked with Fravega, a large Argentinian retailer of appliances, and ran two field experiments on its real customers.<a class="ref" href="#s1">1</a> In both, the price was not removed: it was moved one click later. People saw a picture and a short description, and the price appeared on the product page.</p>
+        <ul class="points">
+          <li><strong>The online store</strong>, spring 2020, 56 days: electric kettles and espresso machines. Visitors were assigned at random to category pages with the price on each product, or without it.</li>
+          <li><strong>A deals email</strong>, December 2021: a flyer sent on seven days to 771,583 customers, each day with 8 to 12 discounted products and a subject line about deals. Half saw the prices in the flyer, half did not.</li>
+        </ul>
+
+        <h2>What they found</h2>
+        <ul class="figures">
+          <li><span class="n">80% to 95%</span><span class="t">of days with at least one sale in the online store, when the price moved one click later (45 of 56 days, against 53 of 56)</span></li>
+          <li><span class="n">2.61% to 2.31%</span><span class="t">of customers who bought that week, when the deals email hid the prices</span></li>
+        </ul>
+        <p>In the store, hiding the price went with more days with a sale and more revenue per day. Fewer people clicked through, though: the share of visits that ended on the category page rose from 20.9% to 23.9%. In the email it went the other way. People clicked on slightly more products when the prices were hidden, and fewer of them bought.</p>
+        <p>The authors’ explanation is about what people expect to pay. When the price is missing, people fill the gap with a guess, and the guess follows the setting. They showed the store pages without prices to separate groups of people and asked why the price might be hidden. On a scale from 1, “the price is so low they do not want to show it”, to 7, “so high they do not want to show it”, the answers averaged about 6 for the store and 3.3 for the deals flyer. If you expected a high price, the real one is a pleasant surprise. If you expected a bargain, it is a disappointment.</p>
+        <p>Four online experiments with 223 to 726 people each, all on Prolific, pointed the same way. One of them described the same shop as premium, as a large national retailer, or as a discount store: hiding the price raised the stated chance of buying in the first two and lowered it in the discount one. In another, hiding the price raised it too, but adding a note that the price was below the manufacturer’s minimum advertised price, and so could not be shown, turned the effect around: lower than showing the price. These measured what people said they would do, not what they bought.</p>
+        <div class="limits">
+          <p class="lh">What these experiments do not show</p>
+          <ul class="points">
+            <li><strong>Nothing here is a clinic, a treatment or health.</strong> The field studies sold kettles, espresso machines and discounted appliances and electronics, in Argentina. In 2020 inflation there was 42%, which the authors say likely made people expect high prices.</li>
+            <li><strong>The price was one click away.</strong> A clinic site where the price is nowhere, and the patient has to call or book a consultation to learn it, was not tested. The authors name longer delays as a question for future work.</li>
+            <li>The store result rests on 112 daily totals, two groups over 56 days, not on individual customers. The group without prices also had about 5% more visitors per day, which the authors note could have helped it.</li>
+            <li>The email effect was small, and the authors say they did not study how expectations differ from one customer to the next.</li>
+            <li>The explanation through expectations is, in the authors’ words, one plausible explanation, and likely not the only one.</li>
+          </ul>
+        </div>
+
+        <h2>What surgeons and patients say about prices online</h2>
+        <p>There is no experiment of this kind on clinics that I could find. The closest thing is a set of surveys from 2024 about plastic surgery and other self-pay aesthetic care in the United States.<a class="ref" href="#s2">2</a></p>
+        <ul class="points">
+          <li><strong>Most doctors who answered do not show prices online</strong>: 78% of 101 providers from one database, which includes med spas, and 86% of 182 members of the American Society of Plastic Surgeons.</li>
+          <li>Among those who do not, about two in three said patients should weigh other things than cost, such as credentials. The most common reason given was that online price estimates are not accurate.</li>
+          <li><strong>Patients who had already used an online price estimate</strong> mostly liked it: 78% of 258 called the experience positive, and 76% of those who went on to book paid within $400 of the estimate, or less.</li>
+          <li>Among patients with a poor experience, the most common reasons were that the treatment was too expensive for them and that they had to give their contact details to see the estimate.</li>
+        </ul>
+        <div class="limits">
+          <p class="lh">What these surveys do not show</p>
+          <ul class="points">
+            <li><strong>They are opinions, not bookings.</strong> Nobody measured whether showing a price changes how many patients book.</li>
+            <li>The patients were people who had already used a price estimate, and 258 answered out of 20,057 who opened the email, about 1%. They say nothing about patients who never looked for a price.</li>
+            <li>The patients and one group of doctors came from the database of BuildMyHealth, whose price estimators patients had used on providers’ websites. The senior author declares an equity interest in KP Innovations LLC.</li>
+          </ul>
+        </div>
+
+        <h2>What I take from this for a clinic</h2>
+        <ul class="points">
+          <li><strong>I found no study that measures what showing or hiding a price does to a clinic’s bookings.</strong> Not on a website, not for any treatment.</li>
+          <li><strong>The only field experiments on hiding the whole price found that it can help or hurt</strong>, depending on what people expect to pay. So “always show your prices” and “never show your prices” are both stronger than the evidence.</li>
+          <li><strong>A page that announces a special or a deal and then hides the price looks more like the deals email than like the store.</strong> That is my reading of the experiments, not something they tested on a clinic.</li>
+          <li><strong>In an audit I write down, treatment by treatment, whether the site shows a price and where.</strong> I report a missing price as a fact a patient meets. I do not claim it costs a clinic bookings, because nobody has measured that.</li>
+        </ul>
+
+        <a class="back back-end" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to all articles</span></a>
+
+        <h2 id="sources">Sources</h2>
+        <p class="small">Each source was opened and read in full before this page was written, except the online appendix of the first.</p>
+        <ol class="sources">
+          <li id="s1">Affonso, F. M., Shiri, A., Aparicio, D., Xu, M., Wang, X., Janiszewski, C., &amp; Bertini, M. (2025). Concealing prices: How delayed price disclosure influences consumer purchase decisions. <em>Journal of Consumer Research</em>, advance access. <a href="https://doi.org/10.1093/jcr/ucaf051" rel="noopener">doi.org/10.1093/jcr/ucaf051</a>
+            <span class="design"><b>Design:</b> two randomized field experiments with an Argentinian appliance retailer (online store, 56 days in 2020, 44 products; deals email to 771,583 customers in 2021) and four online experiments on Prolific with 223 to 726 participants, all four preregistered. Peer reviewed.</span></li>
+          <li id="s2">Rai, P., Pareek, P., Vilas, C. L., &amp; Kaplan, J. L. (2024). The controversy over price transparency: Patients and plastic surgeons disagree. <em>Plastic and Reconstructive Surgery Global Open</em>, 12(10), e6212. <a href="https://doi.org/10.1097/GOX.0000000000006212" rel="noopener">doi.org/10.1097/GOX.0000000000006212</a>
+            <span class="design"><b>Design:</b> three surveys written by the authors: 101 of 463 providers from the BuildMyHealth database, 182 of 1,934 randomly selected ASPS members, 258 patients out of 20,057 opened emails. Self-reported. The senior author declares an equity interest in KP Innovations LLC.</span></li>
+        </ol>
+
+
+
+        </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"></div>
+      <div class="col">
+        <div class="foot-row">
+          <a href="/articles/">All articles</a>
+          <a href="/">DropoffAudit</a>
+          <a href="/privacy">Privacy notice</a>
+          <a href="/terms/">Terms</a>
+          <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+          <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
+        </div>
+        <p class="small" style="margin-top:24px">© <span id="yr">2026</span> DropoffAudit</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/year.js"></script>
+<script src="/consent.js" defer></script>
+</body>
+</html>
