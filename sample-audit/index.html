@@ -7,7 +7,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Sample audit | DropoffAudit</title>
 <meta name="description" content="A complete website conversion audit, built from findings on three real medical spa websites, none of them named: four leaks, three strengths, an order to fix them in. Every finding checked on a live site between 11 and 18 September 2026.">
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="light">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -21,20 +21,20 @@
   .tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:0 0 30px}
   .tools .back{margin:0}
   .tools .small{margin:0}
-  .paper .eyebrow{font-size:.8rem;font-weight:500;color:#A35A2E;margin:0 0 12px}
-  .paper .tag{font-size:.8rem;font-weight:500;color:#A35A2E;margin:56px 0 6px}
+  .paper .eyebrow{font-size:.85rem;font-weight:700;color:var(--blue);margin:0 0 12px}
+  .paper .tag{font-size:.85rem;font-weight:700;color:var(--pen);margin:56px 0 6px}
   .paper .tag+h2{margin-top:0}
-  .paper .tag .where{color:#6B6358;font-weight:400}
+  .paper .tag .where{color:var(--sheet-mute);font-weight:400}
   .paper h3{margin-top:26px}
   .paper .box strong{display:block;margin-bottom:6px}
   .paper .figures{margin-top:30px}
   .steps{margin:0;padding:0;list-style:none;counter-reset:st}
-  .steps li{counter-increment:st;position:relative;padding-left:46px;margin-bottom:20px;color:#4A433B;line-height:1.55}
-  .steps li::before{content:"0" counter(st);position:absolute;left:0;top:.2em;font-weight:600;color:#A35A2E;font-size:.9rem;letter-spacing:.02em}
-  .steps li strong{display:block;color:#2C2823}
-  .steps li span{display:block;font-size:.9rem;color:#6B6358;margin-top:3px}
-  .paper .sign{margin-top:40px;padding-top:24px;border-top:1px solid #EAE6DF;color:#2C2823}
-  .paper .sign span{display:block;color:#6B6358;font-size:.92rem;margin-top:4px}
+  .steps li{counter-increment:st;position:relative;padding-left:46px;margin-bottom:20px;color:var(--sheet-body);line-height:1.55}
+  .steps li::before{content:"0" counter(st);position:absolute;left:0;top:.2em;font-weight:700;color:var(--blue);font-size:.9rem;letter-spacing:.02em}
+  .steps li strong{display:block;color:var(--sheet-ink)}
+  .steps li span{display:block;font-size:.9rem;color:var(--sheet-mute);margin-top:3px}
+  .paper .sign{margin-top:40px;padding-top:24px;border-top:1px solid var(--sheet-rule);color:var(--sheet-ink)}
+  .paper .sign span{display:block;color:var(--sheet-mute);font-size:.92rem;margin-top:4px}
   .after{margin-top:36px;max-width:36em}
 
   @media print{
@@ -51,7 +51,7 @@
     .paper-stack{margin:0}
     .paper-stack .sheet{display:none}
     .paper{box-shadow:none;border-radius:0;border-left-width:5px;padding:0 0 0 22px;background:#fff}
-    .paper .box,.paper .figures li{background:#F4F1EB}
+    .paper .box,.paper .figures li{background:var(--sheet-3)}
     .paper .wm{margin-bottom:26px}
     h1{font-size:24pt}
     h2{font-size:15pt;margin-top:0}

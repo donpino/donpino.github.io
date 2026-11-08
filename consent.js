@@ -62,21 +62,35 @@
 
   var css =
     '.cc{position:fixed;left:16px;right:16px;bottom:16px;z-index:50;max-width:560px;margin-left:auto;' +
-    'background:#191614;color:#EDE8E0;border:1px solid rgba(237,232,224,.14);border-radius:4px;' +
-    'box-shadow:0 24px 60px -20px rgba(0,0,0,.9);padding:22px 22px 20px;font:15px/1.55 "IBM Plex Sans",ui-sans-serif,system-ui,sans-serif}' +
-    '.cc p{margin:0 32px 16px 0;color:#BDB4A7}' +
-    '.cc p b{color:#EDE8E0;font-weight:600}' +
-    '.cc a{color:#E8A574;text-underline-offset:3px}' +
+    'background:#fff;color:#0A0A0A;border:2px solid #0A0A0A;border-radius:4px;' +
+    'box-shadow:0 24px 50px -24px rgba(0,0,0,.45);padding:22px 22px 20px;font:16px/1.55 "Atkinson Next",ui-sans-serif,system-ui,sans-serif}' +
+    '.cc p{margin:0 32px 16px 0;color:#4A4A4A}' +
+    '.cc p b{color:#0A0A0A;font-weight:700}' +
+    '.cc a{color:#0A0A0A;text-underline-offset:3px;text-decoration-color:#1C3AA9;text-decoration-thickness:1.5px}' +
     '.cc .row{display:flex;gap:12px}' +
-    '.cc .row button{flex:1;font-family:inherit;font-size:15px;font-weight:600;line-height:1;padding:13px 16px;border-radius:3px;cursor:pointer;' +
-    'background:transparent;color:#EDE8E0;border:1px solid rgba(237,232,224,.45)}' +
-    '.cc .row button:hover{border-color:#E8A574;color:#E8A574}' +
-    '.cc .x{position:absolute;top:10px;right:10px;width:34px;height:34px;border:0;background:none;color:#9A9186;cursor:pointer;border-radius:3px}' +
-    '.cc .x:hover{color:#EDE8E0}' +
-    '.cc button:focus-visible{outline:2px solid #E8A574;outline-offset:2px}' +
-    '.cookie-link{background:none;border:0;padding:0;font:inherit;color:#E8A574;cursor:pointer;' +
-    'text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;text-decoration-color:rgba(232,165,116,.45)}' +
-    '.cookie-link:hover{color:#EDE8E0;text-decoration-color:#EDE8E0}';
+    '.cc .row button{flex:1;font-family:inherit;font-size:16px;font-weight:700;line-height:1;padding:13px 16px;border-radius:3px;cursor:pointer;' +
+    'background:#fff;color:#0A0A0A;border:2px solid #0A0A0A}' +
+    '.cc .row button:hover{background:#0A0A0A;color:#fff}' +
+    '.cc .x{position:absolute;top:10px;right:10px;width:34px;height:34px;border:0;background:none;color:#4A4A4A;cursor:pointer;border-radius:3px}' +
+    '.cc .x:hover{color:#0A0A0A}' +
+    '.cc button:focus-visible{outline:3px solid #C4161C;outline-offset:2px}' +
+    '.cookie-link{background:none;border:0;padding:0;font:inherit;color:#0A0A0A;cursor:pointer;' +
+    'text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;text-decoration-color:#1C3AA9}' +
+    '.cookie-link:hover{color:#1C3AA9}';
+
+  // The Italian page gets the banner in Italian; every other page in English.
+  var IT = (document.documentElement.lang || '').indexOf('it') === 0;
+  var T = IT ? {
+    label: 'Scelta sui cookie', x: 'Chiudi e rifiuta',
+    text: '<b>Questo sito usa i cookie.</b> Con il tuo consenso, i cookie di Google Analytics mi dicono quante persone visitano il sito e quali pagine leggono. ' +
+      'Non servono per la pubblicit\u00e0. <a href="/privacy/#cookies">Informativa privacy (in inglese)</a>',
+    no: 'Rifiuta', yes: 'Accetta'
+  } : {
+    label: 'Cookie choice', x: 'Close and reject',
+    text: '<b>This site uses cookies.</b> With your consent, Google Analytics cookies show me how many people visit and which pages they read. ' +
+      'They are not used for advertising. <a href="/privacy/#cookies">Privacy notice</a>',
+    no: 'Reject', yes: 'Accept'
+  };
 
   var box = null;
   function show() {
@@ -84,13 +98,12 @@
     box = document.createElement('div');
     box.className = 'cc';
     box.setAttribute('role', 'dialog');
-    box.setAttribute('aria-label', 'Cookie choice');
+    box.setAttribute('aria-label', T.label);
     box.innerHTML =
-      '<button type="button" class="x" aria-label="Close and reject">' +
+      '<button type="button" class="x" aria-label="' + T.x + '">' +
       '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>' +
-      '<p><b>This site uses cookies.</b> With your consent, Google Analytics cookies show me how many people visit and which pages they read. ' +
-      'They are not used for advertising. <a href="/privacy/#cookies">Privacy notice</a></p>' +
-      '<div class="row"><button type="button" data-c="no">Reject</button><button type="button" data-c="yes">Accept</button></div>';
+      '<p>' + T.text + '</p>' +
+      '<div class="row"><button type="button" data-c="no">' + T.no + '</button><button type="button" data-c="yes">' + T.yes + '</button></div>';
     box.addEventListener('click', function (e) {
       var b = e.target.closest('button');
       if (!b) return;

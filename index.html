@@ -7,578 +7,525 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>DropoffAudit | Where your med spa website loses patients</title>
 <meta name="description" content="I go through your medical spa website the way a new patient would, and write down where it stops working. Every finding checked by a person on your live site, with the date and the page. One PDF, $490, paid once.">
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="light">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
-  /* ------------------------------------------------------------------
-     v6 again (23/09), with the copy of v7 and text that comes up on scroll.
-     The page is dark; the things it talks about (other people's sites,
-     your PDF) appear as light panels inside it. That contrast is what
-     uses the width and what stops the page reading as a document.
-     Every drawing is CSS, no image files, no icon set.
-  -------------------------------------------------------------------*/
+  @font-face{font-family:"Atkinson Next";src:url(/fonts/atkinson-hyperlegible-next-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:"Atkinson Next";src:url(/fonts/atkinson-hyperlegible-next-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
+  @font-face{font-family:"Archivo";src:url(/fonts/archivo-latin-900-normal.woff2) format("woff2");font-weight:900;font-display:swap}
+  /* Home inglese nello stile della bozza D (approvata da Luca l'08/11).
+     Testi identici a public/index.html. Tolti i segnali dello studio:
+     frase evidenziata nel titolo, etichetta sopra ogni sezione, freccia
+     nei pulsanti, IBM Plex. Le etichette delle sezioni senza titolo sono
+     diventate il titolo (stesse parole). Rosso solo dove si segna un
+     problema; l'unico movimento e' la penna che traccia, legata allo
+     scorrimento; con "riduci movimento" tutto e' gia' disegnato. */
   :root{
-    --bg:#12100E;
-    --raised:#191614;
-    --fg:#EDE8E0;
-    --fg-2:#BDB4A7;
-    --muted:#9A9186;
-    --signal:#D98A5B;
-    --signal-hi:#E8A574;
-    --keep:#8CB599;
-    --hair:rgba(237,232,224,.09);
-
-    /* the "other people's websites" surface, light, so it reads as a
-       different object sitting on the page */
-    --site:#F5F2ED;
-    --site-2:#E7E2DA;
-    --site-3:#D5CFC5;
-    --site-ink:#2C2823;
-
-    --sans:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
-    --rail:150px;
-    --measure:33em;
+    --paper:#FFFFFF; --ink:#0A0A0A; --ink-2:#4A4A4A; --rule:#DADADA; --soft:#F3F3F1;
+    --pen:#C4161C; --wide:74rem;
+    /* colore dagli sfondi del video "22 Backgrounds" (08/11), scelti per
+       senso: blu del progetto tecnico (blueprint grid, n. 7) in apertura e
+       nel prezzo; carta a puntini (square-dot grid, n. 18) dove la penna
+       rossa segna; mezzatinta (halftone, n. 8) sulla fascia dell'esempio,
+       come una pagina stampata. Giallo solo per il pulsante d'azione sul
+       blu. Rosso = problema, verde = funziona. */
+    --blue:#1C3AA9; --blue-soft:#EAF0FF; --hi:#FFE14D; --ok:#17804A;
+    --dots:#B9C6EE; --bp-line:rgba(255,255,255,.13); --bp-line2:rgba(255,255,255,.26);
+    --bp-text:#D6DEFF;
   }
-
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    *{animation:none!important;transition:none!important}
-  }
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--paper);color:var(--ink);
+       font-family:"Atkinson Next",system-ui,sans-serif;font-size:18px;line-height:1.6}
+  a{color:var(--ink);text-underline-offset:3px;text-decoration-color:var(--blue);text-decoration-thickness:1.5px}
+  a:focus-visible,.btn:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--pen);outline-offset:3px}
+  .wide{max-width:var(--wide);margin:0 auto;padding:0 20px}
+  @media (min-width:900px){.wide{padding:0 40px}}
+  header{padding:20px 0;border-bottom:1px solid var(--rule)}
+  header .wide{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .mark{font-family:"Archivo",sans-serif;font-weight:900;letter-spacing:-.01em}
+  .mark .dot{color:var(--blue)}
+  header nav{display:flex;gap:20px;font-size:.95rem}
+  header nav a[aria-current]{text-decoration:none;font-weight:700}
+  h1,h2{font-family:"Archivo",sans-serif;font-weight:900;margin:0;letter-spacing:-.02em}
+  h1{font-size:clamp(2.3rem,6vw,4.2rem);line-height:1.02;margin:0 0 24px}
+  h2{font-size:clamp(1.6rem,3.6vw,2.5rem);line-height:1.06;margin:0 0 16px}
+  h3{font-size:1.08rem;font-weight:700;margin:0 0 4px;line-height:1.25}
+  p{margin:0 0 16px}
+  .lede{font-size:1.15rem;color:var(--ink-2);max-width:36rem}
+  .small{font-size:.9rem;color:var(--ink-2)}
+  .side p{color:var(--ink-2)}
+  .side p.fig{color:var(--ink)}
+  .btn{display:inline-block;background:var(--blue);color:#fff !important;text-decoration:none;border:0;cursor:pointer;
+       font:inherit;font-weight:700;font-size:1.08rem;padding:16px 28px;border-radius:3px}
+  .btn:hover{background:var(--ink)}
+  .btn:active{transform:translateY(1px)}
+  .btn-line{display:inline-block;font-weight:700;color:var(--ink);text-decoration:none;border:2px solid var(--ink);
+       padding:12px 22px;border-radius:3px}
+  .btn-line:hover{background:var(--ink);color:#fff}
+  .hero .btn-line{background:var(--hi);border-color:var(--hi);color:var(--ink)}
+  .hero .btn-line:hover{background:#fff;border-color:#fff}
+  .pen{fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0}
+  .pen.red{stroke:var(--pen);stroke-width:2.4}
+  .ring .pen.red{stroke-width:1.6}
 
-  body{
-    margin:0;background:var(--bg);color:var(--fg);
-    font-family:var(--sans);font-size:17.5px;line-height:1.62;font-weight:400;
-    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-  }
-  @media (max-width:640px){body{font-size:16.5px}}
+  /* ---------- prima schermata ---------- */
+  .blueprint{background-color:var(--blue);color:#fff;
+     background-image:
+       linear-gradient(var(--bp-line2) 1px,transparent 1px),linear-gradient(90deg,var(--bp-line2) 1px,transparent 1px),
+       linear-gradient(var(--bp-line) 1px,transparent 1px),linear-gradient(90deg,var(--bp-line) 1px,transparent 1px);
+     background-size:120px 120px,120px 120px,24px 24px,24px 24px;background-position:-1px -1px}
+  .blueprint h1,.blueprint h2{color:#fff}
+  .blueprint .lede,.blueprint .small,.blueprint .side p,.blueprint .proof figcaption{color:var(--bp-text)}
+  .blueprint a{color:#fff;text-decoration-color:var(--hi)}
+  .dotgrid{background-color:#fff;background-image:radial-gradient(var(--dots) 1.3px,transparent 1.6px);
+     background-size:22px 22px;background-position:11px 11px}
+  .hero{padding:48px 0 40px}
+  .hero-grid{display:grid;gap:36px}
+  @media (min-width:900px){.hero-grid{grid-template-columns:1.25fr .75fr;align-items:center;gap:72px;padding:24px 0}}
+  .proof{margin:0 auto;max-width:340px;width:100%}
+  .proof svg{display:block;width:100%;height:auto}
+  .proof figcaption{font-size:.85rem;color:var(--ink-2);margin-top:10px}
 
-  .wrap{max-width:1200px;margin:0 auto;padding:0 26px}
-  @media (min-width:900px){.wrap{padding:0 48px}}
+  /* ---------- sezioni: titolo a sinistra, contenuto a destra ---------- */
+  section.s{padding:64px 0;border-top:1px solid var(--rule)}
+  /* mezzatinta: puntini blu che sfumano verso il testo, come un foglio stampato */
+  section.sample{position:relative;overflow:hidden}
+  section.sample::before{content:"";position:absolute;inset:0;pointer-events:none;
+     background-image:radial-gradient(circle,var(--blue) 0 2.2px,transparent 2.6px),radial-gradient(circle,var(--blue) 0 1.2px,transparent 1.6px);
+     background-size:16px 16px,16px 16px;background-position:0 0,8px 8px;opacity:.9;
+     -webkit-mask-image:radial-gradient(ellipse 38% 85% at 100% 100%,#000 0,rgba(0,0,0,.4) 50%,transparent 80%);
+             mask-image:radial-gradient(ellipse 38% 85% at 100% 100%,#000 0,rgba(0,0,0,.4) 50%,transparent 80%)}
+  section.sample .wide{position:relative}
+  @media (max-width:699px){section.sample::before{-webkit-mask-image:radial-gradient(ellipse 45% 22% at 100% 100%,#000 0,transparent 100%);mask-image:radial-gradient(ellipse 45% 22% at 100% 100%,#000 0,transparent 100%)}}
+  section.price{border-top-color:var(--blue)}
+  section.price .side p.fig{color:#fff}
+  section.price .fig .once,section.price .stops li{color:var(--bp-text)}
+  section.price .btn{background:var(--hi);color:var(--ink) !important}
+  section.price .btn:hover{background:#fff}
+  section.price .when{border-top-color:rgba(255,255,255,.3)}
+  section.price .track{border-color:#fff;background:var(--blue)}
+  section.price .track .fill{background:#fff}
+  section.price .track .ticks{background:repeating-linear-gradient(to right,transparent 0 calc(100% / 30 - 1px),rgba(28,58,169,.45) calc(100% / 30 - 1px) calc(100% / 30))}
+  section.price .mk{background:#fff;color:var(--blue)}
+  section.price .win{border-color:#fff}
+  section.price .stops b,section.price .stops li::before{color:#fff}
+  .split{display:grid;gap:8px 64px}
+  @media (min-width:900px){.split{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}}
 
-  .grid{display:block}
-  .col{max-width:var(--measure)}
-  @media (min-width:960px){
-    .grid{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);gap:0 48px;align-items:start}
-    .rail{position:sticky;top:40px}
-  }
-  .label{margin:0;font-size:.84rem;font-weight:500;line-height:1.4;color:var(--muted)}
-  .label::before{content:"";display:block;width:20px;height:2px;background:var(--signal);margin-bottom:12px}
-  @media (max-width:959px){.rail{margin-bottom:26px}}
+  /* ---------- i tre ritrovamenti, con la penna rossa ---------- */
+  .finds{list-style:none;margin:0;padding:0;display:grid;gap:36px}
+  @media (min-width:700px){.finds{grid-template-columns:repeat(3,1fr);gap:28px}}
+  .shot{position:relative;background:#fff;border:1.5px solid var(--ink);border-radius:10px;overflow:visible;
+        font-size:12.5px;line-height:1.35;margin-bottom:14px;max-width:300px}
+  .shot .bar{height:22px;border-bottom:1px solid var(--rule);display:flex;align-items:center;padding:0 10px;gap:5px}
+  .shot .bar i{width:7px;height:7px;border-radius:50%;background:#CFCFCF}
+  .shot .body{padding:14px 14px 16px;min-height:178px}
+  .shot .cap{font-weight:700;margin:0 0 10px}
+  .shot .svc{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #E6E6E6;color:#666}
+  .shot .svc i{width:34px;height:8px;background:#E3E3E0;border-radius:2px}
+  .shot .ln{height:8px;background:#E3E3E0;border-radius:2px;margin:0 0 8px}
+  .shot .btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+  .shot .btns b{background:var(--ink);color:#fff;text-align:center;padding:7px 0;border-radius:3px;font-size:11px;letter-spacing:.04em}
+  .shot .cta{background:var(--ink);color:#fff;font-weight:700;padding:7px 10px;border-radius:3px;margin-bottom:10px}
+  .shot .fl{color:#666;font-size:11px;margin:6px 0 2px}
+  .shot .fb{height:18px;border:1px solid #AAA;border-radius:2px}
+  .shot .fb.tall{height:30px}
+  .shot .send{display:inline-block;margin-top:8px;border:1px solid var(--ink);padding:3px 12px;border-radius:3px;font-weight:700}
+  .hit{position:relative;display:block}
+  .ring{position:absolute;overflow:visible;pointer-events:none}
+  .r1{left:-6%;top:-12%;width:112%;height:124%}
+  .r2{left:-5%;top:-14%;width:110%;height:128%}
+  .r3{left:-6%;top:-6%;width:112%;height:112%}
+  .say{margin:0;font-size:1rem}
+  .said{font-weight:700}
+  .src{margin-top:28px;max-width:44rem}
 
-  section{padding:76px 0}
-  @media (min-width:960px){section{padding:112px 0}}
-  .raised{background:var(--raised)}
+  /* ---------- cosa ricevi: tre pagine che si aprono a ventaglio ---------- */
+  .pages{position:relative;height:210px;margin:8px 0 28px;display:grid;place-items:center}
+  @media (min-width:700px){.pages{height:250px}}
+  .pg{--dx:0px;--rot:0deg;position:absolute;width:150px;height:200px;background:#fff;border:1.5px solid var(--ink);
+      padding:14px 12px;font-size:10px;line-height:1.3;height:160px;box-shadow:0 10px 24px rgba(0,0,0,.08);
+      transform:translateX(var(--dx)) rotate(var(--rot))}
+  @media (min-width:700px){.pg{width:190px;height:200px;font-size:12px;padding:18px 16px}}
+  .pg.a{--dx:-96px;--rot:-7deg;z-index:1}
+  .pg.c{--dx:96px;--rot:7deg;z-index:1}
+  .pg.b{z-index:2}
+  @media (min-width:700px){.pg.a{--dx:-190px}.pg.c{--dx:190px}}
+  .pg b{display:block;font-size:1.1em;margin-bottom:10px}
+  .pg .ln{height:6px;background:#E3E3E0;border-radius:2px;margin:0 0 7px}
+  .pg .ok{display:flex;gap:6px;align-items:center;margin:0 0 9px}
+  .pg .ok .ln{flex:1;margin:0}
+  .pg .ok svg{width:12px;height:10px;flex:none}
+  .pg .ok .pen{stroke:var(--ok);stroke-width:2.2}
+  .pg .words{border:1px dashed #999;padding:6px;margin-top:10px;color:#666}
+  .pg .num{display:flex;gap:7px;align-items:center;margin:0 0 9px}
+  .pg .num span{font-weight:700;width:1em}
+  .pg .num .ln{flex:1;margin:0}
+  .three{list-style:none;margin:0;padding:0;display:grid;gap:0}
+  .three li{padding:16px 0;border-top:3px solid var(--blue)}
+  @media (min-width:700px){.three{grid-template-columns:repeat(3,1fr);gap:32px}}
+  .three p{margin:0}
 
-  h1,h2,h3{margin:0;color:var(--fg);font-weight:600;letter-spacing:-.024em}
-  h1{font-size:clamp(2.25rem,5.6vw,3.5rem);line-height:1.07}
-  h2{font-size:clamp(1.6rem,3.6vw,2.2rem);line-height:1.16;margin-bottom:20px;letter-spacing:-.026em}
-  h3{font-size:1.14rem;line-height:1.35;margin-bottom:8px;letter-spacing:-.016em}
-  p{margin:0 0 18px}
-  p:last-child{margin-bottom:0}
-  .lede{font-size:1.2rem;line-height:1.5;color:var(--fg-2);margin-top:26px}
-  .muted{color:var(--fg-2)}
-  .small{font-size:.92rem;line-height:1.55;color:var(--muted)}
-  strong{font-weight:600;color:var(--fg)}
+  /* ---------- il codice e lo schermo ---------- */
+  .cmp{display:grid;gap:24px;margin:8px 0 28px}
+  @media (min-width:700px){.cmp{grid-template-columns:1fr 1fr;gap:32px}}
+  .cmp figure{margin:0}
+  .cmp figcaption{font-size:.85rem;color:var(--ink-2);margin-bottom:8px;font-weight:700}
+  .code{background:#14204A;color:#E8E8E8;border-radius:6px;padding:18px 18px;font:13px/1.7 ui-monospace,Menlo,monospace;
+        min-height:190px;overflow-x:auto;white-space:pre}
+  .code .k{color:#9A9A9A}
+  .code .y{color:#fff;font-weight:700}
+  .screen{position:relative;border:1.5px solid var(--ink);border-radius:10px;height:190px;overflow:hidden;background:#fff}
+  .screen .photo{position:absolute;left:0;right:0;top:0;height:120px;background:#3B3B3B}
+  .screen .ghost{position:absolute;left:22px;top:66px;color:#4C4C4C;font-weight:700;font-size:15px}
+  .screen .ln{position:absolute;left:22px;height:8px;background:#E3E3E0;border-radius:2px}
+  .screen .ring{left:8px;top:52px;width:130px;height:46px}
+  .cmp .note{color:var(--pen);font-weight:700;font-size:.95rem;margin:8px 0 0}
+  ul.points{margin:0;padding-left:1.1em}
+  ul.points li{margin-bottom:10px}
 
-  a{color:var(--signal-hi);text-decoration:underline;text-underline-offset:3px;
-    text-decoration-thickness:1px;text-decoration-color:rgba(232,165,116,.45);
-    transition:color .18s ease,text-decoration-color .18s ease}
-  a:hover{color:var(--fg);text-decoration-color:var(--fg)}
-  a:focus-visible,.btn:focus-visible{outline:2px solid var(--signal-hi);outline-offset:3px;border-radius:2px}
-  .said{color:var(--signal-hi);font-weight:500}
+  /* ---------- non posso dirti ---------- */
+  .grid4{list-style:none;margin:0;padding:0;display:grid;gap:0}
+  .grid4 li{padding:16px 0;border-top:1px solid var(--rule)}
+  .grid4 strong{color:var(--blue)}
+  @media (min-width:700px){.grid4{grid-template-columns:1fr 1fr;column-gap:32px}}
+  .grid4 strong{display:block;font-size:1.05rem}
 
-  header{padding:26px 0 0}
-  .mark{display:flex;align-items:center;gap:11px;font-size:1.05rem;font-weight:600;letter-spacing:-.02em}
-  .mark .tick{width:3px;height:20px;background:var(--signal);flex:none}
-  .mark .a{color:var(--signal)}
-  .mark .m{color:var(--muted);font-weight:400}
+  /* ---------- prezzo: quello che succede dopo il pagamento ---------- */
+  .fig{font-family:"Archivo",sans-serif;font-weight:900;font-size:clamp(3rem,8vw,5rem);line-height:1;margin:0 0 20px}
+  .fig .once{font-family:"Atkinson Next",sans-serif;font-weight:400;font-size:1.1rem;color:var(--ink-2);margin-left:10px;letter-spacing:0}
+  .when{margin:8px 0 28px;padding:20px 0 0;border-top:1px solid var(--rule)}
+  .track{position:relative;height:24px;border:1.5px solid var(--ink);border-radius:3px;overflow:hidden}
+  .track .fill{position:absolute;inset:0;background:var(--ink);transform-origin:left center}
+  .track .ticks{position:absolute;inset:0;
+     background:repeating-linear-gradient(to right,transparent 0 calc(100% / 30 - 1px),#BDBDBD calc(100% / 30 - 1px) calc(100% / 30))}
+  .tw{position:relative;margin-bottom:34px}
+  .mk{position:absolute;top:30px;width:22px;height:22px;margin-left:-11px;border-radius:50%;background:var(--ink);color:#fff;
+      font-size:.75rem;font-weight:700;display:grid;place-items:center}
+  .mk.m0{left:11px}.mk.m3{left:10%}.mk.m30{left:calc(100% - 11px)}
+  .win{position:absolute;top:-16px;left:10%;width:23.3%;height:10px;border:1.5px solid var(--ink);border-bottom:0}
+  .win .mk{top:-30px;left:50%}
+  .tw{margin-top:44px}
+  .stops{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 20px;counter-reset:st}
+  @media (min-width:700px){.stops{grid-template-columns:repeat(4,1fr)}}
+  .stops li{font-size:.9rem;line-height:1.3;color:var(--ink-2);display:grid;grid-template-columns:1.6rem 1fr}
+  .stops li::before{counter-increment:st;content:counter(st);font-weight:700;color:var(--ink)}
+  .stops b{display:block;color:var(--ink)}
+  .price p.m{max-width:34rem}
 
-  /* ================= HERO: text left, the deliverable right ========= */
-  .hero{padding:64px 0 76px}
-  @media (min-width:960px){.hero{padding:104px 0 112px}}
-  .hero .col{max-width:none}
-  .hero h1{max-width:14em}
-  .hero .lede{max-width:30em}
-  .hl{box-shadow:inset 0 -.115em 0 0 var(--signal)}
-  .hero-split{display:block}
-  @media (min-width:1080px){
-    .hero-split{display:grid;grid-template-columns:minmax(0,30em) minmax(0,1fr);gap:0 64px;align-items:center}
-    .hero-art{justify-self:end;width:100%;max-width:340px}
-  }
-  @media (max-width:1079px){.hero-art{margin-top:52px;max-width:330px}}
+  /* ---------- iscrizione ---------- */
+  .capture-row{display:flex;flex-wrap:wrap;gap:12px;margin:6px 0 12px}
+  .capture-row input[type=email]{flex:1 1 16rem;font:inherit;padding:14px 14px;border:1.5px solid var(--ink);border-radius:3px;background:#fff}
 
-  /* ================= EXHIBITS: the three findings =================== */
-  .ex-head{max-width:var(--measure)}
-  .exhibits{margin:44px 0 0;padding:0;list-style:none;display:grid;gap:48px 44px}
-  @media (min-width:820px){.exhibits{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media (min-width:1080px){
-    /* three across, the middle one dropped, so the row never reads as a
-       card grid */
-    .exhibits{grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 36px}
-    .exhibits li:nth-child(2){margin-top:56px}
-  }
-  .exhibits li{margin:0}
-  .exhibits .say{
-    margin:22px 0 0;font-size:1.04rem;line-height:1.5;color:var(--fg);
-    padding-left:30px;position:relative;max-width:26em
-  }
-  .exhibits .say::before{
-    content:"";position:absolute;left:0;top:.66em;width:14px;height:2px;background:var(--signal)
-  }
-  .exhibits-src{margin:52px 0 0;max-width:30em}
-
-  /* ---- the light "website fragment" panels ---- */
-  .shot{
-    background:var(--site);color:var(--site-ink);border-radius:5px;overflow:hidden;
-    box-shadow:0 18px 40px -22px rgba(0,0,0,.85);
-    font-size:13px;line-height:1.35
-  }
-  .shot .bar{
-    height:26px;background:var(--site-2);display:flex;align-items:center;padding:0 10px
-  }
-  .shot .bar span{height:8px;width:52%;border-radius:4px;background:var(--site-3)}
-  .shot .body{padding:16px}
-  .bars{height:7px;border-radius:2px;background:var(--site-3);margin-bottom:7px}
-  .bars.w80{width:80%}.bars.w65{width:65%}.bars.w45{width:45%}.bars.w30{width:30%}
-  .shot .cap{
-    font-size:11px;font-weight:500;letter-spacing:.02em;color:#8C8478;margin-bottom:10px
-  }
-
-  /* 1. booking page carrying the template's sample services */
-  .svc{display:flex;align-items:center;justify-content:space-between;gap:12px;
-       padding:9px 0;border-bottom:1px solid var(--site-2)}
-  .svc:last-child{border-bottom:0}
-  .svc .nm{font-size:12.5px;color:#9A9184;font-style:italic}
-  .svc .pr{height:7px;width:34px;border-radius:2px;background:var(--site-3)}
-
-  /* 2. four buttons, one label */
-  .btns{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
-  .btns b{
-    display:block;text-align:center;background:#2C2823;color:#F5F2ED;
-    font-size:10.5px;font-weight:600;letter-spacing:.1em;padding:11px 4px;border-radius:3px
-  }
-
-  /* 3. the button promises a calendar; the page has a form */
-  .cta-row{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-  .cta-row b{
-    background:#2C2823;color:#F5F2ED;font-size:10.5px;font-weight:600;
-    padding:9px 12px;border-radius:3px;white-space:nowrap
-  }
-  .cta-row i{flex:none;font-style:normal;color:#A79E90;font-size:15px;line-height:1}
-  .field{margin-bottom:9px}
-  .field .fl{font-size:10px;color:#9A9184;margin-bottom:4px;letter-spacing:.02em}
-  .field .fb{height:22px;border:1px solid var(--site-3);border-radius:3px;background:#FBFAF8}
-  .field .fb.tall{height:44px}
-  .send{display:inline-block;background:#2C2823;color:#F5F2ED;font-size:10.5px;
-        font-weight:600;padding:8px 16px;border-radius:3px;margin-top:4px}
-
-  /* ---- the deliverable: a representation of the audit PDF ---- */
-  .doc-stack{position:relative}
-  .doc-stack .behind{
-    position:absolute;left:14px;right:-14px;top:14px;bottom:-14px;
-    background:#E9E5DE;border-radius:4px
-  }
-  .doc{
-    position:relative;background:#FCFBF9;border-radius:4px;overflow:hidden;
-    box-shadow:0 26px 56px -26px rgba(0,0,0,.9);
-    display:flex;aspect-ratio:612/792
-  }
-  .doc .spine{width:9px;background:var(--signal);flex:none}
-  .doc .page{flex:1;padding:22px 20px;display:flex;flex-direction:column;color:#2C2823}
-  .doc .wm{font-size:11px;font-weight:600;letter-spacing:-.01em;margin-bottom:26px}
-  .doc .wm i{font-style:normal;color:var(--signal)}
-  .doc .wm em{font-style:normal;color:#9A9184;font-weight:400}
-  .doc .eyebrow{font-size:9.5px;font-weight:500;color:var(--signal);margin-bottom:9px}
-  .doc .h{font-size:19px;font-weight:600;letter-spacing:-.03em;line-height:1.12;margin-bottom:4px}
-  .doc .h .ph{
-    display:inline-block;height:15px;width:118px;border-radius:2px;
-    background:#E4DFD6;vertical-align:-2px
-  }
-  .doc .sub{height:6px;border-radius:2px;background:#E4DFD6;margin-top:12px}
-  .doc .sub.s2{width:72%}
-  .doc .glance{margin-top:auto;border-top:1px solid #EAE6DF;padding-top:14px}
-  .doc .glance .gl{font-size:9.5px;color:#9A9184;margin-bottom:9px}
-  .doc .glance .row{display:flex;gap:18px}
-  .doc .glance .row div{display:flex;align-items:baseline;gap:6px}
-  .doc .glance .n{font-size:19px;font-weight:600;letter-spacing:-.03em}
-  .doc .glance .t{font-size:9.5px;color:#6B6358;line-height:1.3}
-  .doc .foot{margin-top:14px;font-size:9px;color:#A79E90}
-
-  /* ================= plain lists ==================================== */
-  .stack{margin:40px 0 0;padding:0;list-style:none;max-width:31em}
-  .stack li{margin-bottom:34px}
-  .stack li:last-child{margin-bottom:0}
-  .stack p{margin:0;color:var(--fg-2);font-size:1rem}
-
-  .points{margin:28px 0 0;padding:0;list-style:none;max-width:31em}
-  .points li{position:relative;padding-left:26px;margin-bottom:16px;color:var(--fg-2);font-size:1rem;line-height:1.55}
-  .points li:last-child{margin-bottom:0}
-  .points li::before{content:"";position:absolute;left:0;top:.68em;width:12px;height:2px;background:var(--signal)}
-  .raised .points li::before{background:var(--keep)}
-  .raised .label::before{background:var(--keep)}
-  .exhibits-band .label::before{background:var(--signal)}
-  .exhibits-band .points li::before{background:var(--signal)}
-
-  /* ================= price ========================================== */
-  .fig{margin:34px 0 20px;font-size:clamp(3rem,8vw,4.4rem);line-height:.95;
-       font-weight:600;letter-spacing:-.045em;color:var(--fg)}
-  .fig .once{font-size:.26em;font-weight:500;letter-spacing:-.01em;
-             color:var(--muted);margin-left:.34em;vertical-align:.55em}
-  .btn{display:inline-block;margin-top:30px;background:var(--signal-hi);color:#12100E;
-       font-family:inherit;font-weight:600;font-size:1.02rem;letter-spacing:-.012em;
-       padding:16px 32px;border:0;border-radius:3px;text-decoration:none;cursor:pointer;
-       transition:background .18s ease}
-  .btn:hover{background:#F3B989;color:#12100E}
-
-  /* hero CTA: outlined, so the filled copper button stays unique to the
-     one place you actually pay */
-  .btn-ghost{
-    display:inline-flex;align-items:center;gap:10px;margin-top:32px;
-    color:var(--signal-hi);background:none;
-    font-family:inherit;font-weight:600;font-size:1rem;letter-spacing:-.012em;
-    padding:14px 26px;border:1px solid rgba(232,165,116,.5);border-radius:3px;
-    text-decoration:none;cursor:pointer;
-    transition:border-color .18s ease,background .18s ease,color .18s ease
-  }
-  .btn-ghost:hover{border-color:var(--signal-hi);background:rgba(232,165,116,.09);color:var(--signal-hi)}
-  .btn-ghost:focus-visible{outline:2px solid var(--signal-hi);outline-offset:3px}
-  .btn-ghost svg{flex:none;display:block}
-
-  /* the scroll target: land with air above it, and take focus for keyboard
-     users without painting a ring around the whole section */
-  #buy{scroll-margin-top:32px}
-  #buy:focus{outline:none}
-
-  /* ================= email capture ================================== */
-  .capture{margin-top:26px;max-width:31em}
-  .capture label{display:block;margin-bottom:8px}
-  .capture-row{display:flex;gap:10px;flex-wrap:wrap}
-  .capture input{
-    flex:1 1 220px;min-width:0;background:var(--bg);color:var(--fg);
-    border:1px solid rgba(237,232,224,.22);border-radius:3px;
-    font:inherit;font-size:1rem;padding:14px 14px
-  }
-  .capture input:focus-visible{outline:2px solid var(--signal-hi);outline-offset:2px}
-  .capture-note,.capture-legal{margin-top:12px}
+  footer{padding:36px 0 56px;font-size:.92rem;color:var(--ink-2);border-top:1px solid var(--rule)}
+  footer .cookie-link{color:var(--ink);text-decoration-color:var(--blue);text-decoration-thickness:1.5px}
+  footer .cookie-link:hover{color:var(--blue);text-decoration-color:var(--blue)}
   .capture .btn[disabled]{opacity:.55;cursor:wait}
+  #buy{scroll-margin-top:32px}
+  footer .row{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:12px}
 
-  footer{padding:64px 0 76px;color:var(--muted);font-size:.94rem;border-top:1px solid var(--hair)}
-  footer .foot-row{display:flex;gap:26px;flex-wrap:wrap;margin:26px 0 0}
-
-
-  /* ================= text that comes up as you reach it =============
-     Only once the script has added .rv-on to <html>: without JavaScript,
-     or with reduced motion on, every word is simply there. */
-  .rv-on .rv{opacity:0;transform:translateY(14px);
-             transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1);
-             transition-delay:var(--d,0s)}
-  .rv-on .rv.in{opacity:1;transform:none}
-
-  /* the one navigation link, top right */
-  .head-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
-  .nav a{color:var(--fg-2);text-decoration:none;font-size:.95rem;font-weight:500;
-         padding:6px 0;border-bottom:2px solid transparent}
-  .nav{display:flex;gap:26px}
-  .nav a:hover{color:var(--fg);border-bottom-color:var(--signal)}
-  .nav a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--signal)}
+  /* ---------- la penna, legata allo scorrimento ---------- */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .ring .pen,.pg .ok .pen{animation:traccia linear both;animation-timeline:view();animation-range:entry 100% cover 45%}
+      .pages .pg{animation:ventaglio linear both;animation-timeline:view();animation-range:entry 60% cover 45%}
+      .track .fill{animation:riempi linear both;animation-timeline:view();animation-range:entry 100% cover 40%}
+      @keyframes traccia{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+      @keyframes ventaglio{from{transform:translateX(0) rotate(0deg)}to{transform:translateX(var(--dx)) rotate(var(--rot))}}
+      @keyframes riempi{from{transform:scaleX(.033)}to{transform:scaleX(1)}}
+    }
+  }
 </style>
 </head>
 <body>
-
 <header>
-  <div class="wrap head-row">
-    <div class="mark">
-      <span class="tick" aria-hidden="true"></span>
-      <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
-    </div>
-    <nav class="nav" aria-label="Main"><a href="/" aria-current="page">Home</a><a href="/sample-audit/">Sample audit</a><a href="/articles/">Articles</a></nav>
+  <div class="wide">
+    <span class="mark">dropoffaudit<span class="dot">.me</span></span>
+    <nav aria-label="Main"><a href="/" aria-current="page">Home</a><a href="/sample-audit/">Sample audit</a><a href="/articles/">Articles</a></nav>
   </div>
 </header>
 
-<!-- ===================== HERO ===================== -->
-<div class="hero">
-  <div class="wrap">
-    <div class="grid">
-      <div class="rail"><p class="label">Website audits for medical spas</p></div>
-      <div class="col">
-        <div class="hero-split">
-          <div>
-            <h1>The patients who <span class="hl">leave your site</span> never tell you why.</h1>
-            <p class="lede">I go through your site the way a new patient would: find a treatment, find a price, book an appointment. Wherever that stops working, I write down what I saw, on which page, on which day. You get it as a short PDF. One payment, no call, no subscription.</p>
-            <a class="btn-ghost" href="/sample-audit/">
-              Read a sample audit first
-              <svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true">
-                <path d="M1 6.5h12M7.5 1.5l5 5-5 5" stroke="currentColor" stroke-width="1.6"
-                      stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-            <p class="small" style="margin-top:18px">One audit, $490, paid once. <a href="#buy">What you get for it</a>.</p>
-          </div>
-
-          <!-- the deliverable, drawn: structure is real, contents are placeholders -->
-          <div class="hero-art" aria-hidden="true">
-            <div class="doc-stack">
-              <div class="behind"></div>
-              <div class="doc">
-                <div class="spine"></div>
-                <div class="page">
-                  <p class="wm">dropoff<i>audit</i><em>.me</em></p>
-                  <p class="eyebrow">Website Conversion Audit</p>
-                  <p class="h">Prepared for<br><span class="ph"></span></p>
-                  <div class="sub"></div>
-                  <div class="sub s2"></div>
-                  <div class="glance">
-                    <p class="gl">At a glance</p>
-                    <div class="row">
-                      <div><span class="n">4</span><span class="t">revenue leaks<br>found</span></div>
-                      <div><span class="n">3</span><span class="t">things already<br>working</span></div>
-                    </div>
-                  </div>
-                  <p class="foot">Prepared by Luca, DropoffAudit.me</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="hero blueprint">
+  <div class="wide hero-grid">
+    <div>
+      <h1>The patients who leave your site never tell you why.</h1>
+      <p class="lede">I go through your site the way a new patient would: find a treatment, find a price, book an appointment. Wherever that stops working, I write down what I saw, on which page, on which day. You get it as a short PDF. One payment, no call, no subscription.</p>
+      <p><a class="btn-line" href="/sample-audit/">Read a sample audit first</a></p>
+      <p class="small">One audit, $490, paid once. <a href="#buy">What you get for it</a>.</p>
     </div>
+    <figure class="proof">
+      <svg viewBox="0 0 330 460" role="img" aria-label="Drawing: the treatment page of an example med spa, where a sign-up window covers the button to book. The window is circled in red pen, with a note.">
+        <rect x="40" y="6" width="230" height="448" rx="26" fill="#fff" stroke="#0A0A0A" stroke-width="2"/>
+        <text x="62" y="62" font-family="Atkinson Next, system-ui, sans-serif" font-weight="700" font-size="15" fill="#0A0A0A">Your med spa</text>
+        <line x1="62" y1="76" x2="248" y2="76" stroke="#DADADA"/>
+        <text x="62" y="104" font-family="Atkinson Next, system-ui, sans-serif" font-size="13" fill="#4A4A4A">Lip filler</text>
+        <rect x="62" y="114" width="186" height="70" fill="#E3E3E0"/>
+        <text x="62" y="206" font-family="Atkinson Next, system-ui, sans-serif" font-size="11" fill="#4A4A4A">Consultation, treatment, aftercare</text>
+        <rect x="62" y="318" width="186" height="38" fill="#0A0A0A"/>
+        <text x="155" y="342" text-anchor="middle" font-family="Atkinson Next, system-ui, sans-serif" font-weight="700" font-size="13" fill="#fff">Book a consultation</text>
+        <rect x="41" y="7" width="228" height="446" rx="25" fill="#0A0A0A" opacity=".14"/>
+        <rect x="128" y="18" width="54" height="6" rx="3" fill="#0A0A0A"/>
+        <rect x="58" y="226" width="194" height="114" rx="4" fill="#fff" stroke="#0A0A0A" stroke-width="1.5"/>
+        <text x="240" y="244" font-family="Atkinson Next, system-ui, sans-serif" font-size="12" fill="#999">×</text>
+        <text x="72" y="256" font-family="Atkinson Next, system-ui, sans-serif" font-weight="700" font-size="13" fill="#0A0A0A">Join our VIP list</text>
+        <text x="72" y="273" font-family="Atkinson Next, system-ui, sans-serif" font-size="11" fill="#4A4A4A">Offers and news by email</text>
+        <rect x="72" y="283" width="166" height="22" fill="#fff" stroke="#999"/>
+        <rect x="72" y="312" width="166" height="20" fill="#0A0A0A"/>
+        <text x="155" y="326" text-anchor="middle" font-family="Atkinson Next, system-ui, sans-serif" font-weight="700" font-size="11" fill="#fff">Sign up</text>
+        <path d="M60 236 C 74 212, 196 208, 248 218 C 276 226, 274 330, 248 348 C 204 362, 84 360, 58 344 C 42 330, 42 250, 70 226"
+              fill="none" stroke="#C4161C" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M150 362 C 152 374, 146 384, 136 392" fill="none" stroke="#C4161C" stroke-width="2" stroke-linecap="round"/>
+        <text x="62" y="414" font-family="Atkinson Next, system-ui, sans-serif" font-weight="700" font-size="15" fill="#C4161C">covers the button</text>
+        <text x="62" y="434" font-family="Atkinson Next, system-ui, sans-serif" font-weight="700" font-size="15" fill="#C4161C">to book</text>
+      </svg>
+      <figcaption>An example drawing: an invented clinic, not a real site.</figcaption>
+    </figure>
   </div>
 </div>
 
-<!-- ===================== THE FINDINGS ===================== -->
-<section class="raised exhibits-band">
-  <div class="wrap">
-    <div class="grid">
-      <div class="rail"><p class="label">The kind of thing I find</p></div>
-      <div class="col" style="max-width:none">
-        <ul class="exhibits">
-
-          <li>
-            <div class="shot" aria-hidden="true">
-              <div class="bar"><span></span></div>
-              <div class="body">
-                <p class="cap">Book an appointment</p>
-                <div class="svc"><span class="nm">Service Name</span><span class="pr"></span></div>
-                <div class="svc"><span class="nm">Service Name</span><span class="pr"></span></div>
-                <div class="svc"><span class="nm">Add a description</span><span class="pr"></span></div>
-              </div>
+<section class="s find dotgrid">
+  <div class="wide split">
+    <div class="side">
+      <h2>The kind of thing I find</h2>
+    </div>
+    <div>
+      <ul class="finds">
+        <li>
+          <div class="shot" aria-hidden="true">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="body">
+              <p class="cap">Book an appointment</p>
+              <span class="hit">
+                <span class="svc"><span>Service Name</span><i></i></span>
+                <span class="svc"><span>Service Name</span><i></i></span>
+                <span class="svc"><span>Add a description</span><i></i></span>
+                <svg class="ring r1" viewBox="0 0 100 100" preserveAspectRatio="none"><path class="pen red" pathLength="1" d="M6 10 C 20 -2, 86 0, 96 12 C 104 30, 102 82, 92 94 C 74 104, 18 102, 6 90 C -3 74, -2 26, 12 6"/></svg>
+              </span>
             </div>
-            <p class="say">A booking page still listing the sample services from the template it was built on.</p>
-          </li>
-
-          <li>
-            <div class="shot" aria-hidden="true">
-              <div class="bar"><span></span></div>
-              <div class="body">
-                <div class="bars w45"></div>
-                <div class="bars w80" style="margin-bottom:15px"></div>
-                <div class="btns">
-                  <b>MAKE IT</b><b>MAKE IT</b><b>MAKE IT</b><b>MAKE IT</b>
-                </div>
-              </div>
-            </div>
-            <p class="say">Four service buttons that all read <span class="said">MAKE IT</span>. Which one does a patient press?</p>
-          </li>
-
-          <li>
-            <div class="shot" aria-hidden="true">
-              <div class="bar"><span></span></div>
-              <div class="body">
-                <div class="cta-row"><b>Book your appointment</b><i>&rarr;</i></div>
-                <div class="field"><p class="fl">Name</p><div class="fb"></div></div>
-                <div class="field"><p class="fl">Email</p><div class="fb"></div></div>
-                <div class="field"><p class="fl">Message</p><div class="fb tall"></div></div>
-                <span class="send">Send</span>
-              </div>
-            </div>
-            <p class="say">A <span class="said">“Book your appointment”</span> button that leads to a contact form with no calendar.</p>
-          </li>
-
-        </ul>
-        <p class="small exhibits-src">All three are real, found on live medical spa websites and checked a second time. Drawings, not screenshots, so the clinics stay unnamed. <a href="/sample-audit/">A full sample audit is published here</a>, built from three real clinics, none of them named, with the dates each finding was checked.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== WHAT IT IS ===================== -->
-<section>
-  <div class="wrap">
-    <div class="grid">
-      <div class="rail"><p class="label">What you get</p></div>
-      <div class="col">
-        <h2>A short PDF about your site, and nothing else</h2>
-        <p class="muted">Five to seven pages. It arrives by email, once, as a PDF. There is no dashboard to log into and nothing renews.</p>
-
-        <ul class="stack">
-          <li>
-            <h3>What’s already working</h3>
-            <p>It opens with three things your site already gets right. An audit that only lists problems is a sales pitch, and you would be right to distrust it.</p>
-          </li>
-          <li>
-            <h3>Two to four specific leaks</h3>
-            <p>One to a page: what I found, why it matters, the words to change. Written so you can hand it to whoever maintains your site.</p>
-          </li>
-          <li>
-            <h3>An order to do them in</h3>
-            <p>The order I would make the changes in, cheapest fix first.</p>
-          </li>
-        </ul>
-        <p class="small" style="margin-top:36px;max-width:31em">Not a med spa? I audit other practices that take bookings, such as dental, aesthetic, cosmetic surgery and wellness clinics. Email me and I’ll tell you whether it’s a fit.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== THE SAMPLE ===================== -->
-<section class="raised">
-  <div class="wrap">
-    <div class="grid">
-      <div class="rail"><p class="label">See one</p></div>
-      <div class="col">
-        <h2>A sample audit, in full</h2>
-        <p class="muted">Six pages, four leaks, three strengths, an order to do them in. Every finding in it was seen on a real medical spa website and checked on the live page between 11 and 18 September 2026. The leaks come from three different clinics, put together so that none of them can be recognised, and the PDF says so on its cover.</p>
-        <p class="muted">It is written the way every paid audit is written. If it does not read like something you would act on, you have your answer without spending anything.</p>
-        <a class="btn-ghost" href="/sample-audit/">
-          Open the sample audit
-          <svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true">
-            <path d="M1 6.5h12M7.5 1.5l5 5-5 5" stroke="currentColor" stroke-width="1.6"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <p class="small" style="margin-top:18px">No email address required.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== METHOD ===================== -->
-<section>
-  <div class="wrap">
-    <div class="grid">
-      <div class="rail"><p class="label">How it’s checked</p></div>
-      <div class="col">
-        <h2>Reading the code isn’t the same as looking</h2>
-        <p class="muted">Text can sit in a page’s code and be invisible on the screen: grey letters on a dark photograph, or a button parked off the edge of the canvas where nobody will ever reach it.</p>
-        <p class="muted">Twice while preparing recent audits I found a promising problem this way and then deleted it, because measuring the element proved a real visitor never sees it. This is the slow part, and it is why the audits are short.</p>
-        <ul class="points">
-          <li>Every finding is confirmed against the page as it renders, not against the source code.</li>
-          <li>If it can’t be verified, it doesn’t go in, even when it would make the audit look better.</li>
-          <li>No invented statistics, and no industry average dressed up as your number.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== HONEST DISCLOSURE ===================== -->
-<section class="raised">
-  <div class="wrap">
-    <div class="grid">
-      <div class="rail"><p class="label">Before you buy</p></div>
-      <div class="col">
-        <h2>What I can’t tell you</h2>
-        <p class="muted">The whole promise here is that I don’t make things up. It would be strange to start on this page.</p>
-        <ul class="points">
-          <li><strong>I have no client results to show you.</strong> The service is new. Any percentage or revenue figure on this page would be invented, so there are none.</li>
-          <li><strong>I can’t promise the audit will increase your bookings.</strong> I can promise the problems in it are real, and that I found them on your site.</li>
-          <li><strong>It’s just me.</strong> No team, no account manager, no junior doing the work. You deal with the person who wrote the audit.</li>
-          <li><strong>I use AI, and I’d rather say so.</strong> It helps on some of the work. Nothing in the audit rests on it alone.</li>
-          <li><strong>I won’t phone you.</strong> No discovery call. You reply to the email and I answer it myself.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== WHO ===================== -->
-<section>
-  <div class="wrap">
-    <div class="grid">
-      <div class="rail"><p class="label">Who does this</p></div>
-      <div class="col">
-        <h2>One person, in Italy, working while your clinic is closed</h2>
-        <p class="muted">I’m Luca. I run DropoffAudit on my own from a small city in northern Italy, six to nine hours ahead of the United States. That is why your audit gets written overnight, your time, and is in your inbox when you open.</p>
-        <p class="muted">Everything happens in writing. The audit comes by email, you reply to it, and I answer myself. There is nobody else to be passed to.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== PRICE ===================== -->
-<section id="buy" tabindex="-1">
-  <div class="wrap">
-    <div class="grid">
-      <div class="rail"><p class="label">Price</p></div>
-      <div class="col">
-        <h2>One audit, one payment</h2>
-        <p class="fig">$490<span class="once">once</span></p>
-        <p class="muted" style="max-width:31em">What you get: the two to four things standing between a visitor and a booked appointment, the exact words to change, and the order to do them in. By email, as a PDF, within three business days.</p>
-        <p class="muted" style="max-width:31em">Thirty days later I reopen your site, run the same checks again, and send you a short note on what changed and what did not. Included.</p>
-        <p class="muted" style="max-width:31em">Read it and think it wasn’t worth it? Reply within a week and I’ll refund you. You keep the audit.</p>
-        <a class="btn" href="https://buy.stripe.com/4gM8wP03Z3Ry9yF1Es8IU00">Buy the audit</a>
-        <p class="small" style="margin-top:24px">Paying means agreeing to <a href="/terms/">the terms</a>: what you get, refunds, and what an audit does not promise.</p>
-        <p class="small">Prefer to ask something first? Email <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>.</p>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== EMAIL CAPTURE =====================
-     Hidden until CAPTURE_ENDPOINT (in /home.js) names a service
-     that receives the address. The site is static: without an endpoint a
-     form would post nowhere. When it is switched on, the privacy notice
-     must gain a paragraph on what is stored and where. -->
-<section class="raised" id="capture" hidden>
-  <div class="wrap">
-    <div class="grid">
-      <div class="rail"><p class="label">Not ready to buy</p></div>
-      <div class="col">
-        <h2>Get the next teardown by email</h2>
-        <p class="muted" style="max-width:31em">Every few weeks I audit a real medical spa website in public, the same way I would for a client, and publish it. Leave your address and you get each one when it comes out. Nothing else, and one line to stop.</p>
-        <form class="capture" method="post" action="#" novalidate>
-          <label class="small" for="capture-email">Email address</label>
-          <div class="capture-row">
-            <input id="capture-email" name="email" type="email" required autocomplete="email" placeholder="you@yourclinic.com">
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-            <input type="hidden" name="_subject" value="New teardown subscriber">
-            <button class="btn" type="submit" style="margin-top:0">Send me the next one</button>
           </div>
-          <p class="small capture-note" hidden></p>
-          <p class="small capture-legal">I use your address only to send you the published audits, and you can stop them with one word. Details in the <a href="/privacy/">privacy notice</a>.</p>
-        </form>
-      </div>
+          <p class="say">A booking page still listing the sample services from the template it was built on.</p>
+        </li>
+        <li>
+          <div class="shot" aria-hidden="true">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="body">
+              <div class="ln" style="width:45%"></div>
+              <div class="ln" style="width:80%"></div>
+              <span class="hit">
+                <span class="btns"><b>MAKE IT</b><b>MAKE IT</b><b>MAKE IT</b><b>MAKE IT</b></span>
+                <svg class="ring r2" viewBox="0 0 100 100" preserveAspectRatio="none"><path class="pen red" pathLength="1" d="M8 14 C 24 0, 84 2, 95 14 C 103 32, 102 80, 90 92 C 70 102, 22 101, 7 88 C -2 72, -1 30, 14 8"/></svg>
+              </span>
+            </div>
+          </div>
+          <p class="say">Four service buttons that all read <span class="said">MAKE IT</span>. Which one does a patient press?</p>
+        </li>
+        <li>
+          <div class="shot" aria-hidden="true">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="body">
+              <div class="cta">Book your appointment</div>
+              <span class="hit">
+                <span class="fl" style="display:block">Name</span><span class="fb" style="display:block"></span>
+                <span class="fl" style="display:block">Email</span><span class="fb" style="display:block"></span>
+                <span class="fl" style="display:block">Message</span><span class="fb tall" style="display:block"></span>
+                <span class="send">Send</span>
+                <svg class="ring r3" viewBox="0 0 100 100" preserveAspectRatio="none"><path class="pen red" pathLength="1" d="M6 8 C 22 -2, 84 -1, 96 8 C 104 28, 103 84, 92 95 C 72 103, 20 102, 6 92 C -3 76, -2 24, 12 4"/></svg>
+              </span>
+            </div>
+          </div>
+          <p class="say">A <span class="said">“Book your appointment”</span> button that leads to a contact form with no calendar.</p>
+        </li>
+      </ul>
+      <p class="small src">All three are real, found on live medical spa websites and checked a second time. Drawings, not screenshots, so the clinics stay unnamed. <a href="/sample-audit/">A full sample audit is published here</a>, built from three real clinics, none of them named, with the dates each finding was checked.</p>
     </div>
   </div>
 </section>
 
-<!-- ===================== FOOTER ===================== -->
-<footer>
-  <div class="wrap">
-    <div class="grid">
-      <div class="rail"></div>
-      <div class="col">
-        <p><strong>DropoffAudit</strong>, website audits for medical spas.</p>
-
-
-        <div class="foot-row">
-          <a href="/articles/">Articles</a>
-          <a href="/privacy">Privacy notice</a>
-          <a href="/terms/">Terms</a>
-          <a href="/privacy#operator">Legal details</a>
-          <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
-          <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
-        </div>
-        <p class="small" style="margin-top:24px">If you received an audit from me and would rather not hear from me again, reply with “stop” and I’ll remove your details.</p>
-        <p class="small">© <span id="yr">2026</span> DropoffAudit</p>
-      </div>
+<section class="s">
+  <div class="wide split">
+    <div class="side">
+      <h2>A short PDF about your site, and nothing else</h2>
+      <p>Five to seven pages. It arrives by email, once, as a PDF. There is no dashboard to log into and nothing renews.</p>
     </div>
+    <div>
+      <div class="pages" aria-hidden="true">
+        <div class="pg a">
+          <b>What’s already working</b>
+          <div class="ok"><svg viewBox="0 0 12 10"><path class="pen" pathLength="1" d="M1 5 L4.5 8.5 L11 1"/></svg><div class="ln"></div></div>
+          <div class="ok"><svg viewBox="0 0 12 10"><path class="pen" pathLength="1" d="M1 5 L4.5 8.5 L11 1"/></svg><div class="ln"></div></div>
+          <div class="ok"><svg viewBox="0 0 12 10"><path class="pen" pathLength="1" d="M1 5 L4.5 8.5 L11 1"/></svg><div class="ln"></div></div>
+        </div>
+        <div class="pg c">
+          <b>An order to do them in</b>
+          <div class="num"><span>1</span><div class="ln"></div></div>
+          <div class="num"><span>2</span><div class="ln"></div></div>
+          <div class="num"><span>3</span><div class="ln"></div></div>
+          <div class="num"><span>4</span><div class="ln"></div></div>
+        </div>
+        <div class="pg b">
+          <b>One leak, one page</b>
+          <div class="ln" style="width:90%"></div><div class="ln" style="width:75%"></div><div class="ln" style="width:85%"></div>
+          <div class="words">The words to change<div class="ln" style="margin-top:6px;width:80%"></div></div>
+        </div>
+      </div>
+      <ul class="three">
+        <li><h3>What’s already working</h3><p>It opens with three things your site already gets right. An audit that only lists problems is a sales pitch, and you would be right to distrust it.</p></li>
+        <li><h3>Two to four specific leaks</h3><p>One to a page: what I found, why it matters, the words to change. Written so you can hand it to whoever maintains your site.</p></li>
+        <li><h3>An order to do them in</h3><p>The order I would make the changes in, cheapest fix first.</p></li>
+      </ul>
+      <p class="small" style="margin-top:28px;max-width:36rem">Not a med spa? I audit other practices that take bookings, such as dental, aesthetic, cosmetic surgery and wellness clinics. Email me and I’ll tell you whether it’s a fit.</p>
+    </div>
+  </div>
+</section>
+
+<section class="s sample">
+  <div class="wide split">
+    <div class="side">
+      <h2>A sample audit, in full</h2>
+    </div>
+    <div>
+      <p>Six pages, four leaks, three strengths, an order to do them in. Every finding in it was seen on a real medical spa website and checked on the live page between 11 and 18 September 2026. The leaks come from three different clinics, put together so that none of them can be recognised, and the PDF says so on its cover.</p>
+      <p>It is written the way every paid audit is written. If it does not read like something you would act on, you have your answer without spending anything.</p>
+      <p><a class="btn-line" href="/sample-audit/">Open the sample audit</a></p>
+      <p class="small">No email address required.</p>
+    </div>
+  </div>
+</section>
+
+<section class="s dotgrid">
+  <div class="wide split">
+    <div class="side">
+      <h2>Reading the code isn’t the same as looking</h2>
+    </div>
+    <div>
+      <p>Text can sit in a page’s code and be invisible on the screen: grey letters on a dark photograph, or a button parked off the edge of the canvas where nobody will ever reach it.</p>
+      <div class="cmp" aria-hidden="true">
+        <figure>
+          <figcaption>In the code</figcaption>
+          <div class="code"><span class="k">&lt;section class="hero"&gt;</span>
+  <span class="k">&lt;img src="treatment.jpg"&gt;</span>
+  <span class="k">&lt;a href="/book"&gt;</span><span class="y">Book now</span><span class="k">&lt;/a&gt;</span>
+<span class="k">&lt;/section&gt;</span></div>
+        </figure>
+        <figure>
+          <figcaption>On the screen</figcaption>
+          <div class="screen">
+            <div class="photo"></div>
+            <span class="ghost">Book now</span>
+            <svg class="ring" viewBox="0 0 100 100" preserveAspectRatio="none"><path class="pen red" pathLength="1" d="M8 18 C 26 -2, 86 0, 96 20 C 104 44, 100 84, 84 94 C 60 104, 16 100, 6 82 C -2 64, 0 30, 18 8"/></svg>
+            <div class="ln" style="top:138px;width:60%"></div>
+            <div class="ln" style="top:156px;width:42%"></div>
+          </div>
+        </figure>
+      </div>
+      <p class="small" style="margin-top:-16px">An invented example, drawn.</p>
+      <p>Twice while preparing recent audits I found a promising problem this way and then deleted it, because measuring the element proved a real visitor never sees it. This is the slow part, and it is why the audits are short.</p>
+      <ul class="points">
+        <li>Every finding is confirmed against the page as it renders, not against the source code.</li>
+        <li>If it can’t be verified, it doesn’t go in, even when it would make the audit look better.</li>
+        <li>No invented statistics, and no industry average dressed up as your number.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="s">
+  <div class="wide split">
+    <div class="side">
+      <h2>What I can’t tell you</h2>
+      <p>The whole promise here is that I don’t make things up. It would be strange to start on this page.</p>
+    </div>
+    <ul class="grid4">
+      <li><strong>I have no client results to show you.</strong> The service is new. Any percentage or revenue figure on this page would be invented, so there are none.</li>
+      <li><strong>I can’t promise the audit will increase your bookings.</strong> I can promise the problems in it are real, and that I found them on your site.</li>
+      <li><strong>It’s just me.</strong> No team, no account manager, no junior doing the work. You deal with the person who wrote the audit.</li>
+      <li><strong>I use AI, and I’d rather say so.</strong> It helps on some of the work. Nothing in the audit rests on it alone.</li>
+      <li><strong>I won’t phone you.</strong> No discovery call. You reply to the email and I answer it myself.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="s who">
+  <div class="wide split">
+    <div class="side">
+      <h2>One person, in Italy, working while your clinic is closed</h2>
+    </div>
+    <div>
+      <p>I’m Luca. I run DropoffAudit on my own from a small city in northern Italy, six to nine hours ahead of the United States. That is why your audit gets written overnight, your time, and is in your inbox when you open.</p>
+      <p>Everything happens in writing. The audit comes by email, you reply to it, and I answer myself. There is nobody else to be passed to.</p>
+    </div>
+  </div>
+</section>
+
+<section class="s price blueprint" id="buy" tabindex="-1">
+  <div class="wide split">
+    <div class="side">
+      <h2>One audit, one payment</h2>
+      <p class="fig">$490<span class="once">once</span></p>
+    </div>
+    <div>
+      <p class="m">What you get: the two to four things standing between a visitor and a booked appointment, the exact words to change, and the order to do them in. By email, as a PDF, within three business days.</p>
+      <figure class="when" aria-label="After you pay: the PDF within three business days, a week to ask for a refund, the recheck note thirty days later.">
+        <div class="tw">
+          <div class="track"><span class="fill"></span><span class="ticks"></span></div>
+          <span class="mk m0">1</span><span class="mk m3">2</span><span class="win"><span class="mk">3</span></span><span class="mk m30">4</span>
+        </div>
+        <ol class="stops">
+          <li><div><b>You pay</b>$490, once</div></li>
+          <li><div><b>The PDF</b>within 3 business days</div></li>
+          <li><div><b>Refund</b>reply within a week of reading</div></li>
+          <li><div><b>The recheck</b>30 days later</div></li>
+        </ol>
+      </figure>
+      <p class="m">Thirty days later I reopen your site, run the same checks again, and send you a short note on what changed and what did not. Included.</p>
+      <p class="m">Read it and think it wasn’t worth it? Reply within a week and I’ll refund you. You keep the audit.</p>
+      <p><a class="btn" href="https://buy.stripe.com/4gM8wP03Z3Ry9yF1Es8IU00">Buy the audit</a></p>
+      <p class="small">Paying means agreeing to <a href="/terms/">the terms</a>: what you get, refunds, and what an audit does not promise.</p>
+      <p class="small">Prefer to ask something first? Email <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Hidden until /home.js turns it on (Formspree endpoint set). -->
+<section class="s" id="capture" hidden>
+  <div class="wide split">
+    <div class="side">
+      <h2>Get the next teardown by email</h2>
+    </div>
+    <div>
+      <p style="max-width:36rem">Every few weeks I audit a real medical spa website in public, the same way I would for a client, and publish it. Leave your address and you get each one when it comes out. Nothing else, and one line to stop.</p>
+      <form class="capture" method="post" action="#" novalidate>
+        <label class="small" for="capture-email">Email address</label>
+        <div class="capture-row">
+          <input id="capture-email" name="email" type="email" required autocomplete="email" placeholder="you@yourclinic.com">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <input type="hidden" name="_subject" value="New teardown subscriber">
+          <button class="btn" type="submit">Send me the next one</button>
+        </div>
+        <p class="small capture-note" hidden></p>
+        <p class="small capture-legal">I use your address only to send you the published audits, and you can stop them with one word. Details in the <a href="/privacy/">privacy notice</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wide">
+    <p><strong>DropoffAudit</strong>, website audits for medical spas.</p>
+    <div class="row">
+      <a href="/articles/">Articles</a>
+      <a href="/privacy">Privacy notice</a>
+      <a href="/terms/">Terms</a>
+      <a href="/privacy#operator">Legal details</a>
+      <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+      <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
+    </div>
+    <p class="small" style="margin-top:20px">If you received an audit from me and would rather not hear from me again, reply with “stop” and I’ll remove your details.</p>
+    <p class="small">© <span id="yr">2026</span> DropoffAudit</p>
   </div>
 </footer>
 
