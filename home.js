@@ -24,10 +24,10 @@ var CAPTURE_ENDPOINT = 'https://formspree.io/f/xnpnnbol';
     if (!email || email.indexOf('@') < 1){ say('That does not look like an email address.'); return; }
     /* the same address from the same browser is not sent twice: one click
        that looks like nothing happened must not become two rows */
-    if (remembered(email)){ say('That address is already on the list. The next teardown comes to ' + email + '.'); return; }
+    if (remembered(email)){ say('That address is already on the list. The next article comes to ' + email + '.'); return; }
     busy = true; btn.disabled = true; say('Sending\u2026');
     fetch(CAPTURE_ENDPOINT, {method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form)})
-      .then(function(r){ if(!r.ok) throw new Error(r.status); remember(email); say('Done. The next teardown comes to ' + email + '. There is no confirmation email: if you want to be sure, write to luca@dropoffaudit.me and I will answer myself.'); form.email.value=''; })
+      .then(function(r){ if(!r.ok) throw new Error(r.status); remember(email); say('Done. The next article comes to ' + email + '. There is no confirmation email: if you want to be sure, write to luca@dropoffaudit.me and I will answer myself.'); form.email.value=''; })
       .catch(function(){ say('Something went wrong. Email me instead: luca@dropoffaudit.me'); })
       .then(function(){ busy = false; btn.disabled = false; });
   });

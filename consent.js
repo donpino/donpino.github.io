@@ -74,6 +74,14 @@
     '.cc .x{position:absolute;top:10px;right:10px;width:34px;height:34px;border:0;background:none;color:#4A4A4A;cursor:pointer;border-radius:3px}' +
     '.cc .x:hover{color:#0A0A0A}' +
     '.cc button:focus-visible{outline:3px solid #C4161C;outline-offset:2px}' +
+    '@media (min-width:900px){' +
+    '.cc{left:0;right:0;bottom:0;max-width:none;margin:0;border-width:2px 0 0;border-radius:0;box-shadow:none;' +
+    'padding:12px 64px 12px 24px;display:flex;align-items:center;gap:24px;font-size:15px;line-height:1.45}' +
+    '.cc p{margin:0;flex:1}' +
+    '.cc .row{flex:none}' +
+    '.cc .row button{flex:none;font-size:15px;padding:10px 18px}' +
+    '.cc .x{top:50%;right:14px;margin-top:-17px}' +
+    '}' +
     '.cookie-link{background:none;border:0;padding:0;font:inherit;color:#0A0A0A;cursor:pointer;' +
     'text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;text-decoration-color:#1C3AA9}' +
     '.cookie-link:hover{color:#1C3AA9}';
