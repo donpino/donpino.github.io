@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Landing page audit: what to check, with Google’s own criteria | DropoffAudit</title>
+<meta name="description" content="A landing page audit in 14 checks: does the page keep the promise of the ad, what Google says it looks at in landing page experience, and where the usual landing page statistics come from.">
+<link rel="canonical" href="https://dropoffaudit.me/landing-page-audit/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DropoffAudit">
+<meta property="og:title" content="Landing page audit: what to check, with Google’s own criteria">
+<meta property="og:description" content="A landing page audit in 14 checks: does the page keep the promise of the ad, what Google says it looks at in landing page experience, and where the usual landing page statistics come from.">
+<meta property="og:url" content="https://dropoffaudit.me/landing-page-audit/">
+<meta name="robots" content="index, follow">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/articles/article.css">
+<style>
+  .checks{margin:0 0 14px;padding-left:2.2rem}
+  .checks li{margin-bottom:12px;padding-left:6px;line-height:1.58}
+  .checks li::marker{font-weight:700}
+  .toc{list-style:none;margin:0 0 30px;padding:16px 20px;background:var(--soft)}
+  .toc li{margin:6px 0}
+  h2[id],.limits[id]{scroll-margin-top:24px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head-row">
+    <a class="mark" href="/">
+      <span class="tick" aria-hidden="true"></span>
+      <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="/">Home</a><a href="/sample-audit/">Sample audit</a><a href="/articles/">Articles</a><a href="/faq/">FAQ</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">Landing page audit</p></div>
+      <div class="col">
+        <h1>Landing page audit: what to check on the page your ads lead to</h1>
+        <p class="updated">Last updated: 13 November 2026</p>
+        <p class="lede">A landing page audit looks at one page, the one a visitor arrives on after pressing an ad or a link. It asks two things: does the page keep the promise that brought the visitor there, and can they do the one thing the page exists for. Below are what Google says it looks at, 14 checks you can run yourself, and what the numbers usually quoted about landing pages really measured.</p>
+
+        <ul class="toc">
+          <li><a href="#what">What a landing page is</a></li>
+          <li><a href="#google">What Google says it looks at</a></li>
+          <li><a href="#checks">The audit: 14 checks</a></li>
+          <li><a href="#numbers">The numbers quoted about landing pages</a></li>
+          <li><a href="#limits">What an audit cannot tell you</a></li>
+          <li><a href="#sources">Sources</a></li>
+        </ul>
+
+        <h2 id="what">What a landing page is, and why its audit is different</h2>
+        <p>A landing page is the page a visitor lands on from somewhere else: a search ad, a social post, an email. It may be the home page, or a page built for one campaign. What sets it apart is that the visitor arrives with a promise already in mind, the one made by the ad they pressed.</p>
+        <p>That is the difference from <a href="/website-conversion-audit/">a conversion audit of a whole site</a>, which follows every way to a booking or a purchase across many pages. A landing page audit follows one way only: from the ad, to the page, to the action.</p>
+
+        <h2 id="google">What Google says it looks at</h2>
+        <p>Google Ads gives each keyword a Quality Score from 1 to 10, built from three components. One of them is landing page experience, which Google defines as “how relevant and useful your landing page is to people who click your ad”.<a class="ref" href="#s1">1</a> In its advice to advertisers, Google lists what makes a landing page work:<a class="ref" href="#s2">2</a></p>
+        <ul class="points">
+          <li><strong>It matches the ad.</strong> Google’s own example: if the ad promises shoes at 20% off, visitors should be able to find and buy shoes at that price on the page.</li>
+          <li><strong>It repeats the call to action.</strong> If the ad invites people to sign up for something, the way to sign up should be prominent on the page.</li>
+          <li><strong>It works on a phone:</strong> quick, simple to move around, easy to contact the business.</li>
+          <li><strong>The important information is near the top</strong>, and the page is not cluttered with ads or pop ups.</li>
+          <li><strong>The content is useful and original</strong>, clear about what is offered. Google mentions reviews from real customers as an example.</li>
+        </ul>
+        <p>One caution from the same source. Google describes Quality Score as a diagnostic tool, says it is not an input in the ad auction, and says it should not be treated as a target to optimize.<a class="ref" href="#s1">1</a> It tells you where to look. It is not a grade to chase.</p>
+
+        <h2 id="checks">The audit: 14 checks</h2>
+        <p>Do them on a phone, in a private window, starting from the ad and not from the page. Write the date next to each answer.</p>
+        <h3>The promise that brought them</h3>
+        <ol class="checks" start="1">
+          <li>Open the ad, the post or the email that sends people to the page. Write down what it promises, in its exact words.</li>
+          <li>Does the headline of the page repeat that promise, in words a visitor will recognise?</li>
+          <li>If the ad names a price or an offer, is the same price or offer on the page?</li>
+          <li>Does the main button ask for the same action the ad announced?</li>
+        </ol>
+        <h3>The first screen, on a phone</h3>
+        <ol class="checks" start="5">
+          <li>Without scrolling: can you tell what is offered and what to do next?</li>
+          <li>Does a pop up or a cookie banner cover the headline or the main button?</li>
+          <li>How long does the page take to load on a phone? Measure it with Google’s PageSpeed Insights and write the figure down with the date.</li>
+        </ol>
+        <h3>The action</h3>
+        <ol class="checks" start="8">
+          <li>Press the main button. Does it work, and does it land where its words say?</li>
+          <li>Is there one main action on the page, or several that compete with each other?</li>
+          <li>Count the fields in the form. Is there one you would not need in order to reply?</li>
+        </ol>
+        <h3>Reasons to believe</h3>
+        <ol class="checks" start="11">
+          <li>Does the page show anything a customer said: a review, a rating, a quote?</li>
+          <li>Does it say who is behind the offer: the name of the business, where it is, a way to get in touch?</li>
+        </ol>
+        <h3>Leftovers</h3>
+        <ol class="checks" start="13">
+          <li>Is the offer still valid? Look for dates that have passed.</li>
+          <li>Read the page once for spelling mistakes and for text left over from a template.</li>
+        </ol>
+        <p class="small">For a whole site, the longer list is the <a href="/conversion-audit-checklist/">conversion audit checklist</a>.</p>
+
+        <h2 id="numbers">The numbers quoted about landing pages</h2>
+        <p>Three figures come up in almost every guide to landing pages. I went looking for where each one comes from.</p>
+        <ul class="points">
+          <li><strong>“The average landing page converts at 2.35%.”</strong> That is the median of a few hundred Google Ads accounts in a company blog post from 2014. A 2024 report by a company that sells a landing page builder gives a median of 6.6% across more than 41,000 of its customers’ pages. They count different things. <a href="/articles/average-conversion-rate/">The sources are here</a>.</li>
+          <li><strong>“53% of visitors leave if the page takes more than three seconds.”</strong> One month of analytics data from 3,700 mobile sites in 2016, restated more strongly than Google wrote it. <a href="/articles/three-second-rule/">The sources are here</a>.</li>
+          <li><strong>“You have 50 milliseconds to make a first impression.”</strong> A 2006 laboratory study in which 20 students rated the look of screenshots. Nobody could stay, leave or buy. <a href="/articles/fifty-milliseconds/">The source is here</a>.</li>
+        </ul>
+
+        <div class="limits" id="limits"><p class="lh">What a landing page audit cannot tell you</p><ul class="points">
+          <li><strong>Which version of the page would do better.</strong> That takes an A/B test, with two versions shown to live visitors and enough of them to tell the versions apart.</li>
+          <li><strong>What your conversion rate should be.</strong> The benchmarks above describe other companies’ customers, not your page.</li>
+          <li><strong>How much a fix will earn.</strong> Only your own figures, before and after the change, show that.</li>
+        </ul></div>
+
+        <h2>Having it done</h2>
+        <p>When I audit a site I look the business up in Google’s public ad library, and if it is advertising I open the page an ad leads to and go through it as a visitor would. That is part of every audit: <a href="/#buy">$490, paid once</a>, with a full <a href="/sample-audit/">sample to read first</a>.</p>
+
+        <h2 id="sources">Sources</h2>
+        <p class="small">Both pages were opened and read on 13 November 2026.</p>
+        <ol class="sources">
+          <li id="s1">Google Ads Help. About Quality Score for Search campaigns. <a href="https://support.google.com/google-ads/answer/2404197?hl=en" rel="noopener">support.google.com/google-ads/answer/2404197</a>
+            <span class="design"><b>Type:</b> help page of the company that sells the advertising. It defines landing page experience and says how Quality Score should and should not be used.</span></li>
+          <li id="s2">Google Ads Help. Optimize your ads and landing pages. <a href="https://support.google.com/google-ads/answer/6238826?hl=en" rel="noopener">support.google.com/google-ads/answer/6238826</a>
+            <span class="design"><b>Type:</b> help page with advice to advertisers. It gives no figures and cites no studies.</span></li>
+        </ol>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"></div>
+      <div class="col">
+        <div class="foot-row">
+          <a href="/">Back to DropoffAudit</a>
+          <a href="/articles/">Articles</a>
+          <a href="/website-conversion-audit/">What a conversion audit is</a>
+          <a href="/conversion-audit-checklist/">Checklist</a>
+          <a href="/faq/">FAQ</a>
+          <a href="/privacy/">Privacy notice</a>
+          <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+          <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
+        </div>
+        <p class="small" style="margin-top:24px">© <span id="yr">2026</span> DropoffAudit</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/year.js"></script>
+
+<script src="/consent.js" defer></script>
+</body>
+</html>
