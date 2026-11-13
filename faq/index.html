@@ -213,14 +213,21 @@
 <link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="/articles/article.css">
 <style>
-  .faq{margin:18px 0 8px;border-top:1px solid var(--line,#DADADA)}
-  .faq details{border-bottom:1px solid var(--line,#DADADA)}
-  .faq summary{cursor:pointer;list-style:none;padding:16px 34px 16px 0;font-weight:700;position:relative}
+  .faq{margin:20px 0 10px;display:grid;gap:10px}
+  .faq details{background:var(--sheet-3);border-radius:3px;border-left:3px solid transparent;transition:border-color .18s ease}
+  .faq details[open]{border-left-color:var(--blue);background:#fff}
+  .faq summary{cursor:pointer;list-style:none;padding:16px 52px 16px 20px;font-weight:700;color:var(--sheet-ink);position:relative;line-height:1.35}
   .faq summary::-webkit-details-marker{display:none}
-  .faq summary::after{content:"+";position:absolute;right:6px;top:14px;font-weight:400;font-size:1.3rem;line-height:1}
-  .faq details[open] summary::after{content:"\2212"}
-  .faq summary:focus-visible{outline:2px solid currentColor;outline-offset:2px}
-  .faq details p{margin:0 0 18px;max-width:38rem}
+  .faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;
+    background:var(--blue);color:#fff;font-weight:700;font-size:1.05rem;line-height:24px;text-align:center}
+  .faq details[open] summary::after{content:"\2212";background:var(--sheet-ink)}
+  .faq summary:hover{color:var(--blue)}
+  .faq summary:focus-visible{outline:3px solid var(--pen);outline-offset:2px}
+  .faq details p{margin:0;padding:0 20px 18px;max-width:38rem}
+  .paper h2{padding-top:6px}
+  .ask{margin-top:44px;padding:22px 24px;background:var(--blue);border-radius:3px}
+  .paper .ask p{color:#fff;margin:0}
+  .paper .ask a{color:#fff;text-decoration-color:#FFE14D}
 </style>
 </head>
 <body>
@@ -239,7 +246,12 @@
   <div class="wrap">
     <div class="grid">
       <div class="rail"><p class="label">FAQ</p></div>
-      <div class="col">
+      <div class="col col-paper">
+
+        <div class="paper-stack">
+        <span class="sheet" aria-hidden="true"></span>
+        <article class="paper">
+        <p class="wm" aria-hidden="true">dropoff<i>audit</i><em>.me</em> · FAQ</p>
         <h1>Questions and answers</h1>
         <p class="updated">Last updated: 13 November 2026</p>
         <p class="lede">Short answers about the audit, and about what research does and does not say on why websites lose customers. Press a question to open its answer. Where an answer has a number in it, the source is in the article it links to.</p>
@@ -275,7 +287,9 @@
           <details><summary>Does the wording on a website change what people decide?</summary><p>In the studies I read, yes, for judgments and usability. One website tested 124% better on a usability score once its promotional copy was made objective, concise and scannable. None of those studies measured sales or bookings. Details in <a href="/articles/wording-and-decisions/">this article</a>.</p></details>
         </div>
 
-        <p>Something not answered here? Email <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a> and I will answer myself.</p>
+        <div class="ask"><p><strong style="color:#fff">Something not answered here?</strong> Email <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a> and I will answer myself.</p></div>
+        </article>
+        </div>
       </div>
     </div>
   </div>
@@ -292,6 +306,7 @@
           <a href="/website-conversion-audit/">What a conversion audit is</a>
           <a href="/conversion-audit-checklist/">Checklist</a>
           <a href="/faq/">FAQ</a>
+          <a href="/about/">About</a>
           <a href="/privacy/">Privacy notice</a>
           <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
           <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>

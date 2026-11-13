@@ -19,6 +19,14 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="/articles/article.css">
+<style>
+  .find{margin:40px 0 0;max-width:440px}
+  .find label{display:block;font-weight:700;color:var(--ink);margin-bottom:8px}
+  .find input{width:100%;font:inherit;padding:13px 16px;border:2px solid var(--ink);border-radius:3px;background:#fff;color:var(--ink)}
+  .find input:focus-visible{outline:3px solid var(--pen);outline-offset:3px}
+  .find-none{margin-top:14px}
+  .find+.shelf{margin-top:36px}
+</style>
 </head>
 <body>
 
@@ -42,7 +50,32 @@
         <p class="lede">What the research actually says about the things an audit points out. I open and read every study I use. Each number links to where it was measured, says how (experiment, survey, industry report) and on how many people. Where I could not find a measurement, the article says that too.</p>
 
         <!-- One <li> per article, newest first. build.sh fails if an article folder is not linked here. -->
+        <div class="find" hidden>
+          <label class="small" for="find-q">Search the articles</label>
+          <input id="find-q" type="search" autocomplete="off" placeholder="A word, such as price, reviews, speed">
+          <p class="small find-none" hidden>No article matches. Try a shorter word.</p>
+        </div>
         <ul class="shelf">
+          <li>
+            <a class="card" href="/articles/website-not-converting/">
+              <span class="sheet" aria-hidden="true"></span>
+              <span class="doc">
+                <span class="spine" aria-hidden="true"></span>
+                <span class="page">
+                  <span class="wm">dropoff<i>audit</i><em>.me</em> · Articles</span>
+                  <span class="eyebrow">Conversion</span>
+                  <span class="h">Why is my website not converting? What was measured, and what I find when I look</span>
+                  <span class="teaser">The usual reasons a website does not convert, checked against the studies behind them. Then seven specific problems found on real business websites, none of which needed a redesign.</span>
+                  <span class="lines" aria-hidden="true"><i></i><i></i><i class="s"></i><i></i><i></i><i></i><i class="s"></i><i></i><i></i><i class="s"></i><i></i><i></i><i></i><i class="s"></i></span>
+                  <span class="glance">
+                    <span class="n">7</span>
+                    <span class="t">specific problems found on real business websites, each one seen on the live page</span>
+                  </span>
+                  <span class="foot"><span>2 sources</span><span class="go">Read <svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M1 6.5h12M7.5 1.5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+                </span>
+              </span>
+            </a>
+          </li>
           <li>
             <a class="card" href="/articles/fifty-milliseconds/">
               <span class="sheet" aria-hidden="true"></span>
@@ -280,6 +313,7 @@
           <a href="/website-conversion-audit/">What a conversion audit is</a>
           <a href="/conversion-audit-checklist/">Checklist</a>
           <a href="/faq/">FAQ</a>
+          <a href="/about/">About</a>
           <a href="/privacy">Privacy notice</a>
           <a href="/terms/">Terms</a>
           <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
@@ -292,6 +326,7 @@
 </footer>
 
 <script src="/year.js"></script>
+<script src="/articles/search.js" defer></script>
 <script src="/consent.js" defer></script>
 </body>
 </html>
