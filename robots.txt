@@ -1,0 +1,6 @@
+# Tutto il sito e' aperto a tutti i motori, compresi quelli delle AI
+# (Googlebot, Bingbot, OAI-SearchBot, PerplexityBot, ClaudeBot).
+User-agent: *
+Allow: /
+
+Sitemap: https://dropoffaudit.me/sitemap.xml

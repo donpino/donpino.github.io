@@ -6,7 +6,35 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>When Google answered in AI Mode, people clicked on far fewer websites | DropoffAudit</title>
-<meta name="description" content="A randomized field experiment with 1,100 Google users measured what AI Mode and AI summaries do to clicks on websites. What it found, what it cannot say about a clinic, and what decides who gets named in the answer.">
+<meta name="description" content="A randomized field experiment with 1,100 Google users measured what AI Mode and AI summaries do to clicks on websites. What it found, what it cannot say about a single business, and what decides who gets named in the answer.">
+<link rel="canonical" href="https://dropoffaudit.me/articles/ai-mode-clicks/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="DropoffAudit">
+<meta property="og:title" content="When Google answered in AI Mode, people clicked on far fewer websites">
+<meta property="og:description" content="A randomized field experiment with 1,100 Google users measured what AI Mode and AI summaries do to clicks on websites. What it found, what it cannot say about a single business, and what decides who gets named in the answer.">
+<meta property="og:url" content="https://dropoffaudit.me/articles/ai-mode-clicks/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "When Google answered in AI Mode, people clicked on far fewer websites",
+ "description": "A randomized field experiment with 1,100 Google users measured what AI Mode and AI summaries do to clicks on websites. What it found, what it cannot say about a single business, and what decides who gets named in the answer.",
+ "author": {
+  "@type": "Person",
+  "name": "Luca",
+  "url": "https://dropoffaudit.me/"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "DropoffAudit",
+  "url": "https://dropoffaudit.me/"
+ },
+ "datePublished": "2026-10-19",
+ "dateModified": "2026-11-13",
+ "mainEntityOfPage": "https://dropoffaudit.me/articles/ai-mode-clicks/",
+ "inLanguage": "en"
+}
+</script>
 <meta name="color-scheme" content="light">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
@@ -39,7 +67,7 @@
         <p class="wm" aria-hidden="true">dropoff<i>audit</i><em>.me</em> · Articles</p>
         <h1>When Google answered in AI Mode, people clicked on far fewer websites</h1>
         <p class="meta">October 2026 · Luca</p>
-        <p class="lede">Google now answers many searches itself: a summary at the top of the results, or AI Mode, where the whole page is a written answer. Someone searching for a treatment in their town can get a reply that names a few clinics without opening any website. I wanted to know whether anyone has measured what this does to clicks. One experiment posted this summer did, with real people on their own computers. It was not about clinics, and this article says what that changes.</p>
+        <p class="lede">Google now answers many searches itself: a summary at the top of the results, or AI Mode, where the whole page is a written answer. Someone searching for a service in their town can get a reply that names a few businesses without opening any website. I wanted to know whether anyone has measured what this does to clicks. One experiment posted this summer did, with real people on their own computers. It covered all kinds of searches, not searches for a local business, and this article says what that changes.</p>
 
         <h2>What the experiment did</h2>
         <p>Researchers at the University of Pennsylvania and Northeastern University recruited 1,444 adults in the United States in March 2026, all people who use Chrome and search with Google.<a class="ref" href="#s1">1</a> Each installed a browser extension that recorded their searches and clicks during their normal browsing. For three days nothing changed. Then each person was assigned at random to one of three versions of Google for seven days:</p>
@@ -65,28 +93,28 @@
             <li><strong>It is a preprint</strong>, not yet reviewed by other researchers. The version I read is marked as a draft.</li>
             <li><strong>AI Mode was forced on every search.</strong> Almost nobody used it by choice at the start, and the authors write that people who adopt it gradually may behave differently.</li>
             <li><strong>Seven days only.</strong> People may get used to it, or not.</li>
-            <li><strong>All kinds of searches</strong>, not searches for a clinic or a local service. The authors ask for studies on specific areas and name health among them.</li>
+            <li><strong>All kinds of searches</strong>, not searches for a local business. The authors ask for studies on specific areas.</li>
             <li>The participants were younger, more educated and more left leaning than the American population.</li>
-            <li>It measures clicks, not appointments, and it says nothing about <strong>which</strong> businesses the answer names.</li>
+            <li>It measures clicks, not sales or bookings, and it says nothing about <strong>which</strong> businesses the answer names.</li>
           </ul>
           <p>The study was funded by the National Science Foundation, and the authors declare no competing interests.</p>
         </div>
 
         <h2>What decides who gets named</h2>
-        <p>If fewer people click, the businesses named in the answer get more of the attention that is left. I found no experiment on how an AI answer chooses between clinics. The closest is SAGEO Arena, a study presented at KDD 2026, a peer reviewed computer science conference.<a class="ref" href="#s3">3</a> Researchers in Seoul took 171,003 real web pages returned by Google for 2,700 questions and rebuilt the steps of an AI search engine: find the pages, rank them, write an answer that cites some of them. Then they rewrote pages in different ways and watched whether each one rose or fell.</p>
+        <p>If fewer people click, the businesses named in the answer get more of the attention that is left. The experiment does not say how an AI answer chooses which businesses to name. The closest study I found is SAGEO Arena, a study presented at KDD 2026, a peer reviewed computer science conference.<a class="ref" href="#s3">3</a> Researchers in Seoul took 171,003 real web pages returned by Google for 2,700 questions and rebuilt the steps of an AI search engine: find the pages, rank them, write an answer that cites some of them. Then they rewrote pages in different ways and watched whether each one rose or fell.</p>
         <ul class="points">
           <li>Rewriting only the <strong>body text</strong> with an AI tool made pages slightly harder to find and slightly less often cited, on average.</li>
           <li>Improving the <strong>title, the description and the structured data</strong> that search engines read made pages 22% more likely to be found in the first step.</li>
           <li>Pages ranked higher when the <strong>answer came early</strong>, and dropped when a rewrite pushed the answer further down, even with the answer still on the page.</li>
         </ul>
-        <p>This is a search engine built by the researchers, not Google. None of the nine kinds of questions was about a local business, and in the shopping questions every rewriting method lowered the chance of being cited. It shows what such a system reads, not what it brings a clinic.</p>
+        <p>This is a search engine built by the researchers, not Google. None of the nine kinds of questions was about a local business, and in the shopping questions every rewriting method lowered the chance of being cited. It shows what such a system reads, not what it brings a business.</p>
 
-        <h2>What I take from this for a clinic</h2>
+        <h2>What I take from this</h2>
         <ul class="points">
-          <li><strong>I found no study that measures what AI Mode does to a clinic’s bookings.</strong> The experiment measured clicks across all kinds of searches.</li>
+          <li><strong>The experiment measured clicks, not sales or bookings.</strong> And it covered all kinds of searches.</li>
           <li><strong>When Google answers in AI Mode, far fewer people click through to websites.</strong> That was measured with random assignment, on real browsing, in 2026.</li>
-          <li><strong>So whether the answer names your clinic matters more than it used to.</strong> That part is reasoning from the experiment, not something it measured.</li>
-          <li><strong>In an audit I search for a treatment in the clinic’s town in AI Mode, three times, and write down which clinics the answer names.</strong> If it names others every time and never yours, I say so, with the screenshots. What I do not do is promise that a change to the site will get a clinic named. Nobody has measured that.</li>
+          <li><strong>So whether the answer names your business matters more than it used to.</strong> That part is reasoning from the experiment, not something it measured.</li>
+          <li><strong>In an audit I search for what the business sells, in its town, in AI Mode, three times, and write down which businesses the answer names.</strong> If it names others every time and never yours, I say so, with the screenshots. What I do not do is promise that a change to the site will get a business named. The studies here did not measure that.</li>
         </ul>
 
         <a class="back back-end" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to all articles</span></a>

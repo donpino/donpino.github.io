@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>“53% of visitors leave after 3 seconds” is not what Google wrote | DropoffAudit</title>
+<meta name="description" content="The most quoted page speed statistic comes from one line in a 2016 Google post about mobile sites on 3G. What the line says, what its footnote says, and what a controlled experiment on delay measured.">
+<link rel="canonical" href="https://dropoffaudit.me/articles/three-second-rule/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="DropoffAudit">
+<meta property="og:title" content="“53% of visitors leave after 3 seconds” is not what Google wrote">
+<meta property="og:description" content="The most quoted page speed statistic comes from one line in a 2016 Google post about mobile sites on 3G. What the line says, what its footnote says, and what a controlled experiment on delay measured.">
+<meta property="og:url" content="https://dropoffaudit.me/articles/three-second-rule/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "“53% of visitors leave after 3 seconds” is not what Google wrote",
+ "description": "The most quoted page speed statistic comes from one line in a 2016 Google post about mobile sites on 3G. What the line says, what its footnote says, and what a controlled experiment on delay measured.",
+ "author": {
+  "@type": "Person",
+  "name": "Luca",
+  "url": "https://dropoffaudit.me/"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "DropoffAudit",
+  "url": "https://dropoffaudit.me/"
+ },
+ "datePublished": "2026-11-13",
+ "dateModified": "2026-11-13",
+ "mainEntityOfPage": "https://dropoffaudit.me/articles/three-second-rule/",
+ "inLanguage": "en"
+}
+</script>
+<meta name="color-scheme" content="light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/articles/article.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap head-row">
+    <a class="mark" href="/">
+      <span class="tick" aria-hidden="true"></span>
+      <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="/">Home</a><a href="/sample-audit/">Sample audit</a><a href="/articles/">Articles</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">Page speed</p></div>
+      <div class="col col-paper">
+
+        <a class="back" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>All articles</span></a>
+        <div class="paper-stack">
+        <span class="sheet" aria-hidden="true"></span>
+        <article class="paper">
+        <p class="wm" aria-hidden="true">dropoff<i>audit</i><em>.me</em> · Articles</p>
+        <h1>“53% of visitors leave after 3 seconds” is not what Google wrote</h1>
+        <p class="meta">November 2026 · Luca</p>
+        <p class="lede">You have probably read that 53% of visitors leave a website that takes more than three seconds to load. I went looking for the study. The number is real and it comes from Google, but Google’s sentence is more careful than the one that gets repeated, and the full report it points to no longer opens.</p>
+
+        <h2>The sentence Google published</h2>
+        <p>On 8 September 2016, two people from Google’s marketing teams published a post called “The need for mobile speed”, written for publishers who earn money from ads on their mobile sites.<a class="ref" href="#s1">1</a> One line in it reads:</p>
+        <p><strong>“53% of visits are likely to be abandoned if pages take longer than 3 seconds to load.”</strong></p>
+        <p>The footnote to that line gives the source: aggregated, anonymized Google Analytics data from a sample of mobile websites that had opted into sharing benchmark data. 3,700 sites, worldwide, March 2016.</p>
+        <p>Four days later a marketing news site reported it under the headline “Google: 53% of mobile users abandon sites that take over 3 seconds to load”, and wrote that 53% of mobile website visitors “will leave” if a page does not load within three seconds.<a class="ref" href="#s2">2</a> That stronger version is the one that spread.</p>
+
+        <h2>What changed between the two sentences</h2>
+        <ul class="points">
+          <li><strong>Visits became visitors.</strong> Google counted visits. One person can make many visits, so 53% of visits is not 53% of people.</li>
+          <li><strong>“Likely to be abandoned” became “will leave”.</strong> Google’s wording is a likelihood drawn from analytics data. The post does not define “abandoned” or say how the load time was measured for this figure.</li>
+          <li><strong>Mobile sites in 2016 became every website.</strong> The same post says the average mobile site it tested took 19 seconds to load on a 3G connection. The 53% describes phones and networks of that time.</li>
+        </ul>
+        <div class="limits">
+          <p class="lh">What this post does not show</p>
+          <ul class="points">
+            <li>It is observation, not an experiment. Slow pages and abandoned visits appear together in the data; the post does not show that one caused the other. Sites that load slowly may differ in other ways too.</li>
+            <li>The sites are those that chose to share their data with Google, in one month.</li>
+            <li>It measured leaving a page, not sales or bookings.</li>
+            <li>The post sends readers to a full guide for the details. When I opened that link on 13 November 2026 it returned an error page, so the method behind the figure cannot be checked there.</li>
+            <li>It is a company post, not peer reviewed, and it recommends Accelerated Mobile Pages, a project Google took part in.</li>
+          </ul>
+        </div>
+
+        <h2>Two more numbers in the same post, both surveys</h2>
+        <p>The post also says that one out of two people expect a page to load in less than 2 seconds, and that 46% of people say waiting for pages to load is what they dislike most about browsing on a phone. The first is credited to a 2014 consumer survey by Akamai, a company that sells services for making websites faster. The second is credited to a 2015 Google blog post. Both are what people said, not what they did, and I did not open either original.</p>
+
+        <h2>An experiment that slowed pages on purpose</h2>
+        <p>Seven years earlier, Google had published something stronger in design and much smaller in effect.<a class="ref" href="#s3">3</a> In 2009 it deliberately delayed its own search results for some users and compared them with users who got the normal speed. This is an experiment: Google added the delay itself, instead of comparing sites that happened to be slow.</p>
+        <ul class="figures">
+          <li><span class="n">−0.2%</span><span class="t">to −0.6% searches per user with a delay of 100 to 400 milliseconds</span></li>
+          <li><span class="n">−0.76%</span><span class="t">searches in weeks four to six with a 400 millisecond delay, up from −0.44% in the first three</span></li>
+          <li><span class="n">−0.21%</span><span class="t">searches in the five weeks after the delay was removed</span></li>
+        </ul>
+        <p>So the cost of the delay grew the longer people were exposed to it, and it did not disappear when the speed came back.</p>
+        <div class="limits">
+          <p class="lh">What this experiment does not show</p>
+          <ul class="points">
+            <li>It was run on Google’s search results page, which people use many times a day. It is not a business website visited once.</li>
+            <li>The delays were under half a second and the effects are fractions of one percent. Nothing here supports “half your visitors leave”.</li>
+            <li>The post does not say how many users were in each group. It links to a longer document, which I did not read.</li>
+            <li>It is Google’s own research on Google’s own product, from 2009.</li>
+          </ul>
+        </div>
+
+        <h2>What I take from this</h2>
+        <ul class="points">
+          <li><strong>Slower pages lose people.</strong> The observation and the experiment point the same way, and the experiment shows the delay itself is a cause.</li>
+          <li><strong>“53% leave after three seconds” is not a law.</strong> It is one month of analytics data from 3,700 mobile sites in 2016, restated more strongly than its author wrote it. I would not use it to predict what a faster page will earn.</li>
+          <li><strong>The measured effects of small delays are small and lasting.</strong> That is a reason to keep a site fast as a habit, not a promise of a jump in sales.</li>
+          <li><strong>You can measure your own page.</strong> Google’s PageSpeed Insights, which the 2016 post itself recommends, reports how long your page takes on a phone. That number is about your site, today. When a page is visibly slow on a phone, it goes into an audit with the page and the date it was seen.</li>
+        </ul>
+
+        <a class="back back-end" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to all articles</span></a>
+
+        <h2 id="sources">Sources</h2>
+        <p class="small">Each source was opened and read before this page was written. Where a figure comes from a company that sells a related product, it says so.</p>
+        <ol class="sources">
+          <li id="s1">Shellhammer, A., &amp; Neel, J. (2016, 8 September). The need for mobile speed. <em>Google blog</em>. <a href="https://blog.google/products/admanager/the-need-for-mobile-speed/" rel="noopener">blog.google/products/admanager/the-need-for-mobile-speed</a>
+            <span class="design"><b>Type:</b> company blog post, not peer reviewed. The 53% figure: aggregated Google Analytics data from 3,700 mobile sites that opted into sharing benchmark data, worldwide, March 2016. Observational. The full guide it links to did not open on 13 November 2026.</span></li>
+          <li id="s2">Kirkpatrick, D. (2016, 12 September). Google: 53% of mobile users abandon sites that take over 3 seconds to load. <em>Marketing Dive</em>. <a href="https://www.marketingdive.com/news/google-53-of-mobile-users-abandon-sites-that-take-over-3-seconds-to-load/426070/" rel="noopener">marketingdive.com/news/google-53-of-mobile-users-abandon-sites-that-take-over-3-seconds-to-load/426070</a>
+            <span class="design"><b>Type:</b> news brief restating the Google post.</span></li>
+          <li id="s3">Brutlag, J. (2009, 23 June). Speed matters. <em>Google Research blog</em>. <a href="https://research.google/blog/speed-matters/" rel="noopener">research.google/blog/speed-matters</a>
+            <span class="design"><b>Design:</b> controlled experiments on Google web search, with a delay of 100 to 400 milliseconds added for some users over four or six weeks. Company research, not peer reviewed. Group sizes not given in the post.</span></li>
+        </ol>
+
+
+        </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"></div>
+      <div class="col">
+        <div class="foot-row">
+          <a href="/articles/">All articles</a>
+          <a href="/">DropoffAudit</a>
+          <a href="/privacy">Privacy notice</a>
+          <a href="/terms/">Terms</a>
+          <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+          <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
+        </div>
+        <p class="small" style="margin-top:24px">© <span id="yr">2026</span> DropoffAudit</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/year.js"></script>
+<script src="/consent.js" defer></script>
+</body>
+</html>
