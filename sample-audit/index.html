@@ -6,12 +6,12 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Website conversion audit example: a full sample report | DropoffAudit</title>
-<meta name="description" content="A website conversion audit example to read in full, as a page or as a free PDF: four leaks, three strengths and the order to fix them in. Findings from four real business websites, none of them named, checked in October 2026.">
+<meta name="description" content="A website conversion audit example to read in full, as a page or as a free PDF: four leaks, three strengths and the order to fix them in. Findings from four real medical spa websites, none of them named, checked in October 2026.">
 <link rel="canonical" href="https://dropoffaudit.me/sample-audit/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DropoffAudit">
 <meta property="og:title" content="Website conversion audit example: a full sample report">
-<meta property="og:description" content="A website conversion audit example to read in full, as a page or as a free PDF: four leaks, three strengths and the order to fix them in. Findings from four real business websites, none of them named, checked in October 2026.">
+<meta property="og:description" content="A website conversion audit example to read in full, as a page or as a free PDF: four leaks, three strengths and the order to fix them in. Findings from four real medical spa websites, none of them named, checked in October 2026.">
 <meta property="og:url" content="https://dropoffaudit.me/sample-audit/">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -43,8 +43,53 @@
   .paper .sign span{display:block;color:var(--sheet-mute);font-size:.92rem;margin-top:4px}
   .after{margin-top:36px;max-width:36em}
 
+
+  /* Drawings and "how I checked it" boxes: what an audit shows beside the text. */
+  .paper .fig{margin:22px 0 0;padding:16px 18px 14px;background:#fff;border:1px solid var(--sheet-rule)}
+  .paper .fig figcaption{font-size:.8rem;color:var(--sheet-mute);margin-top:12px;line-height:1.45}
+  .paper .fig .cap{font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--sheet-mute);margin:0 0 12px}
+  .fig .note{font-size:.8rem;font-weight:700;color:var(--pen)}
+  .scr{max-width:400px;border:1px solid var(--sheet-rule);background:var(--sheet-3);padding:0 0 16px}
+  .scr .addr{font-size:.72rem;color:var(--sheet-mute);background:#fff;border-bottom:1px solid var(--sheet-rule);padding:5px 12px;margin:0 0 20px}
+  .scr>*:not(.addr){margin-left:40px;margin-right:40px}
+  .scr .h{font-size:28px;font-weight:700;line-height:1;color:var(--sheet-ink);margin-bottom:22px}
+  .scr .in{border:1px solid var(--sheet-mute);background:#fff;font-size:.72rem;color:var(--sheet-mute);padding:8px 10px;margin-bottom:10px}
+  .scr .bt{background:var(--sheet-ink);color:#fff;font-size:.78rem;text-align:center;padding:8px;margin-bottom:10px}
+  .scr .alt{font-size:.78rem;color:var(--sheet-ink);text-align:center;margin-bottom:34px}
+  .scr .tiny{font-size:10px;line-height:1;color:var(--sheet-ink);text-decoration:underline;display:inline-block;padding:5px 8px;border:2px solid var(--pen);border-radius:14px}
+  .scr .tiny+.note{display:block;margin-top:6px}
+  .path{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+  @media (min-width:620px){.path{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}}
+  .path .pane{border:1px solid var(--sheet-rule);background:var(--sheet-3);padding:12px 14px}
+  .path .pane b{display:block;font-size:.8rem;margin-bottom:10px;color:var(--sheet-ink)}
+  .path .ln{height:7px;background:var(--sheet-rule);margin:0 0 7px}
+  .path ol{list-style:none;margin:0;padding:0;counter-reset:p}
+  .path ol li{counter-increment:p;font-size:.8rem;color:var(--sheet-ink);background:#fff;border:1px solid var(--sheet-rule);padding:5px 9px;margin:0 0 5px}
+  .path ol li::before{content:counter(p) ". ";font-weight:700;color:var(--blue)}
+  .path ol li.end{border:2px solid var(--pen);font-weight:700}
+  .path ol li.end::before{content:""}
+  .ruler{position:relative;height:34px;background:var(--sheet-3);border:1px solid var(--sheet-rule);margin:0 0 6px}
+  .ruler .first{position:absolute;left:0;top:0;bottom:0;width:19.8%;background:var(--sheet-rule)}
+  .ruler .mark{position:absolute;left:95.3%;top:-5px;bottom:-5px;width:3px;background:var(--pen)}
+  .rlab{display:flex;justify-content:space-between;gap:12px;font-size:.8rem;color:var(--sheet-ink);line-height:1.35}
+  .rlab span{max-width:32%}
+  .rlab span:nth-child(2){text-align:center;color:var(--sheet-mute)}
+  .rlab span:last-child{text-align:right}
+  .runs{width:100%;border-collapse:collapse;font-size:.82rem}
+  .runs th,.runs td{padding:5px 6px;border-bottom:1px solid var(--sheet-rule);text-align:center;color:var(--sheet-ink)}
+  .runs th:first-child,.runs td:first-child{text-align:left}
+  .runs thead th{font-size:.76rem;color:var(--sheet-mute);font-weight:700}
+  .runs .me td{font-weight:700;color:var(--pen);border-bottom:2px solid var(--pen);border-top:2px solid var(--pen)}
+  .runs .tot td{border-bottom:0;color:var(--sheet-mute)}
+  .runs.facts td{text-align:left;vertical-align:top;padding:8px 6px}
+  .runs.facts td:first-child{font-weight:700;color:var(--pen);white-space:nowrap}
+  .paper .how{margin-top:18px;padding:14px 18px;border-left:3px solid var(--blue);background:var(--sheet-3)}
+  .paper .how .lh{font-size:.85rem;font-weight:700;color:var(--blue);margin:0 0 8px}
+  .paper .how ul{margin:0;padding-left:1.1rem}
+  .paper .how li{font-size:.86rem;line-height:1.5;margin-bottom:4px;color:var(--sheet-body)}
+
   @media print{
-    @page{size:Letter;margin:16mm 15mm 18mm}
+    @page{size:Letter;margin:13mm 15mm 13mm}
     *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
     html{color-scheme:light}
     html,body{background:#fff!important}
@@ -71,6 +116,36 @@
     .box,.limits,.figures li,.steps li{break-inside:avoid}
     .figures{grid-template-columns:repeat(3,minmax(0,1fr))}
     .paper a{color:inherit;text-decoration:none}
+    .fig,.how{break-inside:avoid}
+    .paper .fig{margin-top:14px;padding:12px 14px 10px}
+    .paper .how{margin-top:12px;padding:10px 14px}
+    .paper .how li{font-size:9pt;line-height:1.4;margin-bottom:2px}
+    .paper .fig figcaption{font-size:8.5pt;margin-top:8px}
+    .path{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}
+    body{font-size:10.5pt;line-height:1.45}
+    h3{margin-top:12px}
+    .pair{display:grid;grid-template-columns:minmax(0,11fr) minmax(0,9fr);column-gap:14px;align-items:stretch;margin-top:14px;break-inside:avoid}
+    .pair .fig,.pair .how{margin-top:0}
+    .runs{font-size:8.5pt}
+    .path ol{display:flex;flex-wrap:wrap;gap:4px}
+    .path ol li{margin:0;font-size:8.5pt;padding:3px 7px}
+    .path .pane{padding:9px 12px}
+    .paper .box{padding-top:12px;padding-bottom:12px}
+    h3{margin-top:9px}
+    h2{font-size:14pt}
+    .paper .how li{line-height:1.33}
+    .paper .fig{padding:10px 12px 8px}
+    .paper .fig figcaption{margin-top:6px}
+    .paper .fig .cap{margin-bottom:8px}
+    .steps li{margin-bottom:11px}
+    .paper .points li{margin-bottom:5px}
+    .paper .limits{margin-top:14px}
+    .runs th,.runs td{padding:3px 4px}
+    .scr .addr{margin-bottom:12px}
+    .scr .h{font-size:24px;margin-bottom:12px}
+    .scr .alt{margin-bottom:14px}
+    .scr{padding-bottom:10px}
+    .paper .box{margin-top:12px}
   }
 </style>
 </head>
@@ -94,7 +169,7 @@
 
         <div class="tools">
           <a class="back" href="/sample-audit/dropoffaudit-sample-audit.pdf"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v8M3.5 5.5L7 9l3.5-3.5M1.5 12.5h11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Download this audit example as a PDF</span></a>
-          <p class="small">A website conversion audit example, written the way every paid audit is written. The findings come from four real businesses, none of them named. No email address required.</p>
+          <p class="small">A website conversion audit example, written the way every paid audit is written. The findings come from four real clinics, none of them named. No email address required.</p>
         </div>
 
         <div class="paper-stack">
@@ -102,9 +177,9 @@
         <article class="paper">
 <p class='wm' aria-hidden='true'>dropoff<i>audit</i><em>.me</em> · Website Conversion Audit</p>
 <p class='eyebrow'>Sample copy, built from four real audits</p>
-<h1>Website conversion audit example</h1>
+<h1>Website conversion audit example: a medical spa</h1>
 <p class='meta'>October 2026 · Prepared by Luca</p>
-<p class='lede'>A close read of where visitors slip away before booking, and the handful of changes most likely to bring them back. Every finding below was seen on a real business website, or in Google’s answers about a real business, and checked on 2, 10, 14 or 28 October 2026. The four leaks come from four different businesses, put together in one report so that none of them can be recognised. Names, places, brands and prices are left out. The measurements are the ones I took.</p>
+<p class='lede'>A close read of where visitors slip away before booking, and the handful of changes most likely to bring them back. Every finding below was seen on a real medical spa website, or in Google’s answers about a real clinic, and checked on 2, 10, 14 or 28 October 2026. The four leaks come from four different clinics, put together in one report so that none of them can be recognised. Names, places, brands and prices are left out. The measurements are the ones I took.</p>
 <ul class='figures'>
 <li><span class='n'>4</span><span class='t'>leaks found, each one measured on the live page</span></li>
 <li><span class='n'>3</span><span class='t'>things already working, worth protecting</span></li>
@@ -112,58 +187,120 @@
 </ul>
 <h2>What is already working</h2>
 <p>An audit that only lists problems reads like a sales pitch. These are the strengths worth protecting.</p>
-<h3>An award on the first screen</h3><p>The homepage shows an award badge dated 2025 at the bottom of its first screen. A visitor who has never heard of the business gets a reason to trust it before scrolling.</p>
-<h3>The price is published</h3><p>The business states what one of its services costs, in its online booking menu. Some of the sites I look at publish no figure at all. This one has already decided to show it, which makes Leak 02 a question of where, not whether.</p>
-<h3>Customers’ words, already collected</h3><p>The site has a reviews page with a slideshow of testimonials. The work of asking customers and gathering what they said is done.</p>
+<h3>An award on the first screen</h3><p>The homepage shows an award badge dated 2025 at the bottom of its first screen. A visitor who has never heard of the clinic gets a reason to trust it before scrolling.</p>
+<h3>The price is published</h3><p>The clinic states what its wrinkle injections cost per unit, in its online booking menu. Some of the clinics I look at publish no figure at all. This one has already decided to show it, which makes Leak 02 a question of where, not whether.</p>
+<h3>Patients’ words, already collected</h3><p>The site has a reviews page with a slideshow of testimonials. The work of asking patients and gathering what they said is done.</p>
 <p>Protect these while you fix the leaks on the following pages.</p>
 <p class='tag break'>Leak 01 <span class='where'>· Every booking button · Effort: low</span></p>
 <h2>Every booking button opens a sign in screen</h2>
-<h3>What I found</h3><p>The book button in the menu, three more on the homepage and both booking buttons on one of the service pages all lead to the same place: the sign in form of the business’s booking system. It asks for a username, email or mobile phone, with a button to create an account under it. The way on to the actual booking page is a small link lower down that reads “Return to Booking Page”, set in 14 pixel type under a 40 pixel heading. I collected the booking links from 19 pages of the site and all of them point to that one sign in address. I checked them on 2 October.</p>
-<h3>Why it matters</h3><p>A new customer who presses Book wants to see which times are open. They are asked to sign in to an account they do not have. Returning customers may well sign in, and I did not go past that screen, so I cannot say what they see next. The first time visitor is the one this stops.</p>
-<h3>What fixing it changes</h3><p>The sign in screen itself carries a link back to the booking page, so the page a new customer needs is already there. Nothing has to be built.</p>
+<h3>What I found</h3><p>The book button in the menu, three more on the homepage and both booking buttons on the page about injectables all lead to the same place: the sign in form of the clinic’s booking system. It asks for a username, email or mobile phone, with a button to create an account under it. The way on to the actual booking page is a small link lower down that reads “Return to Booking Page”, set in 14 pixel type under a 40 pixel heading. I collected the booking links from 19 pages of the site and all of them point to that one sign in address. I checked them on 2 October.</p>
+<div class='pair'>
+<figure class='fig'><p class='cap'>What a new patient sees after pressing Book</p>
+<div class='scr' aria-hidden='true'><p class='addr'>the booking system’s address, ending in /login</p><div class='h'>Sign in</div><div class='in'>Username, email, or mobile phone...</div><div class='bt'>Continue</div><div class='alt'>Create Account</div><span class='tiny'>Return to Booking Page</span><span class='note'>The only way on to the booking page</span></div>
+<figcaption>Drawn from my measurements, not a screenshot, so the clinic stays unnamed. Type sizes are in proportion: the heading is 40 pixels on the real page, the link 14. The link sits 381 pixels below the heading, in a window 633 pixels tall.</figcaption></figure>
+<div class='how'><p class='lh'>How I checked it</p><ul>
+<li>Collected every link to the booking system from the code of 19 pages of the site: one single target, the sign in address.</li>
+<li>Opened that address in Chrome and read the screen as it renders: a sign in heading, one field, Continue, Create Account, a Google sign in, then the link back to the booking page.</li>
+<li>Measured the screen in a window 1,200 pixels wide: the heading is 40 pixels tall, the Continue button 571 by 46, the link back 148 by 17 in 14 pixel type.</li>
+<li>Took two screenshots 19 seconds apart, to be sure the screen had finished loading.</li>
+<li>Checked that the homepage button is really the thing a click lands on, and not covered by something else.</li>
+</ul></div>
+</div>
+<h3>Why it matters</h3><p>A new patient who presses Book wants to see which times are open. She is asked to sign in to an account she does not have. Returning patients may well sign in, and I did not go past that screen, so I cannot say what they see next. The first time visitor is the one this stops.</p>
+<h3>What fixing it changes</h3><p>The sign in screen itself carries a link back to the booking page, so the page a new patient needs is already there. Nothing has to be built.</p>
 <div class='box'><p><strong>The fix</strong>Point every booking button at the booking page, not at the sign in page.</p></div>
-<p class='tag break'>Leak 02 <span class='where'>· A service page · Effort: low</span></p>
-<h2>The price is four steps away from the page that describes the service</h2>
-<h3>What I found</h3><p>One of the service pages describes a service in one line, with no price and no button to book it. The page body holds no link and no button at all: the only way to book from it is the item in the top menu. The price does exist. It is inside the booking tool, four steps in: book online, the kind of appointment, the group of services, then the service. I read the page as it renders and as the server sends it, and walked the booking menu, on 10 October.</p>
-<h3>Why it matters</h3><p>A visitor who reads about the service and wants to know what it costs finds no figure and nothing to press. Whether showing a price helps or hurts depends on what visitors expect: two field experiments went in opposite directions, and I wrote about both in <a href="https://dropoffaudit.me/articles/hidden-prices/">the hidden prices article on dropoffaudit.me</a>. That question is already settled here, because the business publishes its price. It only does so in a place a reader of this page never reaches.</p>
+<p class='tag break'>Leak 02 <span class='where'>· Injectables page · Effort: low</span></p>
+<h2>The price is four steps away from the page that describes the treatment</h2>
+<h3>What I found</h3><p>The injectables page describes the clinic’s wrinkle injections in one line, with no price and no button to book them. The page body holds no link and no button at all: the only way to book from it is the item in the top menu. The price does exist. It is inside the booking tool, four steps in: book online, individual appointment, injectables, then the treatment. I read the page as it renders and as the server sends it, and walked the booking menu, on 10 October.</p>
+<figure class='fig'><p class='cap'>Where the price is, and where the visitor is</p>
+<div class='path' aria-hidden='true'><div class='pane'><b>The injectables page</b><div class='ln' style='width:55%'></div><div class='ln' style='width:92%'></div><div class='ln' style='width:40%;margin-bottom:12px'></div><span class='note'>0 prices · 0 links · 0 buttons</span></div><div class='pane'><b>The booking tool</b><ol><li>Book online</li><li>Individual appointment</li><li>Injectables</li><li>The treatment</li><li class='end'>The price per unit is shown here</li></ol></div></div>
+<figcaption>Drawn, not a screenshot. The left pane is the page a visitor reads. The right pane is the only place the price appears, and the page on the left has no link to it.</figcaption></figure>
+<div class='how'><p class='lh'>How I checked it</p><ul>
+<li>Searched the text of the page as it renders for a dollar figure, “per unit” and “starting at”: no match.</li>
+<li>Fetched the page as the server sends it and searched again: no price in it.</li>
+<li>Walked the page in three screenshots: treatment names, descriptions and what each works for, nothing else.</li>
+<li>Counted the links and buttons in the body of the page: 0 and 0. The only booking link is in the top menu.</li>
+<li>Walked the booking menu to the treatment and read the price twice, 22 seconds apart. I added nothing to the cart and chose no time.</li>
+</ul></div>
+<h3>Why it matters</h3><p>A visitor who reads about the treatment and wants to know what it costs finds no figure and nothing to press. Whether showing a price helps or hurts depends on what visitors expect: two field experiments went in opposite directions, and I wrote about both in <a href="https://dropoffaudit.me/articles/hidden-prices/">the hidden prices article on dropoffaudit.me</a>. That question is already settled here, because the clinic publishes its price. It only does so in a place a reader of this page never reaches.</p>
 <h3>What fixing it changes</h3><p>The visitor gets the figure on the page where they are deciding, and a way to act on it.</p>
-<div class='box'><p><strong>The fix</strong>Put the price on that service page, next to the service, and add a booking button under it.</p></div>
+<div class='box'><p><strong>The fix</strong>Put the per unit price on the injectables page, next to the treatment, and add a booking button under it.</p></div>
 <p class='tag break'>Leak 03 <span class='where'>· Homepage · Effort: low</span></p>
-<h2>The homepage carries no customer’s words, and the reviews page is one small link in the footer</h2>
-<h3>What I found</h3><p>From the first screen to the footer, the homepage shows nothing a customer said: no quote, no star rating, no review card. I walked it in five screenshots and searched its text. The business’s testimonials sit on a separate reviews page, and the only way there from the homepage is a link in the footer list, 15 pixels tall, 3,794 pixels down a page that is 3,982 pixels long. The menu at the top of every page has no reviews item. I checked this on 14 October.</p>
-<h3>Why it matters</h3><p>To find them, a visitor has to scroll the whole homepage and pick one small link out of the footer list. A visitor who wants to hear from other customers before booking may well go to Google instead, and that is fine. What remains is that the business’s own collected praise is not on the homepage. On what the research does and does not say about reviews, see <a href="https://dropoffaudit.me/articles/reviews-and-choice/">the reviews article on dropoffaudit.me</a>.</p>
+<h2>The homepage carries no patient’s words, and the reviews page is one small link in the footer</h2>
+<h3>What I found</h3><p>From the first screen to the footer, the homepage shows nothing a patient said: no quote, no star rating, no review card. I walked it in five screenshots and searched its text. The clinic’s testimonials sit on a separate reviews page, and the only way there from the homepage is a link in the footer list, 15 pixels tall, 3,794 pixels down a page that is 3,982 pixels long. The menu at the top of every page has no reviews item. I checked this on 14 October.</p>
+<figure class='fig'><p class='cap'>The homepage, from top to bottom</p>
+<div aria-hidden='true'><div class='ruler'><span class='first'></span><span class='mark'></span></div><div class='rlab'><span>First screen: the award badge</span><span>0 quotes, 0 star ratings, 0 review cards</span><span class='note'>Reviews link, at 3,794 of 3,982 pixels</span></div></div>
+<figcaption>Drawn to scale along the length of the page, not a screenshot. The first screen is 788 pixels of it, in the window I used. The link is 58 pixels wide and 15 tall.</figcaption></figure>
+<div class='how'><p class='lh'>How I checked it</p><ul>
+<li>Counted the links to the reviews page on the homepage: one, in the footer list, 58 by 15 pixels.</li>
+<li>Searched the homepage text for quotation marks, testimonials and patients’ names: 0 matches.</li>
+<li>Looked for a review widget, a slideshow or an embedded frame after scrolling to the bottom, on a second opening of the page: none.</li>
+<li>Walked the page in five screenshots, from the top to the last pixel. The only trust mark in them is the award badge.</li>
+<li>Read the top menu on every page: four items, with eight treatments under one of them. None is Reviews.</li>
+<li>Opened the reviews page: a slideshow of 18 slides with patients’ words in it.</li>
+</ul></div>
+<h3>Why it matters</h3><p>To find them, a visitor has to scroll the whole homepage and pick one small link out of the footer list. A visitor who wants to hear from other patients before booking may well go to Google instead, and that is fine. What remains is that the clinic’s own collected praise is not on the homepage. On what the research does and does not say about reviews, see <a href="https://dropoffaudit.me/articles/reviews-and-choice/">the reviews article on dropoffaudit.me</a>.</p>
 <h3>What fixing it changes</h3><p>The award badge on the first screen stops being the only proof on the page.</p>
 <div class='box'><p><strong>The fix</strong>Put two or three of the testimonials on the homepage, above the footer, and add Reviews to the top menu.</p></div>
 <p class='tag break'>Leak 04 <span class='where'>· Google’s AI Mode · Effort: unknown</span></p>
-<h2>Asked three times for the service in the business’s town, Google’s AI Mode never named the business</h2>
-<h3>What I found</h3><p>On 28 October, between 09:46 and 09:49 UTC, I asked Google’s AI Mode for one of the business’s services in its town, three times, at least a minute apart. Each answer named five or six businesses. Four of them were named in all three answers. The business was named in none, though its site offers the service and the business is in that town.</p>
-<h3>Why it matters</h3><p>A customer who asks that question gets a short list, and this business is not on it. That is all the three answers show. They are one morning’s answers, from a browser signed in to a Google account and connecting from Italy. AI Mode answers change and can be personalised, and three answers are not a ranking. I found no study that measures what this does to a business’s bookings. What has been measured is that people click through to websites far less when Google answers this way. The study is in <a href="https://dropoffaudit.me/articles/ai-mode-clicks/">the AI Mode article on dropoffaudit.me</a>.</p>
-<h3>What fixing it changes</h3><p>I cannot promise that any change to a site gets a business named. Nobody has measured that, and anyone who sells it is guessing.</p>
-<div class='box'><p><strong>The fix</strong>Start with what such a system reads first, which is in the business’s hands: check that the page title, the description and the business record in the page code each say the service and the town in plain words. Then ask the same question again in a month and compare.</p></div>
-<h2 class='break'>Where to start, in order</h2>
+<h2>Asked three times for the treatment in the clinic’s town, Google’s AI Mode never named the clinic</h2>
+<h3>What I found</h3><p>On 28 October, between 09:46 and 09:49 UTC, I asked Google’s AI Mode for the clinic’s main injectable treatment in its town, three times, at least a minute apart. Each answer named five or six businesses. Four of them were named in all three answers. The clinic was named in none, though its site offers the treatment and the clinic is in that town.</p>
+<div class='pair'>
+<figure class='fig'><p class='cap'>Who Google’s AI Mode named, three times</p>
+<table class='runs'><thead><tr><th>Business named</th><th>09:46 UTC</th><th>09:47 UTC</th><th>09:48 UTC</th></tr></thead><tbody>
+<tr><td>Business A</td><td>●</td><td>●</td><td>●</td></tr>
+<tr><td>Business B</td><td>●</td><td>●</td><td>●</td></tr>
+<tr><td>Business C</td><td>●</td><td>●</td><td>●</td></tr>
+<tr><td>Business D</td><td>●</td><td>●</td><td>●</td></tr>
+<tr><td>Business E</td><td>●</td><td>●</td><td></td></tr>
+<tr><td>Business F</td><td></td><td>●</td><td></td></tr>
+<tr><td>Business G</td><td></td><td></td><td>●</td></tr>
+<tr class='me'><td>The clinic</td><td>not named</td><td>not named</td><td>not named</td></tr>
+<tr class='tot'><td>Businesses named</td><td>5</td><td>6</td><td>5</td></tr>
+</tbody></table>
+<figcaption>The other businesses are real and were named in the answers. Their names are replaced with letters here because naming them would give the town away.</figcaption></figure>
+<div class='how'><p class='lh'>How I checked it</p><ul>
+<li>Asked the same question three times, each time on a newly opened page, more than a minute apart.</li>
+<li>Read the full text of each answer and searched it for the clinic’s name: absent all three times.</li>
+<li>Took a screenshot of each answer with the list of businesses in view.</li>
+<li>Read the clinic’s own services page, to be sure it offers the treatment it was missing for.</li>
+</ul></div>
+</div>
+<h3>Why it matters</h3><p>A patient who asks that question gets a short list, and this clinic is not on it. That is all the three answers show. They are one morning’s answers, from a browser signed in to a Google account and connecting from Italy. AI Mode answers change and can be personalised, and three answers are not a ranking. I found no study that measures what this does to a clinic’s bookings. What has been measured is that people click through to websites far less when Google answers this way. The study is in <a href="https://dropoffaudit.me/articles/ai-mode-clicks/">the AI Mode article on dropoffaudit.me</a>.</p>
+<h3>What fixing it changes</h3><p>I cannot promise that any change to a site gets a clinic named. Nobody has measured that, and anyone who sells it is guessing.</p>
+<div class='box'><p><strong>The fix</strong>Start with what such a system reads first, which is in the clinic’s hands: check that the page title, the description and the business record in the page code each say the treatment and the town in plain words. Then ask the same question again in a month and compare.</p></div>
+<h2 class='break'>The four leaks in numbers</h2>
+<p>Every figure below was measured on the live page or read in the answer itself. None is an estimate.</p>
+<table class='runs facts'><tbody>
+<tr><td>Leak 01</td><td>19 pages read, every booking link on them collected: 1 target, a sign in screen. The way on is a link in 14 pixel type under a 40 pixel heading.</td></tr>
+<tr><td>Leak 02</td><td>0 prices, 0 links and 0 buttons in the body of the injectables page. The price is 4 steps inside the booking tool.</td></tr>
+<tr><td>Leak 03</td><td>0 patient quotes, 0 star ratings and 0 review cards on a homepage 3,982 pixels long. 1 link to the reviews page, 3,794 pixels down. 18 slides of patients’ words on that page.</td></tr>
+<tr><td>Leak 04</td><td>3 questions to Google’s AI Mode, between 09:46 and 09:49 UTC. 7 businesses named, 4 of them all 3 times. The clinic named 0 times.</td></tr>
+</tbody></table>
+<h2>Where to start, in order</h2>
 <p>In the order I would tackle them: highest return for least effort first.</p>
 <ol class='steps'>
 <li><strong>Point every booking button at the booking page</strong><span>Ties back to Leak 01. Effort: low</span></li>
-<li><strong>Put the price on the service page, with a booking button under it</strong><span>Ties back to Leak 02. Effort: low</span></li>
+<li><strong>Put the price on the injectables page, with a booking button under it</strong><span>Ties back to Leak 02. Effort: low</span></li>
 <li><strong>Bring two or three testimonials onto the homepage and add Reviews to the menu</strong><span>Ties back to Leak 03. Effort: low</span></li>
 <li><strong>Check what the title, description and business record say, then ask AI Mode again in a month</strong><span>Ties back to Leak 04. Effort: unknown</span></li>
 </ol>
-<h2>What an audit looks at</h2>
+<h2 class='break'>What an audit looks at</h2>
 <p>The four leaks above are what was worth reporting. These are the things I go through on every site to find them.</p>
 <ul class='points'>
 <li>The way to a booking: every button and link that says book, followed to where it ends.</li>
-<li>Prices: whether a visitor can find what a service costs, and how many steps it takes.</li>
-<li>What customers say: testimonials on the site, and the business’s Google reviews.</li>
+<li>Prices: whether a visitor can find what a treatment costs, and how many steps it takes.</li>
+<li>What patients say: testimonials on the site, and the clinic’s Google reviews.</li>
 <li>Links, buttons, phone numbers and email addresses that do not do what they say.</li>
 <li>Leftovers: expired offers, old dates, template text that was never replaced.</li>
 <li>The wording, quoted exactly, where a sentence leaves a visitor unsure what is offered.</li>
 <li>What the site hands to search engines and assistants: the title, the description and the business record.</li>
-<li>Google’s AI Mode, asked three times for a service in the business’s town.</li>
-<li>Google’s public ad library: whether the business is advertising, and what a visitor arriving from an ad meets.</li>
+<li>Google’s AI Mode, asked three times for a treatment in the clinic’s town.</li>
+<li>Google’s public ad library: whether the clinic is advertising, and what a visitor arriving from an ad meets.</li>
 </ul>
 <div class='limits'><p class='lh'>What this audit does not contain</p><ul class='points'>
 <li>Any percentage, any revenue estimate, any borrowed industry figure. The impact of each leak is described, not invented.</li>
-<li>The names of the businesses. Where a detail would identify one, it was left out, not changed.</li>
+<li>The names of the clinics. Where a detail would identify one, it was left out, not changed.</li>
 <li>Anything behind a login or a submitted form. I did not create an account, send a booking or call a phone line.</li>
 </ul></div>
 <p>Questions about anything in this audit? Email me at luca@dropoffaudit.me. I read every response personally.</p>
@@ -172,8 +309,8 @@
         </article>
         </div>
 
-        <p class="small after">A note on fairness: none of the four businesses is named. Each received one short note from me in October about one thing on its site, and none has been contacted about this page. Sites change, and the findings above are true as of the dates given. If you recognise your own site here and something is wrong or has since been fixed, email <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a> and I will correct or remove it.</p>
-        <p class="small after" style="margin-top:18px">The checks are the same for any site that takes bookings, enquiries or orders. If you want the same thing for your own site, <a href="/#buy">this is what it costs</a>.</p>
+        <p class="small after">A note on fairness: none of the four clinics is named. Each received one short note from me in October about one thing on its site, and none has been contacted about this page. Sites change, and the findings above are true as of the dates given. If you recognise your own site here and something is wrong or has since been fixed, email <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a> and I will correct or remove it.</p>
+        <p class="small after" style="margin-top:18px">The four sites in this sample are medical spas, the first kind of business I audited. The checks are the same for any site that takes bookings, enquiries or orders. If you want the same thing for your own site, <a href="/#buy">this is what it costs</a>.</p>
 
       </div>
     </div>
