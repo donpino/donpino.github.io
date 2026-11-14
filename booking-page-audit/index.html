@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Booking page audit: 12 checks from the Book button to a time you can pick | DropoffAudit</title>
+<meta name="description" content="A booking page audit you can run yourself: 12 checks from the Book button to the screen where a customer picks a time, what three real sites got wrong, and what the research on booking links and forced accounts measured.">
+<link rel="canonical" href="https://dropoffaudit.me/booking-page-audit/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DropoffAudit">
+<meta property="og:title" content="Booking page audit: 12 checks from the Book button to a time you can pick">
+<meta property="og:description" content="A booking page audit you can run yourself: 12 checks from the Book button to the screen where a customer picks a time, what three real sites got wrong, and what the research on booking links and forced accounts measured.">
+<meta property="og:url" content="https://dropoffaudit.me/booking-page-audit/">
+<meta name="robots" content="index, follow">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/articles/article.css">
+<style>
+  .checks{margin:0 0 14px;padding-left:2.2rem}
+  .checks li{margin-bottom:12px;padding-left:6px;line-height:1.58}
+  .checks li::marker{font-weight:700}
+  .toc{list-style:none;margin:0 0 30px;padding:16px 20px;background:var(--sheet-3)}
+  .toc li{margin:6px 0}
+  h2[id],.limits[id]{scroll-margin-top:24px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head-row">
+    <a class="mark" href="/">
+      <span class="tick" aria-hidden="true"></span>
+      <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="/">Home</a><a href="/sample-audit/">Sample audit</a><a href="/articles/">Articles</a><a href="/faq/">FAQ</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">Booking page audit</p></div>
+      <div class="col col-paper">
+
+        <div class="paper-stack">
+        <span class="sheet" aria-hidden="true"></span>
+        <article class="paper">
+        <p class="wm" aria-hidden="true">dropoff<i>audit</i><em>.me</em> · Guides</p>
+        <h1>Booking page audit: 12 checks from the Book button to a time you can pick</h1>
+        <p class="updated">Last updated: 14 November 2026</p>
+        <p class="lede">A booking page audit follows one path: from the button that says Book to the screen where a customer can pick a time. It asks whether a first time visitor gets there, and what stands in the way. Below are 12 checks you can run on your own site, three things I found on real booking pages, and what the two pieces of research closest to the subject measured.</p>
+
+        <ul class="toc">
+          <li><a href="#what">What a booking page audit covers</a></li>
+          <li><a href="#checks">The audit: 12 checks</a></li>
+          <li><a href="#found">Three things I found on real sites</a></li>
+          <li><a href="#research">What has been measured</a></li>
+          <li><a href="#limits">What an audit cannot tell you</a></li>
+          <li><a href="#sources">Sources</a></li>
+        </ul>
+
+        <h2 id="what">What a booking page audit covers</h2>
+        <p>Most small businesses do not build their own booking page. They rent a booking tool, and the Book button on their site opens it, often on the tool company’s address. So the audit covers three places: every button on the site that says book, the first screen each one opens, and the steps inside the tool up to the last button.</p>
+        <p>It is narrower than <a href="/website-conversion-audit/">a conversion audit of a whole site</a>, which also looks at prices, reviews, wording and broken links on every page. It also reaches one place outside the site: the booking link on the business’s Google profile.</p>
+
+        <h2 id="checks">The audit: 12 checks</h2>
+        <p>Do them on a phone, in a private window, as someone who has never booked with you. Stop before the last button: you do not need to send a booking to audit the page, and a test booking takes a slot from a real customer. Write the date next to each answer.</p>
+        <h3>Finding the way in</h3>
+        <ol class="checks" start="1">
+          <li>Open the home page. Count the taps from there to a screen where you can pick a time.</li>
+          <li>Press every button and link that says book, on every page, and write down where each one lands. They should all land on the same page.</li>
+          <li>Search for the business by name on Google. If its profile shows a booking link, press it. Is it a link you chose, and does it land on the same booking page as your site? Google says booking links from third party providers can appear on a profile automatically, and that only the provider can remove them.<a class="ref" href="#s1">1</a></li>
+        </ol>
+        <h3>Where the button lands</h3>
+        <ol class="checks" start="4">
+          <li>Does the first screen show services or times, or does it ask you to sign in or create an account first?</li>
+          <li>Look at the address. If it belongs to the booking tool and not to your site, does the page show your name and your logo?</li>
+          <li>If you pressed Book on the page of one service, does the booking page open on that service, or on the full list?</li>
+        </ol>
+        <h3>Inside the booking tool</h3>
+        <ol class="checks" start="7">
+          <li>Is the price of a service shown before you pick a time? Count the steps it takes to see it.</li>
+          <li>Read the whole list of services. Is there one you do not offer, or one left over from the tool’s template?</li>
+          <li>Count the fields you must fill in before the last button. Is there one you would not need in order to hold the appointment?</li>
+          <li>If a card or a deposit is asked for, is that said before the step where it is asked, together with what happens if the customer cancels?</li>
+        </ol>
+        <h3>Ways out and what comes next</h3>
+        <ol class="checks" start="11">
+          <li>Is there another way to book on the same screen, such as a phone number? On a phone, press it and see that it starts a call.</li>
+          <li>Before the last button, does the page say what happens next: how the booking is confirmed, and how to move or cancel it?</li>
+        </ol>
+        <p class="small">For a whole site, the longer list is the <a href="/conversion-audit-checklist/">conversion audit checklist</a>.</p>
+
+        <h2 id="found">Three things I found on real sites</h2>
+        <p>Each one was seen on the live site of a small business that takes bookings. The first two are in the published <a href="/sample-audit/">sample audit</a>, with the dates they were checked.<a class="ref" href="#s2">2</a></p>
+        <ul class="points">
+          <li><strong>Every Book button opened a sign in screen.</strong> I collected the booking links from 19 pages of one site and all of them pointed to the sign in form of the booking tool. The way on to the booking page was a small link lower down that read “Return to Booking Page”.</li>
+          <li><strong>The price was four steps inside the booking tool.</strong> The page that described the service gave no price and no button. The price existed, but only after four choices in the booking menu.</li>
+          <li><strong>A booking page still listed the sample services of the template it was built on.</strong></li>
+        </ul>
+        <p>The first two needed nothing new to be built: the booking page and the price already existed.</p>
+
+        <h2 id="research">What has been measured</h2>
+        <p>I did not find a study that measures what a booking page does to the bookings of a small business. These are the two pieces of research closest to it, with what they do not show.</p>
+        <ul class="points">
+          <li><strong>The address of a booking link.</strong> In three randomized experiments published in 2026, adults in the United Kingdom read an email inviting them to book a vaccine. Of the people shown the real booking link, whose address mixed the health service’s name with a third party and a string of letters, 63% were unsure or unlikely to use it. A clear address raised trust. It was an email, not a website, and it measured intention, not bookings. <a href="/articles/booking-links/">The study is described here</a>.</li>
+          <li><strong>Being asked for an account.</strong> Baymard Institute, a research company that studies online shops, surveys people in the United States about why they abandoned a shopping cart. Leaving aside those who said they were just browsing, 18% chose “the site wanted me to create an account” and 17% a checkout that was too long or complicated.<a class="ref" href="#s3">3</a> These are shops, not booking pages, and answers about past behaviour, not a measurement of it. The page I read does not say how many people were asked.</li>
+        </ul>
+
+        <div class="limits" id="limits"><p class="lh">What a booking page audit cannot tell you</p><ul class="points">
+          <li><strong>How many bookings a problem costs.</strong> Only your own figures, before and after a change, show that.</li>
+          <li><strong>What happens after the last button.</strong> An audit done from outside stops before sending a booking, so it does not see the confirmation, the emails or the reminders.</li>
+          <li><strong>What a returning customer sees.</strong> Anything behind a sign in is out of reach without an account.</li>
+        </ul></div>
+
+        <h2>Having it done</h2>
+        <p>The way to a booking is the first thing I go through in every audit: every button that says book, followed to where it ends. It costs <a href="/#buy">$490, paid once</a>, and there is a full <a href="/sample-audit/">sample to read first</a>.</p>
+
+        <h2 id="sources">Sources</h2>
+        <p class="small">The two outside pages were opened and read on 14 November 2026.</p>
+        <ol class="sources">
+          <li id="s1">Google Business Profile Help. Manage your local business links. <a href="https://support.google.com/business/answer/6218037?hl=en" rel="noopener">support.google.com/business/answer/6218037</a>
+            <span class="design"><b>Type:</b> help page of the company that runs the profiles. It says how to add a booking link and how third party booking links are removed.</span></li>
+          <li id="s2">DropoffAudit. Sample audit, a composite of four real websites, findings checked in October 2026. <a href="/sample-audit/">dropoffaudit.me/sample-audit</a>
+            <span class="design"><b>Type:</b> my own observations on live websites, not a study.</span></li>
+          <li id="s3">Baymard Institute. Cart abandonment rate: 50 statistics and why people abandon. Updated 28 October 2026. <a href="https://baymard.com/lists/cart-abandonment-rate" rel="noopener">baymard.com/lists/cart-abandonment-rate</a>
+            <span class="design"><b>Type:</b> survey of people in the United States who shop online, published by a company that sells research and audits to online shops. The page gives the percentages but not the number of people surveyed or how they were chosen.</span></li>
+        </ol>
+
+        </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"></div>
+      <div class="col">
+        <nav class="foot-cols" aria-label="Footer">
+          <div>
+            <p class="fh">The audit</p>
+            <a href="/">DropoffAudit home</a>
+            <a href="/website-conversion-audit/">What a conversion audit is</a>
+            <a href="/sample-audit/">Sample audit</a>
+            <a href="/#buy">Price and what you get</a>
+          </div>
+          <div>
+            <p class="fh">Guides</p>
+            <a href="/conversion-audit-checklist/">Conversion audit checklist</a>
+            <a href="/landing-page-audit/">Landing page audit</a>
+            <a href="/booking-page-audit/">Booking page audit</a>
+            <a href="/website-audit-small-business/">Website audit for small business</a>
+            <a href="/articles/">Articles</a>
+            <a href="/faq/">FAQ</a>
+          </div>
+          <div>
+            <p class="fh">About</p>
+            <a href="/about/">Who writes this site</a>
+            <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+          </div>
+          <div>
+            <p class="fh">Legal</p>
+            <a href="/privacy/">Privacy notice</a>
+            <a href="/terms/">Terms</a>
+            <a href="/privacy/#operator">Legal details</a>
+            <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
+          </div>
+        </nav>
+        <p class="small" style="margin-top:24px">© <span id="yr">2026</span> DropoffAudit</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/year.js"></script>
+
+<script src="/consent.js" defer></script>
+</body>
+</html>
