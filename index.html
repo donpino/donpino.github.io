@@ -255,7 +255,13 @@
   footer .cookie-link:hover{color:var(--blue);text-decoration-color:var(--blue)}
   .capture .btn[disabled]{opacity:.55;cursor:wait}
   #buy{scroll-margin-top:32px}
-  footer .row{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:12px}
+  footer .foot-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 32px;margin:0}
+  footer .col{max-width:none}
+  @media (min-width:720px){footer .foot-cols{grid-template-columns:repeat(4,minmax(0,1fr));max-width:60rem}}
+  footer .foot-cols .fh{margin:0 0 12px;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+  footer .foot-cols a,footer .foot-cols .cookie-link{display:block;width:fit-content;margin:0 0 9px;text-align:left;line-height:1.4;overflow-wrap:anywhere}
+  footer .foot-cols [hidden]{display:none}
+  footer .foot-cols{margin-top:22px}
 
   /* ---------- la penna, legata allo scorrimento ---------- */
   @supports (animation-timeline: view()) {
@@ -545,18 +551,35 @@
 <footer>
   <div class="wide">
     <p><strong>DropoffAudit</strong>, website conversion audits.</p>
-    <div class="row">
-      <a href="/articles/">Articles</a>
-      <a href="/website-conversion-audit/">What a conversion audit is</a>
-      <a href="/conversion-audit-checklist/">Checklist</a>
-      <a href="/faq/">FAQ</a>
-      <a href="/about/">About</a>
-      <a href="/privacy">Privacy notice</a>
-      <a href="/terms/">Terms</a>
-      <a href="/privacy#operator">Legal details</a>
-      <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
-      <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
-    </div>
+    <nav class="foot-cols" aria-label="Footer">
+          <div>
+            <p class="fh">The audit</p>
+            <a href="/">DropoffAudit home</a>
+            <a href="/website-conversion-audit/">What a conversion audit is</a>
+            <a href="/sample-audit/">Sample audit</a>
+            <a href="/#buy">Price and what you get</a>
+          </div>
+          <div>
+            <p class="fh">Guides</p>
+            <a href="/conversion-audit-checklist/">Conversion audit checklist</a>
+            <a href="/landing-page-audit/">Landing page audit</a>
+            <a href="/website-audit-small-business/">Website audit for small business</a>
+            <a href="/articles/">Articles</a>
+            <a href="/faq/">FAQ</a>
+          </div>
+          <div>
+            <p class="fh">About</p>
+            <a href="/about/">Who writes this site</a>
+            <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+          </div>
+          <div>
+            <p class="fh">Legal</p>
+            <a href="/privacy/">Privacy notice</a>
+            <a href="/terms/">Terms</a>
+            <a href="/privacy/#operator">Legal details</a>
+            <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
+          </div>
+        </nav>
     <p class="small" style="margin-top:20px">If you received an audit from me and would rather not hear from me again, reply with “stop” and I’ll remove your details.</p>
     <p class="small">© <span id="yr">2026</span> DropoffAudit</p>
   </div>
