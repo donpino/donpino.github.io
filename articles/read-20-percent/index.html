@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>“People read 20% of a web page” is a guess from page timings, not eye tracking | DropoffAudit</title>
+<meta name="description" content="The 20% figure comes from a 2008 Nielsen article. It was worked out from how long 25 volunteers kept pages open in 2004 and 2005. Nobody’s eyes were tracked, and the article says so.">
+<link rel="canonical" href="https://dropoffaudit.me/articles/read-20-percent/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="DropoffAudit">
+<meta property="og:title" content="“People read 20% of a web page” is a guess from page timings, not eye tracking">
+<meta property="og:description" content="The 20% figure comes from a 2008 Nielsen article. It was worked out from how long 25 volunteers kept pages open in 2004 and 2005. Nobody’s eyes were tracked, and the article says so.">
+<meta property="og:url" content="https://dropoffaudit.me/articles/read-20-percent/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "“People read 20% of a web page” is a guess from page timings, not eye tracking",
+ "description": "The 20% figure comes from a 2008 Nielsen article. It was worked out from how long 25 volunteers kept pages open in 2004 and 2005. Nobody’s eyes were tracked, and the article says so.",
+ "author": {
+  "@type": "Person",
+  "name": "Luca Panetto",
+  "url": "https://dropoffaudit.me/about/"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "DropoffAudit",
+  "url": "https://dropoffaudit.me/"
+ },
+ "datePublished": "2026-11-18",
+ "dateModified": "2026-11-18",
+ "mainEntityOfPage": "https://dropoffaudit.me/articles/read-20-percent/",
+ "inLanguage": "en"
+}
+</script>
+<meta name="color-scheme" content="light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/articles/article.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap head-row">
+    <a class="mark" href="/">
+      <span class="tick" aria-hidden="true"></span>
+      <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="/">Home</a><a href="/sample-audit/">Sample audit</a><a href="/articles/">Articles</a><a href="/faq/">FAQ</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">Writing</p></div>
+      <div class="col col-paper">
+
+        <a class="back" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>All articles</span></a>
+        <div class="paper-stack">
+        <span class="sheet" aria-hidden="true"></span>
+        <article class="paper">
+        <p class="wm" aria-hidden="true">dropoff<i>audit</i><em>.me</em> · Articles</p>
+        <h1>“People read 20% of a web page” is a guess from page timings, not eye tracking</h1>
+        <p class="meta">November 2026 · <a href="/about/">Luca Panetto</a></p>
+        <p class="lede">“Users read only 20% of the words on a web page.” I went looking for the study. The figure is from a 2008 article by Jakob Nielsen. It was worked out from how long 25 people kept pages open in their browsers in 2004 and 2005. Nobody measured what they read, and Nielsen wrote that himself. 28% was the most they could have read; 20% was his estimate.</p>
+
+        <h2>Where I met the number</h2>
+        <p>On 18 November 2026 I searched Google for “users read only 20% of the words on a web page”. The AI summary said users read “at most 20% to 28% of the words on an average web page, according to classic eye-tracking and usability research by the Nielsen Norman Group”.<a class="ref" href="#s1">1</a> The results below it repeated 20% on design blogs, a university guide and social media. I opened that search once.</p>
+
+        <h2>The source: one article, May 2008</h2>
+        <p>The figure is in “How Little Do Users Read?”, by Jakob Nielsen, published on 5 May 2008 on the Nielsen Norman Group site.<a class="ref" href="#s2">2</a> Its summary: “users have time to read at most 28% of the words during an average visit; 20% is more likely.”</p>
+        <p>Nielsen did not collect the data. He reworked a dataset from an academic study, which one of its authors sent him, and he says what he did with it:</p>
+        <ul class="points">
+          <li>He started from 59,573 page views.</li>
+          <li>He removed 10,163 views shorter than 4 seconds, because people “clearly bounced right out”, 2,615 longer than 10 minutes, and 1,558 of pages with fewer than 20 words. That left 45,237.</li>
+          <li>He fitted a line to time on page against number of words, for pages of 30 to 1,250 words: about 25 seconds, plus 4.4 seconds for every 100 words.</li>
+          <li>He assumed a reading speed of 250 words a minute. At that speed, 4.4 seconds is 18 words, so of each extra 100 words people would have time for 18.</li>
+          <li>The average page had 593 words. If people spent their entire visit reading, they could get through 28% of them.</li>
+        </ul>
+        <p>Then the sentence the figure comes from: “More realistically, users will read about 20% of the text on the average page.” The article gives no calculation for 20%. And a few paragraphs earlier, Nielsen writes: “This wasn’t an eyetracking study, so we don’t know precisely how users allocated their time on the Web pages.”</p>
+
+        <h2>The study underneath: 25 volunteers, 2004 and 2005</h2>
+        <p>The data comes from Weinreich, Obendorf, Herder and Mayer, published in <em>ACM Transactions on the Web</em> in February 2008.<a class="ref" href="#s3">3</a> I read its description of the study and its section on time spent on pages:</p>
+        <ul class="points">
+          <li><strong>Who:</strong> 25 unpaid volunteers, found “in the personal and professional environments of the authors”. Six were women. Ages 24 to 52. Most lived in Germany or the Netherlands, and all eight Dutch participants worked in computer science at a university.</li>
+          <li><strong>When and how long:</strong> winter 2004 to 2005, from 52 to 195 days each. Software recorded what they did in their own browsers.</li>
+          <li><strong>What was measured:</strong> how long each page stayed on screen before the person moved on. The authors write that attention “was definitely shorter” than that, because they could not tell whether the person was looking at the page at all.</li>
+        </ul>
+        <p>Their own results on speed: on pages people were seeing for the first time, about half were left within 12 seconds, and the median was 12.4 seconds. The pages left within 12 seconds had 430 words on average. The authors conclude that browsing is quick “even for pages with substantial content”, and that pages should be designed for “cursory reading”. The paper does not give a percentage of words read.</p>
+
+        <div class="limits">
+          <p class="lh">What the 20% does not show</p>
+          <ul class="points">
+            <li>Nobody’s reading was measured. The data is how long a page was open. The 28% is the most that time allows; the 20% is an estimate with no stated method.</li>
+            <li>Views shorter than 4 seconds, 17% of the total, were taken out first. The people who left at once are not in the figure.</li>
+            <li>25 people, mostly university staff, in two countries, twenty years ago. Nielsen himself notes they were above average in education.</li>
+            <li>It is an average over every page they visited, from news to search results to forms. It says nothing about any one kind of page, or about whether people bought or booked.</li>
+          </ul>
+        </div>
+
+        <h2>What I take from this</h2>
+        <ul class="points">
+          <li><strong>The useful number is the 4.4 seconds, not the 20%.</strong> In this data, each extra 100 words bought about four more seconds of attention. Adding text to a page adds little reading.</li>
+          <li><strong>Say it as a ceiling.</strong> “In a 2008 analysis, people had time to read at most about a quarter of an average page” is accurate. “Eye tracking shows people read 20%” is not.</li>
+          <li><strong>Put the answer where it will be seen.</strong> If half of new pages were left within about 12 seconds, the price, the place, the opening hours or the button need to be near the top and in plain words.</li>
+          <li><strong>A short page is not the goal in itself.</strong> Neither source tested whether shorter pages sell more. They show that people move fast, not that fewer words win.</li>
+        </ul>
+
+        <a class="back back-end" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to all articles</span></a>
+
+        <h2 id="sources">Sources</h2>
+        <p class="small">Each source was opened before this page was written; where I read only part of one, its entry says so.</p>
+        <ol class="sources">
+          <li id="s1">Google Search, AI summary for the query “users read only 20% of the words on a web page”, United States results in English, opened once on 18 November 2026.
+            <span class="design"><b>Type:</b> my own observation of one search. AI summaries vary between searches.</span></li>
+          <li id="s2">Nielsen, J. (2008, 5 May). How Little Do Users Read? Nielsen Norman Group. <a href="https://www.nngroup.com/articles/how-little-do-users-read/" rel="noopener">nngroup.com/articles/how-little-do-users-read</a>. Opened on 18 November 2026.
+            <span class="design"><b>Type:</b> article by a usability consultancy, reanalysing another team’s data. Not peer reviewed. The company sells training and research.</span></li>
+          <li id="s3">Weinreich, H., Obendorf, H., Herder, E., &amp; Mayer, M. (2008). Not Quite the Average: An Empirical Study of Web Use. <em>ACM Transactions on the Web</em>, 2(1), article 5. <a href="https://doi.org/10.1145/1326561.1326566" rel="noopener">doi.org/10.1145/1326561.1326566</a>. Read in the copy at the University of Hamburg.
+            <span class="design"><b>Design:</b> peer-reviewed field study, browser logging of 25 volunteers for 52 to 195 days each, winter 2004 to 2005, plus interviews. I read the abstract, section 3 (the study) and section 4.4 (speed of navigation), not the whole paper.</span></li>
+        </ol>
+
+
+        </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"></div>
+      <div class="col">
+        <nav class="foot-cols" aria-label="Footer">
+          <div>
+            <p class="fh">The audit</p>
+            <a href="/">DropoffAudit home</a>
+            <a href="/website-conversion-audit/">What a conversion audit is</a>
+            <a href="/sample-audit/">Sample audit</a>
+            <a href="/#buy">Price and what you get</a>
+          </div>
+          <div>
+            <p class="fh">Guides</p>
+            <a href="/conversion-audit-checklist/">Conversion audit checklist</a>
+            <a href="/landing-page-audit/">Landing page audit</a>
+            <a href="/homepage-audit/">Homepage audit</a>
+            <a href="/booking-page-audit/">Booking page audit</a>
+            <a href="/conversion-audit-cost/">Conversion audit cost</a>
+            <a href="/website-audit-small-business/">Website audit for small business</a>
+            <a href="/articles/">Articles</a>
+            <a href="/faq/">FAQ</a>
+          </div>
+          <div>
+            <p class="fh">About</p>
+            <a href="/about/">Who writes this site</a>
+            <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+          </div>
+          <div>
+            <p class="fh">Legal</p>
+            <a href="/privacy/">Privacy notice</a>
+            <a href="/terms/">Terms</a>
+            <a href="/privacy/#operator">Legal details</a>
+            <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
+          </div>
+        </nav>
+        <p class="small" style="margin-top:24px">© <span id="yr">2026</span> DropoffAudit</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/year.js"></script>
+<script src="/consent.js" defer></script>
+</body>
+</html>

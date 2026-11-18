@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Expedia’s “$12 million form field” was not about short forms. It made card payments fail | DropoffAudit</title>
+<meta name="description" content="The Expedia story comes from a 2010 conference talk reported by ZDNet. An optional Company field led some customers to type their bank’s address, so card checks failed. It is a story about a misleading field, told without figures beyond the $12 million.">
+<link rel="canonical" href="https://dropoffaudit.me/articles/expedia-12-million/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="DropoffAudit">
+<meta property="og:title" content="Expedia’s “$12 million form field” was not about short forms. It made card payments fail">
+<meta property="og:description" content="The Expedia story comes from a 2010 conference talk reported by ZDNet. An optional Company field led some customers to type their bank’s address, so card checks failed. It is a story about a misleading field, told without figures beyond the $12 million.">
+<meta property="og:url" content="https://dropoffaudit.me/articles/expedia-12-million/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Expedia’s “$12 million form field” was not about short forms. It made card payments fail",
+ "description": "The Expedia story comes from a 2010 conference talk reported by ZDNet. An optional Company field led some customers to type their bank’s address, so card checks failed. It is a story about a misleading field, told without figures beyond the $12 million.",
+ "author": {
+  "@type": "Person",
+  "name": "Luca Panetto",
+  "url": "https://dropoffaudit.me/about/"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "DropoffAudit",
+  "url": "https://dropoffaudit.me/"
+ },
+ "datePublished": "2026-11-18",
+ "dateModified": "2026-11-18",
+ "mainEntityOfPage": "https://dropoffaudit.me/articles/expedia-12-million/",
+ "inLanguage": "en"
+}
+</script>
+<meta name="color-scheme" content="light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/articles/article.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap head-row">
+    <a class="mark" href="/">
+      <span class="tick" aria-hidden="true"></span>
+      <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="/">Home</a><a href="/sample-audit/">Sample audit</a><a href="/articles/">Articles</a><a href="/faq/">FAQ</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">Forms</p></div>
+      <div class="col col-paper">
+
+        <a class="back" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>All articles</span></a>
+        <div class="paper-stack">
+        <span class="sheet" aria-hidden="true"></span>
+        <article class="paper">
+        <p class="wm" aria-hidden="true">dropoff<i>audit</i><em>.me</em> · Articles</p>
+        <h1>Expedia’s “$12 million form field” was not about short forms. It made card payments fail</h1>
+        <p class="meta">November 2026 · <a href="/about/">Luca Panetto</a></p>
+        <p class="lede">“Expedia made $12 million a year by removing one form field.” I went looking for the source. It is a talk an Expedia executive gave at a software conference in 2010, reported by ZDNet. The field was not removed because the form was too long. It was confusing people into typing their bank’s address, and their card payments were being rejected.</p>
+
+        <h2>Where I met the number</h2>
+        <p>On 18 November 2026 I searched Google for “expedia removed one form field 12 million”. The AI summary told the story with a fair amount of detail: an optional “Company” field, customers typing their bank’s name and address, card checks failing, $12 million a year.<a class="ref" href="#s1">1</a> Below it were LinkedIn posts, short videos and blogs, several of them turning it into a rule about keeping forms short. I opened that search once.</p>
+
+        <h2>The source: a talk, reported in November 2010</h2>
+        <p>ZDNet published “Expedia on how one extra data field can cost $12m” on 1 November 2010.<a class="ref" href="#s2">2</a> It reports what Joe Megibow, Expedia’s vice president of global analytics and optimisation, said the week before at a conference run by SAS, a company that sells analytics software. The article says Expedia used SAS software to find the problem.</p>
+        <p>The story, as he told it:</p>
+        <ul class="points">
+          <li>Many customers clicked “Buy Now” after entering all their details, and yet the booking did not go through. In his words, “we weren’t taking the money.”</li>
+          <li>Analysts compared the failed transactions to find what they had in common.</li>
+          <li>Under the name, the form had an optional field labelled “Company”. Some customers put the name of their bank there.</li>
+          <li>Having done that, they entered the bank’s address instead of their own. The card check compares the address with the cardholder’s, so the payment failed.</li>
+          <li>Expedia deleted the field, and “overnight there was a step function [change], resulting in $12m of profit a year”.</li>
+        </ul>
+        <p>He added that they had found “50 or 60 of these kinds of things” the same way.</p>
+
+        <h2>What the retellings change</h2>
+        <ul class="points">
+          <li><strong>The cause.</strong> In the source, the problem was not that the form was long. One field was easy to misread, and the misreading carried into the next field and broke the payment. Many retellings use it as proof that every extra field costs money.</li>
+          <li><strong>The field.</strong> The source says “Company”, under “Name”. One retelling in the same search results calls it “Business name” and puts it just above the billing address.</li>
+          <li><strong>The certainty.</strong> The figure is one executive’s statement in a talk. The article gives no calculation, no number of failed bookings, and no period over which it was measured.</li>
+        </ul>
+
+        <div class="limits">
+          <p class="lh">What this story does not show</p>
+          <ul class="points">
+            <li>That shorter forms convert better in general. This was one misleading field.</li>
+            <li>How the $12 million was worked out. It may be sound, but it was not published.</li>
+            <li>It was told at a conference of the company whose software was credited with the finding. That does not make it false; it is a reason to read it as a case story rather than a measurement.</li>
+          </ul>
+        </div>
+
+        <h2>What I take from this</h2>
+        <ul class="points">
+          <li><strong>Read your form as a stranger would.</strong> The useful question is not “how many fields?” but “could anyone misread one of them?” A label like “Company” next to payment details invited a wrong answer.</li>
+          <li><strong>Look at people who tried and failed, not only at people who left.</strong> Expedia’s customers had done everything right from their side. Failed payments and form errors are worth counting separately from visitors who simply went away.</li>
+          <li><strong>Optional fields are not free.</strong> If a field is not needed, it can only cause trouble. That is a reason to remove it, but the reason is confusion, not length.</li>
+          <li><strong>Fill in your own form.</strong> On a booking or contact form, try it once yourself on a phone, with an unusual answer: a long name, a different billing address. If it fails for you, it fails for customers.</li>
+        </ul>
+
+        <a class="back back-end" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to all articles</span></a>
+
+        <h2 id="sources">Sources</h2>
+        <p class="small">Each source was opened and read before this page was written. Where a figure comes from a company that sells a related product, it says so.</p>
+        <ol class="sources">
+          <li id="s1">Google Search, AI summary for the query “expedia removed one form field 12 million”, United States results in English, opened once on 18 November 2026.
+            <span class="design"><b>Type:</b> my own observation of one search. AI summaries vary between searches.</span></li>
+          <li id="s2">Heath, N. (2010, 1 November). Expedia on how one extra data field can cost $12m. <em>ZDNet</em>. <a href="https://www.zdnet.com/article/expedia-on-how-one-extra-data-field-can-cost-12m/" rel="noopener">zdnet.com/article/expedia-on-how-one-extra-data-field-can-cost-12m</a>. Opened on 18 November 2026.
+            <span class="design"><b>Type:</b> news report of a talk by an Expedia executive at a conference run by SAS, an analytics software company. No data or method published.</span></li>
+        </ol>
+
+
+        </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"></div>
+      <div class="col">
+        <nav class="foot-cols" aria-label="Footer">
+          <div>
+            <p class="fh">The audit</p>
+            <a href="/">DropoffAudit home</a>
+            <a href="/website-conversion-audit/">What a conversion audit is</a>
+            <a href="/sample-audit/">Sample audit</a>
+            <a href="/#buy">Price and what you get</a>
+          </div>
+          <div>
+            <p class="fh">Guides</p>
+            <a href="/conversion-audit-checklist/">Conversion audit checklist</a>
+            <a href="/landing-page-audit/">Landing page audit</a>
+            <a href="/homepage-audit/">Homepage audit</a>
+            <a href="/booking-page-audit/">Booking page audit</a>
+            <a href="/conversion-audit-cost/">Conversion audit cost</a>
+            <a href="/website-audit-small-business/">Website audit for small business</a>
+            <a href="/articles/">Articles</a>
+            <a href="/faq/">FAQ</a>
+          </div>
+          <div>
+            <p class="fh">About</p>
+            <a href="/about/">Who writes this site</a>
+            <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+          </div>
+          <div>
+            <p class="fh">Legal</p>
+            <a href="/privacy/">Privacy notice</a>
+            <a href="/terms/">Terms</a>
+            <a href="/privacy/#operator">Legal details</a>
+            <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
+          </div>
+        </nav>
+        <p class="small" style="margin-top:24px">© <span id="yr">2026</span> DropoffAudit</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/year.js"></script>
+<script src="/consent.js" defer></script>
+</body>
+</html>

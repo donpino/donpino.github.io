@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>“Every 100 ms cost Amazon 1% of sales” is one line on one slide from 2006 | DropoffAudit</title>
+<meta name="description" content="The Amazon figure comes from a 2006 university talk by a former Amazon engineer: one slide, no sample, no dates, no method. The best published replication, at Bing, found 0.6% of revenue per 100 milliseconds.">
+<link rel="canonical" href="https://dropoffaudit.me/articles/amazon-100ms/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="DropoffAudit">
+<meta property="og:title" content="“Every 100 ms cost Amazon 1% of sales” is one line on one slide from 2006">
+<meta property="og:description" content="The Amazon figure comes from a 2006 university talk by a former Amazon engineer: one slide, no sample, no dates, no method. The best published replication, at Bing, found 0.6% of revenue per 100 milliseconds.">
+<meta property="og:url" content="https://dropoffaudit.me/articles/amazon-100ms/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "“Every 100 ms cost Amazon 1% of sales” is one line on one slide from 2006",
+ "description": "The Amazon figure comes from a 2006 university talk by a former Amazon engineer: one slide, no sample, no dates, no method. The best published replication, at Bing, found 0.6% of revenue per 100 milliseconds.",
+ "author": {
+  "@type": "Person",
+  "name": "Luca Panetto",
+  "url": "https://dropoffaudit.me/about/"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "DropoffAudit",
+  "url": "https://dropoffaudit.me/"
+ },
+ "datePublished": "2026-11-18",
+ "dateModified": "2026-11-18",
+ "mainEntityOfPage": "https://dropoffaudit.me/articles/amazon-100ms/",
+ "inLanguage": "en"
+}
+</script>
+<meta name="color-scheme" content="light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/articles/article.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap head-row">
+    <a class="mark" href="/">
+      <span class="tick" aria-hidden="true"></span>
+      <span><span>dropoff</span><span class="a">audit</span><span class="m">.me</span></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="/">Home</a><a href="/sample-audit/">Sample audit</a><a href="/articles/">Articles</a><a href="/faq/">FAQ</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"><p class="label">Page speed</p></div>
+      <div class="col col-paper">
+
+        <a class="back" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>All articles</span></a>
+        <div class="paper-stack">
+        <span class="sheet" aria-hidden="true"></span>
+        <article class="paper">
+        <p class="wm" aria-hidden="true">dropoff<i>audit</i><em>.me</em> · Articles</p>
+        <h1>“Every 100 ms cost Amazon 1% of sales” is one line on one slide from 2006</h1>
+        <p class="meta">November 2026 · <a href="/about/">Luca Panetto</a></p>
+        <p class="lede">“Every 100 milliseconds of latency cost Amazon 1% in sales.” I went looking for the experiment. What exists in public is one sentence on a former engineer’s blog and one line on a slide, both from 2006. There is no sample size, no date and no description of the test. The closest thing that was written up properly is an experiment at Bing, and it found a smaller effect.</p>
+
+        <h2>Where I met the number</h2>
+        <p>On 18 November 2026 I searched Google for “every 100ms of latency cost amazon 1% in sales”. The AI summary at the top said that every 100 milliseconds “cost Amazon roughly 1% in sales, according to internal A/B experiments”, and that the test showed “a measurable, linear drop in revenue”.<a class="ref" href="#s1">1</a> The results below it repeated the figure, some with a dollar amount attached. I opened that search once, and AI summaries change from one search to the next.</p>
+
+        <h2>The source: a blog post and a slide, 2006</h2>
+        <p>The figure goes back to Greg Linden, who worked at Amazon. In November 2006 he wrote on his blog about a talk by Marissa Mayer of Google, and added:<a class="ref" href="#s2">2</a></p>
+        <ul class="points">
+          <li>“In A/B tests, we tried delaying the page in increments of 100 milliseconds and found that even very small delays would result in substantial and costly drops in revenue.”</li>
+        </ul>
+        <p>That sentence has no number in it. The number is on a slide. Linden gave a talk called <em>Make Data Useful</em> to a data mining class at Stanford in December 2006, and one slide reads, in full: “+500 ms -20% traffic @ Google +100 ms -1% sales @ Amazon”.<a class="ref" href="#s3">3</a> The next slide says “Speed matters!”.</p>
+        <p>I read the slides in a copy uploaded to Slideshare in 2024 by someone else, not by Linden. In that copy the line is on slide 15 of 17. A 2014 paper that cites the talk points to page 10, so the copy I read may not match the original exactly.<a class="ref" href="#s4">4</a></p>
+        <p>What the two sources do not say: how many people were in the test, when it ran, how long it ran, which pages were slowed, or whether the 1% was measured or worked out from a smaller result. Linden’s own sentence says “even very small delays” cost revenue. The word “linear” in the Google summary is not in either source.</p>
+
+        <h2>How it changed as it travelled</h2>
+        <ul class="points">
+          <li><strong>Sales became profit.</strong> In August 2008 a post on Hacker News was titled “Every 100ms of latency costs Amazon 1% of profit”.<a class="ref" href="#s5">5</a> One of the replies pointed out that the slide says sales.</li>
+          <li><strong>A dollar amount appeared.</strong> In March 2012 Fast Company published “How One Second Could Cost Amazon $1.6 Billion In Sales”.<a class="ref" href="#s6">6</a> The article says its data comes from an infographic made by a website called OnlineGraduatePrograms.com. I did not open the infographic, so I do not know how the $1.6 billion was worked out.</li>
+          <li><strong>A rule appeared.</strong> In 2026 the figure is written as a law that applies to any site: 1% for every 100 milliseconds, all the way up.</li>
+        </ul>
+
+        <h2>The experiment that was written up: Bing, 2014</h2>
+        <p>Ron Kohavi, who ran experiments at Amazon and later at Microsoft, published a paper in 2014 with three co-authors at KDD, a peer-reviewed computer science conference.<a class="ref" href="#s4">4</a> One of its seven rules is “Speed matters a LOT”. It repeats the Amazon line, citing Linden, and then reports experiments at Bing, Microsoft’s search engine:</p>
+        <ul class="figures">
+          <li><span class="n">0.6%</span><span class="t">more revenue for every 100 ms of speed, from an experiment that slowed 10% of users by 100 ms and another 10% by 250 ms, for two weeks</span></li>
+          <li><span class="n">1.5%</span><span class="t">less revenue, and 0.25% fewer clicks, with a 250 ms delay at the server</span></li>
+          <li><span class="n">0</span><span class="t">measurable effect when only the right side of the results page was delayed by 250 ms, in an experiment with almost 20 million users</span></li>
+        </ul>
+        <p>The authors write that a straight-line estimate was “very reasonable for Bing”, from slowdowns of different sizes. They also say they doubt the 20% Google figure on the same slide: by their numbers half a second would cost about 3% of revenue, not 20%, and they think the extra results on Google’s page, not the delay, explain most of that drop.</p>
+
+        <div class="limits">
+          <p class="lh">What none of this shows</p>
+          <ul class="points">
+            <li>The Amazon figure has no published method. It may well be true, but it cannot be checked.</li>
+            <li>The Bing results come from a search engine that people use many times a day, with millions of users per test. A small business site visited once is a different situation.</li>
+            <li>The effects are around 1% or less. Measuring a change that small needs a very large number of visits. Nothing here supports “a slow site loses half its customers”.</li>
+            <li>All of it is companies reporting on their own products, Bing’s through a peer-reviewed paper written by its own staff.</li>
+          </ul>
+        </div>
+
+        <h2>What I take from this</h2>
+        <ul class="points">
+          <li><strong>If you quote it, quote it as what it is.</strong> “A former Amazon engineer said in 2006 that a 100 ms delay cost 1% of sales” is accurate. “Amazon proved” is not.</li>
+          <li><strong>Speed does cost something, in small amounts.</strong> The Bing experiment and Google’s 2009 delay test, which I went through in <a href="/articles/three-second-rule/">the article on the three second rule</a>, point the same way: fractions of a percent for fractions of a second, at very large scale.</li>
+          <li><strong>Where it is slow matters.</strong> At Bing, delaying a part of the page people were not looking at first had no effect anyone could measure. On a small site I would fix what shows first, the top of the page and the button that leads to buying or booking, before anything else.</li>
+          <li><strong>A small site cannot measure 1%.</strong> With a few hundred visits a month, a change that size is lost in the noise. What a small site can check is whether the page that matters loads, and whether the button on it works.</li>
+        </ul>
+
+        <a class="back back-end" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to all articles</span></a>
+
+        <h2 id="sources">Sources</h2>
+        <p class="small">Each source was opened before this page was written; where I read only part of one, its entry says so. Where a figure comes from a company reporting on its own product, it says so.</p>
+        <ol class="sources">
+          <li id="s1">Google Search, AI summary for the query “every 100ms of latency cost amazon 1% in sales”, United States results in English, opened once on 18 November 2026.
+            <span class="design"><b>Type:</b> my own observation of one search. AI summaries vary between searches.</span></li>
+          <li id="s2">Linden, G. (2006, November). Marissa Mayer at Web 2.0. <em>Geeking with Greg</em> (blog). <a href="https://glinden.blogspot.com/2006/11/marissa-mayer-at-web-20.html" rel="noopener">glinden.blogspot.com/2006/11/marissa-mayer-at-web-20.html</a>. Opened on 18 November 2026.
+            <span class="design"><b>Type:</b> personal blog post by a former Amazon engineer. No data, no method.</span></li>
+          <li id="s3">Linden, G. (2006, December). <em>Make Data Useful</em>. Slides of a talk at Stanford University. Read in a copy uploaded to Slideshare in 2024 by another user: <a href="https://www.slideshare.net/slideshow/stanford-data-mining-amazon-googlecasestudy-100ms-greg-linden/269466541" rel="noopener">slideshare.net</a>. Opened on 18 November 2026.
+            <span class="design"><b>Type:</b> presentation slides, 17 in the copy I read. One line on the Amazon figure, with no data shown. I could not open the original file.</span></li>
+          <li id="s4">Kohavi, R., Deng, A., Longbotham, R., &amp; Xu, Y. (2014). Seven Rules of Thumb for Web Site Experimenters. <em>Proceedings of KDD 2014</em>. <a href="https://doi.org/10.1145/2623330.2623341" rel="noopener">doi.org/10.1145/2623330.2623341</a>. Read in the authors’ copy at exp-platform.com.
+            <span class="design"><b>Design:</b> peer-reviewed conference paper reporting controlled experiments run by the authors’ employers. I read the introduction and Rules 3, 4 and 5, not the whole paper. The authors worked at Microsoft and LinkedIn.</span></li>
+          <li id="s5">Hacker News (2008, 12 August). “Every 100ms of latency costs Amazon 1% of profit”, with 13 comments. <a href="https://news.ycombinator.com/item?id=273900" rel="noopener">news.ycombinator.com/item?id=273900</a>. Opened on 18 November 2026.
+            <span class="design"><b>Type:</b> discussion forum. The O’Reilly page it links to now sends readers to the front page of the O’Reilly site, so I could not read it.</span></li>
+          <li id="s6">Eaton, K. (2012, 15 March). How One Second Could Cost Amazon $1.6 Billion In Sales. <em>Fast Company</em>. <a href="https://www.fastcompany.com/1825005/how-one-second-could-cost-amazon-16-billion-sales" rel="noopener">fastcompany.com/1825005</a>. Opened on 18 November 2026.
+            <span class="design"><b>Type:</b> news article based on an infographic by OnlineGraduatePrograms.com, which I did not open.</span></li>
+        </ol>
+
+
+        </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="rail"></div>
+      <div class="col">
+        <nav class="foot-cols" aria-label="Footer">
+          <div>
+            <p class="fh">The audit</p>
+            <a href="/">DropoffAudit home</a>
+            <a href="/website-conversion-audit/">What a conversion audit is</a>
+            <a href="/sample-audit/">Sample audit</a>
+            <a href="/#buy">Price and what you get</a>
+          </div>
+          <div>
+            <p class="fh">Guides</p>
+            <a href="/conversion-audit-checklist/">Conversion audit checklist</a>
+            <a href="/landing-page-audit/">Landing page audit</a>
+            <a href="/homepage-audit/">Homepage audit</a>
+            <a href="/booking-page-audit/">Booking page audit</a>
+            <a href="/conversion-audit-cost/">Conversion audit cost</a>
+            <a href="/website-audit-small-business/">Website audit for small business</a>
+            <a href="/articles/">Articles</a>
+            <a href="/faq/">FAQ</a>
+          </div>
+          <div>
+            <p class="fh">About</p>
+            <a href="/about/">Who writes this site</a>
+            <a href="mailto:luca@dropoffaudit.me">luca@dropoffaudit.me</a>
+          </div>
+          <div>
+            <p class="fh">Legal</p>
+            <a href="/privacy/">Privacy notice</a>
+            <a href="/terms/">Terms</a>
+            <a href="/privacy/#operator">Legal details</a>
+            <button type="button" class="cookie-link" data-cookie-settings hidden>Cookie settings</button>
+          </div>
+        </nav>
+        <p class="small" style="margin-top:24px">© <span id="yr">2026</span> DropoffAudit</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/year.js"></script>
+<script src="/consent.js" defer></script>
+</body>
+</html>
