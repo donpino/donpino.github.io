@@ -6,19 +6,19 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>“53% of visitors leave after 3 seconds”: I went looking for the Google data behind it | DropoffAudit</title>
-<meta name="description" content="The most quoted page speed statistic comes from one month of Google Analytics data on 3,700 mobile sites in 2016. Google wrote it carefully in 2016 and more strongly in 2017. What the data measured, and what a controlled experiment on delay found.">
+<meta name="description" content="The most quoted page speed statistic comes from one month of Google Analytics data on 3,700 mobile sites in 2016. Google itself wrote it both as a likelihood and as a fact, in 2016 and 2017. What the data measured, and what a controlled experiment on delay found.">
 <link rel="canonical" href="https://dropoffaudit.me/articles/three-second-rule/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="DropoffAudit">
 <meta property="og:title" content="“53% of visitors leave after 3 seconds”: I went looking for the Google data behind it">
-<meta property="og:description" content="The most quoted page speed statistic comes from one month of Google Analytics data on 3,700 mobile sites in 2016. Google wrote it carefully in 2016 and more strongly in 2017. What the data measured, and what a controlled experiment on delay found.">
+<meta property="og:description" content="The most quoted page speed statistic comes from one month of Google Analytics data on 3,700 mobile sites in 2016. Google itself wrote it both as a likelihood and as a fact, in 2016 and 2017. What the data measured, and what a controlled experiment on delay found.">
 <meta property="og:url" content="https://dropoffaudit.me/articles/three-second-rule/">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@type": "Article",
  "headline": "“53% of visitors leave after 3 seconds”: I went looking for the Google data behind it",
- "description": "The most quoted page speed statistic comes from one month of Google Analytics data on 3,700 mobile sites in 2016. Google wrote it carefully in 2016 and more strongly in 2017. What the data measured, and what a controlled experiment on delay found.",
+ "description": "The most quoted page speed statistic comes from one month of Google Analytics data on 3,700 mobile sites in 2016. Google itself wrote it both as a likelihood and as a fact, in 2016 and 2017. What the data measured, and what a controlled experiment on delay found.",
  "author": {
   "@type": "Person",
   "name": "Luca Panetto",
@@ -67,19 +67,20 @@
         <p class="wm" aria-hidden="true">dropoff<i>audit</i><em>.me</em> · Articles</p>
         <h1>“53% of visitors leave after 3 seconds”: I went looking for the Google data behind it</h1>
         <p class="meta">November 2026 · <a href="/about/">Luca Panetto</a></p>
-        <p class="lede">You have probably read that 53% of visitors leave a website that takes more than three seconds to load. I went looking for the study. The number is real and it comes from Google. Google wrote it twice: carefully in 2016, more strongly in 2017. Both times it rests on the same one month of analytics data, and the full report behind the first version no longer opens.</p>
+        <p class="lede">You have probably read that 53% of visitors leave a website that takes more than three seconds to load. I went looking for the study. The number is real and it comes from Google. Google itself wrote it in more than one way: as a likelihood in a September 2016 post, and as a plain fact in a toolkit a month later and in a 2017 report. The source behind it is one month of analytics data, and the full report the 2016 texts point to no longer opens.</p>
 
-        <h2>The two sentences Google published</h2>
+        <h2>The sentences Google published</h2>
         <p>On 8 September 2016, two people from Google’s marketing teams published a post called “The need for mobile speed”, written for publishers who earn money from ads on their mobile sites.<a class="ref" href="#s1">1</a> One line in it reads:</p>
         <p><strong>“53% of visits are likely to be abandoned if pages take longer than 3 seconds to load.”</strong></p>
         <p>The footnote to that line gives the source: aggregated, anonymized Google Analytics data from a sample of mobile websites that had opted into sharing benchmark data. 3,700 sites, worldwide, March 2016.</p>
         <p>Four days later a marketing news site reported it under the headline “Google: 53% of mobile users abandon sites that take over 3 seconds to load”, and wrote that 53% of mobile website visitors “will leave” if a page does not load within three seconds.<a class="ref" href="#s2">2</a> </p>
-        <p>Google then used the stronger version itself. In February 2017 a Think with Google report by Daniel An, a Google product lead, says that “53% of mobile site visitors leave a page that takes longer than three seconds to load”.<a class="ref" href="#s3">3</a> Its footnote points to the same data: Google Analytics, 3,700 mobile sites, March 2016. Nothing new was measured; the same figure was restated.</p>
+        <p>Google used the stronger version itself, and soon. A toolkit for publishers branded DoubleClick by Google, the same advertising business, says that “53% of mobile site visits are abandoned if a page takes longer than 3 seconds to load”, citing the September 2016 guide.<a class="ref" href="#s8">8</a> The toolkit carries no date that I found; its file name and the date the PDF was created both point to 17 October 2016. The word “likely” is gone.</p>
+        <p>In February 2017 a Think with Google report by Daniel An, a Google product lead, says that “53% of mobile site visitors leave a page that takes longer than three seconds to load”.<a class="ref" href="#s3">3</a> Its footnote points to the same data: Google Analytics, 3,700 mobile sites, March 2016. Nothing new was measured for this figure; the same number was restated. A 2017 ebook on Google’s Think with Google site, written with several Google staff, repeats it in the same form.</p>
 
-        <h2>What changed between 2016 and 2017</h2>
+        <h2>What changed along the way</h2>
         <ul class="points">
           <li><strong>Visits became visitors.</strong> The 2016 post counted visits. One person can make many visits, so 53% of visits is not 53% of people. The 2017 report says visitors, with the same footnote.</li>
-          <li><strong>“Likely to be abandoned” became “leave”.</strong> The 2016 wording is a likelihood drawn from analytics data; the 2017 report and the news brief drop the “likely”. Neither Google text defines “abandoned” or says how the load time was measured for this figure.</li>
+          <li><strong>“Likely to be abandoned” became “leave”.</strong> The September 2016 wording is a likelihood drawn from analytics data; Google’s own toolkit a month later, the 2017 report and the news brief all drop the “likely”. Neither Google text defines “abandoned” or says how the load time was measured for this figure.</li>
           <li><strong>Mobile sites in 2016 became every website.</strong> The same 2016 post says the average mobile site took 19 seconds to load on a 3G connection, in a separate test of 11,800 mobile home pages in February 2016. The 53% describes phones and networks of that time.</li>
         </ul>
         <div class="limits">
@@ -97,7 +98,7 @@
         <p>The post also says that one out of two people expect a page to load in less than 2 seconds, and that 46% of people say waiting for pages to load is what they dislike most about browsing on a phone. The first is credited to a 2014 consumer survey by Akamai, a company that sells services for making websites faster; I did not open it. The second is credited to a 2015 Google blog post. I opened that one: it is an informal poll on Google+ and Twitter, where almost half of 570 people who answered named slow pages as their top frustration on a phone.<a class="ref" href="#s4">4</a> Both are what people said, not what they did.</p>
 
         <h2>An experiment that slowed pages on purpose</h2>
-        <p>Seven years earlier, Google had published something stronger in design and much smaller in effect.<a class="ref" href="#s5">5</a> In 2009 it deliberately delayed its own search results for some users and compared them with users who got the normal speed. This is an experiment: Google added the delay itself, instead of comparing sites that happened to be slow.</p>
+        <p>Seven years earlier, Google had published something stronger in design and much smaller in effect.<a class="ref" href="#s5">5</a> In a report of June 2009, Google described how it had deliberately delayed its own search results for some users and compared them with users who got the normal speed. This is an experiment: Google added the delay itself, instead of comparing sites that happened to be slow.</p>
         <ul class="figures">
           <li><span class="n">−0.2%</span><span class="t">to −0.6% daily searches per user with a delay of 100 to 400 milliseconds</span></li>
           <li><span class="n">−0.76%</span><span class="t">searches in weeks four to six with a 400 millisecond delay, against −0.44% in the first three (the longer report gives −0.74% for the same figure)</span></li>
@@ -134,16 +135,18 @@
             <span class="design"><b>Type:</b> news brief restating the Google post.</span></li>
           <li id="s3">An, D. (2017, February). Find out how you stack up to new industry benchmarks for mobile page speed. <em>Think with Google</em>. <a href="https://www.thinkwithgoogle.com/_qs/documents/57/mobile-page-speed-new-industry-benchmarks.pdf" rel="noopener">thinkwithgoogle.com/_qs/documents/57/mobile-page-speed-new-industry-benchmarks.pdf</a>
             <span class="design"><b>Type:</b> company report, not peer reviewed, read as the PDF on Google’s site (the web page now redirects). The 53% sentence carries the same footnote as in 2016: 3,700 mobile sites, March 2016.</span></li>
-          <li id="s4">Google Webmaster Central blog (2015, April). #MobileMadness: a campaign to help you go mobile friendly. <a href="https://developers.google.com/search/blog/2015/04/mobilemadness-campaign-to-help-you-go" rel="noopener">developers.google.com/search/blog/2015/04/mobilemadness-campaign-to-help-you-go</a>
+          <li id="s4">Google Webmaster Central blog (2015, April). #MobileMadness: a campaign to help you go mobile-friendly. <a href="https://developers.google.com/search/blog/2015/04/mobilemadness-campaign-to-help-you-go" rel="noopener">developers.google.com/search/blog/2015/04/mobilemadness-campaign-to-help-you-go</a>
             <span class="design"><b>Type:</b> informal poll on Google+ and Twitter, 570 respondents. Self reported.</span></li>
           <li id="s5">Brutlag, J. (2009, 23 June). Speed matters. <em>Google Research blog</em>. <a href="https://research.google/blog/speed-matters/" rel="noopener">research.google/blog/speed-matters</a>
             <span class="design"><b>Design:</b> controlled experiments on Google web search, with a delay of 100 to 400 milliseconds added for some users over four or six weeks. Company research, not peer reviewed. Group sizes not given.</span></li>
           <li id="s6">Web Performance (2009, 23 June). Velocity conference: business impact of performance. <a href="https://www.webperformance.com/load-testing-tools/blog/2009/06/velocity-conference-business-impact-of-performance/" rel="noopener">webperformance.com/load-testing-tools/blog/2009/06/velocity-conference-business-impact-of-performance</a>
             <span class="design"><b>Type:</b> secondhand write up of the Bing and Google talk at Velocity 2009, by a company that sells load testing software. The original slides were not read.</span></li>
           <li id="s7">Brutlag, J. (2009, 22 June). Speed matters for Google web search. Google. <a href="https://services.google.com/fh/files/blogs/google_delayexp.pdf" rel="noopener">services.google.com/fh/files/blogs/google_delayexp.pdf</a>
-            <span class="design"><b>Type:</b> two page company report behind the blog post. Metric: daily searches per user against a control group. Group sizes not given.</span></li>
+            <span class="design"><b>Type:</b> one page company report behind the blog post. Metric: daily searches per user against a control group. Group sizes not given.</span></li>
+          <li id="s8">DoubleClick by Google (2016). Mobile Web Speed Toolkit. PDF on Think with Google. <a href="https://www.thinkwithgoogle.com/_qs/documents/3702/9e6a3_DoubleClick_Mobile_Web_Speed_Toolkit_10_17_2016.pdf" rel="noopener">thinkwithgoogle.com/_qs/documents/3702</a>. Read in full on 21 November 2026.
+            <span class="design"><b>Type:</b> five page company toolkit for publishers. No date printed; the file name and the PDF creation date say 17 October 2016. Cites “The Need for Mobile Speed”, September 2016, for the 53%.</span></li>
         </ol>
-        <p class="small">Corrected in November 2026. An earlier version said the stronger wording of the 53% was not Google’s. Google used it itself in a 2017 report, which is now cited above. The 19 second figure, the 2015 poll and the 2009 report are also described more precisely.</p>
+        <p class="small">Corrected in November 2026, twice. An earlier version said the stronger wording of the 53% was not Google’s; a later one said Google wrote it carefully in 2016 and strongly only in 2017. Google used the stronger wording itself in an October 2016 toolkit and in a 2017 report, both now cited above. The 19 second figure, the 2015 poll and the 2009 report are also described more precisely.</p>
 
 
         </article>
