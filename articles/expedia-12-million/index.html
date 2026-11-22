@@ -6,19 +6,19 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Expedia’s “$12 million form field” was not about short forms. It made card payments fail | DropoffAudit</title>
-<meta name="description" content="The Expedia story comes from a 2010 conference talk reported by ZDNet. An optional Company field led some customers to type their bank’s address, so card checks failed. It is a story about a misleading field, told without figures beyond the $12 million.">
+<meta name="description" content="The Expedia story comes from a 2010 conference talk reported by ZDNet. An optional Company field led some customers to type their bank’s address, so card checks failed. It is a story about a misleading field, told without any calculation behind the $12 million.">
 <link rel="canonical" href="https://dropoffaudit.me/articles/expedia-12-million/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="DropoffAudit">
 <meta property="og:title" content="Expedia’s “$12 million form field” was not about short forms. It made card payments fail">
-<meta property="og:description" content="The Expedia story comes from a 2010 conference talk reported by ZDNet. An optional Company field led some customers to type their bank’s address, so card checks failed. It is a story about a misleading field, told without figures beyond the $12 million.">
+<meta property="og:description" content="The Expedia story comes from a 2010 conference talk reported by ZDNet. An optional Company field led some customers to type their bank’s address, so card checks failed. It is a story about a misleading field, told without any calculation behind the $12 million.">
 <meta property="og:url" content="https://dropoffaudit.me/articles/expedia-12-million/">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@type": "Article",
  "headline": "Expedia’s “$12 million form field” was not about short forms. It made card payments fail",
- "description": "The Expedia story comes from a 2010 conference talk reported by ZDNet. An optional Company field led some customers to type their bank’s address, so card checks failed. It is a story about a misleading field, told without figures beyond the $12 million.",
+ "description": "The Expedia story comes from a 2010 conference talk reported by ZDNet. An optional Company field led some customers to type their bank’s address, so card checks failed. It is a story about a misleading field, told without any calculation behind the $12 million.",
  "author": {
   "@type": "Person",
   "name": "Luca Panetto",
@@ -86,9 +86,10 @@
 
         <h2>What the retellings change</h2>
         <ul class="points">
-          <li><strong>The cause.</strong> In the source, the problem was not that the form was long. One field was easy to misread, and the misreading carried into the next field and broke the payment. Many retellings use it as proof that every extra field costs money.</li>
-          <li><strong>The field.</strong> The source says “Company”, under “Name”. One retelling in the same search results calls it “Business name” and puts it just above the billing address.</li>
+          <li><strong>The cause.</strong> In the source, the problem was not that the form was long. One field was easy to misread, and the misreading carried into the next field and broke the payment. Many of the retellings I saw in the search results, which I did not open, use it as proof that every extra field costs money.</li>
+          <li><strong>The field.</strong> The source says “Company”, under “Name”. One retelling I saw in the same search results calls it “Business name” and puts it just above the billing address.</li>
           <li><strong>The certainty.</strong> The figure is one executive’s statement in a talk. The article gives no calculation, no number of failed bookings, and no period over which it was measured.</li>
+          <li><strong>A 2013 retelling.</strong> The story was retold in a 2013 book by Thomas H. Davenport and Jinho Kim, in an excerpt published by Harvard Business School.<a class="ref" href="#s3">3</a> It adds that the team used “Web metrics data and server log files”, and says removing the field “immediately raised profits for Expedia by $12 million”, without “a year” and without a calculation.</li>
         </ul>
 
         <div class="limits">
@@ -111,12 +112,14 @@
         <a class="back back-end" href="/articles/"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" aria-hidden="true"><path d="M14 6.5H2M7.5 1.5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to all articles</span></a>
 
         <h2 id="sources">Sources</h2>
-        <p class="small">Each source was opened and read before this page was written. Where a figure comes from a company that sells a related product, it says so.</p>
+        <p class="small">Each source was opened and read before this page was written; source 3 was added in November 2026, after a check of this page. The other retellings mentioned were seen only in the search results. Where a figure comes from a company that sells a related product, it says so.</p>
         <ol class="sources">
           <li id="s1">Google Search, AI summary for the query “expedia removed one form field 12 million”, United States results in English, opened once on 18 November 2026.
             <span class="design"><b>Type:</b> my own observation of one search. AI summaries vary between searches.</span></li>
           <li id="s2">Heath, N. (2010, 1 November). Expedia on how one extra data field can cost $12m. <em>ZDNet</em>. <a href="https://www.zdnet.com/article/expedia-on-how-one-extra-data-field-can-cost-12m/" rel="noopener">zdnet.com/article/expedia-on-how-one-extra-data-field-can-cost-12m</a>. Opened on 18 November 2026.
             <span class="design"><b>Type:</b> news report of a talk by an Expedia executive at a conference run by SAS, an analytics software company. No data or method published.</span></li>
+          <li id="s3">Davenport, T. H., &amp; Kim, J. (2013, 10 June). How numbers talk to people. Excerpt from <em>Keeping Up with the Quants</em>. <em>HBS Working Knowledge</em>. <a href="https://www.library.hbs.edu/working-knowledge/how-numbers-talk-to-people" rel="noopener">library.hbs.edu/working-knowledge/how-numbers-talk-to-people</a>. Expedia passage read on 22 November 2026.
+            <span class="design"><b>Type:</b> book excerpt retelling the case. No data or calculation published. Not peer reviewed.</span></li>
         </ol>
 
 
